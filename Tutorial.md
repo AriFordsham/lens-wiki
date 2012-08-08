@@ -217,11 +217,11 @@ We haven't gained much power over just passing in the functions `amap` or `Data.
 
 * The composition of two setters, such as:
 
-    mapped.mapped :: (Functor f, Functor g) => (a -> Identity b) -> f (g a) -> Identity (f (g b))
+      mapped.mapped :: (Functor f, Functor g) => (a -> Identity b) -> f (g a) -> Identity (f (g b))
 
   is still a valid `Setter`!
 
-    mapped.mapped :: (Functor f, Functor g) => Setter (f (g a)) (f (g b)) a b
+      mapped.mapped :: (Functor f, Functor g) => Setter (f (g a)) (f (g b)) a b
 
   So you can use `mapOf (mapped.mapped)` to recover the original `fmap.fmap` above. This lets you get away without using `Compose` to manually bolt functors to meet the shape requirements.
 
