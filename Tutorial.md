@@ -213,7 +213,7 @@ instead of `amap`.
 
 We can also pass in the type of `map` provided by, say, `Data.Text.map`
 
-    tmapped :: Setter Text Text String String
+    tmapped :: Setter Text Text Char Char
     tmapped = sets Data.Text.map 
 
 And it follows that:
