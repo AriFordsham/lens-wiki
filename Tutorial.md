@@ -71,9 +71,20 @@ There are also combinators for manipulating parts of the current state for a `St
     (.=) :: MonadState a m => SimpleLens a b -> b -> m ()
     use  :: MonadState a m => SimpleLens a b -> m b
 
+Using these (and other combinators for manipulating state) yields code like the following snippet from the 'pong' example included in the distribution (where `p` is in the surrounding scope):
+
+    check paddle other
+        | y >= p^.paddle - paddleHeight/2 && y <= p^.paddle + paddleHeight/2 = do
+            ballSpeed._x   %= negate
+            ballSpeed._y   += 3*(y - p^.paddle) -- add english
+            ballSpeed.both *= speedIncrease
+        | otherwise = do
+          score.other += 1
+          reset
+
 To derive the type signature for the simple lenses, and to motivate generalizing these combinators to work on a /much/ wider menagerie of types, we'll take a bit of an excursion through other types and typeclasses you may already be familiar with.
 
-From here, we assume that you are acquainted with the types for `Functor`, `Foldable` and `Traversable` and can at least hand-waive the laws for them.
+From here, we'll assume that you are acquainted with the types for `Functor`, `Foldable` and `Traversable` and can at least hand-waive the laws for them.
 
 **The power of (.)**
 
