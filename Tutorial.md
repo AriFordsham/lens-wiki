@@ -217,19 +217,18 @@ We haven't gained much power over just passing in the functions `amap` or `Data.
 
 * The composition of two setters, such as:
 
-      mapped.mapped :: (Functor f, Functor g) => (a -> Identity b) -> f (g a) -> Identity (f (g b))
+      `mapped.mapped :: (Functor f, Functor g) => (a -> Identity b) -> f (g a) -> Identity (f (g b))`
 
   is still a valid `Setter`!
 
-      mapped.mapped :: (Functor f, Functor g) => Setter (f (g a)) (f (g b)) a b
+      `mapped.mapped :: (Functor f, Functor g) => Setter (f (g a)) (f (g b)) a b`
 
   So you can use `mapOf (mapped.mapped)` to recover the original `fmap.fmap` above. This lets you get away without using `Compose` to manually bolt functors to meet the shape requirements.
 
+* Another thing that we have won is that if we have a `Traversable` container, we can pass its `traverse` in
+to `mapOf` instead of a `Setter` for the container.
 
-* Another thing that we have won is that if we have a 'Traversable' container, we can pass its 'traverse' in
-to 'mapOf' instead of a 'Setter' for the container.
-
-Setters form a category, using (.) and id for composition and identity, but you can use the existing (.) and id from the Prelude for them.
+Setters form a category, using `(.)` and `id` for composition and identity, but you can use the existing `(.)` and `id` from the `Prelude` for them (though they compose 'backwards').
 
 However, to gain that power we traded in other functionality. Knowing `f` is a `Functor` lets us instantiate the type arguments `a` and `b` to anything we want, over and over again, we also need to manually check any of the formerly free theorems we want to use with out `Setter`.
 
