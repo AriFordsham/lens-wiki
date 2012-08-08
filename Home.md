@@ -1,3 +1,3 @@
 Welcome to the lens wiki!
 
-You may want to check out the [Tutorial](wiki/Tutorial)
+You probably want to start with the [Tutorial](wiki/Tutorial)
