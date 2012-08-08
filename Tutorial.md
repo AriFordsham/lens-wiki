@@ -9,8 +9,8 @@ Ignoring the implementation for the moment, lenses provide us with two operation
 
 We'll use the following lenses to start off:
   
-   _1 :: Simple Lens (a,b) a
-   _2 :: Simple Lens (a,b) b
+    _1 :: Simple Lens (a,b) a
+    _2 :: Simple Lens (a,b) b
 
 to both read from
 
