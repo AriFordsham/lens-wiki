@@ -211,7 +211,12 @@ instead of `amap`.
 
 We can also pass in the type of `map` provided by, say, `Data.Text.map`
 
-    mapOf Data.Text.map :: (Char -> Char) -> Text -> Text
+    tmapped :: Setter Text Text String String
+    tmapped = sets Data.Text.map 
+
+And it follows that:
+
+    mapOf tmapped :: (Char -> Char) -> Text -> Text
 
 We haven't gained much power over just passing in the functions `amap` or `Data.Text.map` directly, yet, but we have gained two things:
 
@@ -367,3 +372,32 @@ There are a number of combinators for working with traversals in [`Control.Lens.
 We're almost ready for lenses, but first we have one more diversion.
 
 **Getters**
+
+If we convert a function from (a -> c) to continuation passing style, we get
+
+    cps :: (a -> c) -> (c -> r) -> a -> r
+    cps f g = g . f
+
+That is to say, rather than return a result `c`, it takes a function from `(c -> m)` and calls it with the answer instead.
+
+If we have a CPS'd function that is polymorphic in its return type, we can get the original function back out:
+
+    uncps :: (forall r. (c -> r) -> a -> r) -> a -> c
+    uncps f = f id
+
+Finally, we can prove a number of properties:
+
+    uncps . cps = id
+    cps . uncps = id
+    cps id = id
+    cps f . cps g = cps (g . f)
+
+Now, we can relax the type of uncps slightly to
+
+    uncps' :: ((c -> c) -> a -> c) -> a -> c
+    uncps' f = f id
+
+but not we no longer known our function `f :: (c -> c) -> a -> c` can't doing something
+to combine the results of the function you pass it, and so we lose the `cps . uncps = id` law, so we only have:
+
+    uncps' . cps  = id
