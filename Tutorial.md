@@ -13,7 +13,7 @@ It generalizes to `fmap`.
     fmap.fmap      :: (Functor f, Functor g)
                    => (a -> b) -> f (g a)     -> f (g b)
     fmap.fmap.fmap :: (Functor f, Functor g, Functor h)
-                   => (a -> b) -> f (g (h a)) -> f (g (h a))
+                   => (a -> b) -> f (g (h a)) -> f (g (h b))
 
 It also generalizes to `foldMap`:
 
