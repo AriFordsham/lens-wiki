@@ -164,7 +164,7 @@ which lets us write this as:
 We can write an inverse of `mapOf` fairly mechanically:
 
     sets :: ((c -> d) -> a -> b) -> Setter a b c d
-    sets l f a = Identity . l (runIdentity . f)
+    sets l f = Identity . l (runIdentity . f)
 
 It is trivial to verify that
 
@@ -375,7 +375,7 @@ We're almost ready for lenses, but first we have one more diversion.
 
 **Getters**
 
-If we convert a function from (a -> c) to continuation passing style, we get
+If we convert a function from `(a -> c)` to continuation passing style, we get
 
     cps :: (a -> c) -> (c -> r) -> a -> r
     cps f g = g . f
@@ -403,3 +403,23 @@ but not we no longer known our function `f :: (c -> c) -> a -> c` can't doing so
 to combine the results of the function you pass it, and so we lose the `cps . uncps = id` law, so we only have:
 
     uncps' . cps  = id
+
+Now, lets compose them like we did for fmap, traverse and foldMap at the start:
+
+If we start with 3 functions:
+
+    f :: A -> B
+    g :: B -> C
+    h :: C -> D
+
+Then
+
+    cps f :: (B -> r) -> (A -> r)
+    cps g :: (C -> r) -> (B -> r)
+    cps h :: (D -> r) -> (C -> r)
+
+And when we compose these functions between functions, we obtain:
+
+    cps f                 :: (B -> r) -> (A -> r)
+    cps f . cps g         :: (C -> r) -> (A -> r)
+    cps f . cps g . cps h :: (D -> r) -> (A -> r)
