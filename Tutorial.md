@@ -339,12 +339,12 @@ Given that our `Traversal` satisfies the `Traversable` laws, the laws for 'Sette
 
 So what else can we build a `Traversal` for?
 
-We can traverse both elements in a pair:
+We can traverse both elements in a tuple:
 
     both :: Traversal (a,a) (b,b) a b
     both f (a,a) = (,) <$> f a <*> f b
 
-The left side of an Either:
+The left side of an `Either`:
 
     traverseLeft :: Traversal (Either a c) (Either b c) a b
     traverseLeft f (Left a) = Left <$> f a
@@ -362,4 +362,8 @@ Unlike with mapped and folded, we will often want to use the `Traversal` directl
 
 Moreover, all the intuition you have for how to write `Traversable` instances transfers immediately to how to write a `Traversal`.
 
-There are a number of combinators for working with Traversals in `Control.Lens.Traversal`
+There are a number of combinators for working with Traversals in `Control.Lens.Traversal`.
+
+We're almost ready for lenses, but first we have one more diversion.
+
+**Getters**
