@@ -4,7 +4,7 @@ There is a common folklore pattern for composing `(.)` in Haskell, to compose wi
 
     (.)         :: (a -> b) -> (c -> a)           -> c           -> b
     (.).(.)     :: (a -> b) -> (c -> d -> a)      -> c -> d      -> b
-    (.).(.).(.) :: (a -> b) -> (c -> d -> e -> b) -> c -> d -> e -> b
+    (.).(.).(.) :: (a -> b) -> (c -> d -> e -> a) -> c -> d -> e -> b
 
 It generalizes to `fmap`.
 
