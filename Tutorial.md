@@ -52,6 +52,8 @@ We gain power as we upgrade from `Functor` or `Foldable` to `Traversable`, as ev
 If we rip `traverse` out of their definitions and pass it in as an argument, we can find out exactly what 
 properties are needed of `traverse` to make those definitions typecheck. We'll deal with `fmapDefault` first.
 
+**Setters**
+
     ghci> let mapOf t f = runIdentity . t (Identity . f)
     ghci> :t mapOf
     mapOf :: ((c -> Identity d) -> a -> Identity b) -> (c -> d) -> a -> b
