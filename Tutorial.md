@@ -3,14 +3,39 @@ Lenses are a form of functional reference that provide the ability to compose th
 Ignoring the implementation for the moment, lenses provide us with two operations:
 
     (^.) :: a -> Simple Lens a b -> b
-
     set :: Simple Lens a b -> b -> a -> a
 
-and the ability to be composed with (.) and id
+
+
+We'll use the following lenses to start off:
+  
+   _1 :: Simple Lens (a,b) a
+   _2 :: Simple Lens (a,b) b
+
+to both read from
+
+   >>> ("hello","world")^._2
+   ("world")
+
+and write to parts of a whole:
+
+   >>> set _2 42 ("hello",0)
+   ("hello",42)
+
+Moreover, lenses have the ability to be composed with (.).
 
     (.) :: Simple Lens a b -> Simple Lens b c -> Simple Lens a c
 
+Notice (.) composes in the opposite order from what you would expect as a functional programmer, but to an imperative programmer they provide the nice idiom that 
+
+  >>> ("hello",("world","!!!"))^._2._1
+  "!!!"
+
+You can also use 'id' as the identity lens
+
     id :: Simple Lens a a
+
+which just gives you back the value when used with (^.) and which when set completely replaces the old value.
 
 They satisfy 3 common-sense laws:
 
@@ -26,7 +51,7 @@ And third, putting twice is the same as putting once, or rather, that the second
 
     set l b1 (set l b2 a) = set l b1 a
 
-Note, that the type system isn't sufficient to check these laws for you, so you need to ensure them yourself no matter what lens implementation you use.
+Note, that the type system isn't sufficient to check these laws for you, so you need to ensure them yourself no matter what lens implementation you use. (Some others will compose with (.) the other way.)
 
 To derive the type signature for lenses, we'll take a bit of an excursion through other types and typeclasses you may already be familiar with.
 
