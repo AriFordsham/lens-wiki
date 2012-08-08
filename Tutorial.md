@@ -232,7 +232,7 @@ Setters form a category, using `(.)` and `id` for composition and identity, but 
 
 However, to gain that power we traded in other functionality. Knowing `f` is a `Functor` lets us instantiate the type arguments `a` and `b` to anything we want, over and over again, we also need to manually check any of the formerly free theorems we want to use with out `Setter`.
 
-Many combinators for these are provided in `Control.Lens.Setter`.
+Many combinators for these are provided in [`Control.Lens.Setter`](https://github.com/ekmett/lens/blob/master/src/Control/Lens/Setter.hs).
 
 **Folds**
 
@@ -289,7 +289,7 @@ There are no laws for `Foldable` that do not follow directly from the types, and
 holds for a `Fold`.
 
 We can define all of the combinators in `Data.Foldable` in terms of `foldMap`, so we in turn
-define them in terms of an arbitrary `Fold` in `Control.Lens.Fold`.
+define them in terms of an arbitrary `Fold` in [`Control.Lens.Fold`](https://github.com/ekmett/lens/blob/master/src/Control/Lens/Fold.hs).
 
 (In the actual implementation the type of `Fold` is changed to use a typeclass constraint rather
 than an explicit 'Const m' to yield nicer error messages when you attempt to use a 'Setter' as
@@ -362,7 +362,7 @@ Unlike with mapped and folded, we will often want to use the `Traversal` directl
 
 Moreover, all the intuition you have for how to write `Traversable` instances transfers immediately to how to write a `Traversal`.
 
-There are a number of combinators for working with Traversals in `Control.Lens.Traversal`.
+There are a number of combinators for working with traversals in [`Control.Lens.Traversal`](https://github.com/ekmett/lens/blob/master/src/Control/Lens/Traversal.hs)
 
 We're almost ready for lenses, but first we have one more diversion.
 
