@@ -1,3 +1,5 @@
+*Lens Tutorial*
+
 Lenses are a form of functional reference that provide the ability to compose them.
 
 Ignoring the implementation for the moment, lenses provide us with two operations:
