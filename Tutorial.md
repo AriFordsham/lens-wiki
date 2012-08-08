@@ -423,3 +423,24 @@ And when we compose these functions between functions, we obtain:
     cps f                 :: (B -> r) -> (A -> r)
     cps f . cps g         :: (C -> r) -> (A -> r)
     cps f . cps g . cps h :: (D -> r) -> (A -> r)
+
+
+
+Earlier we provided a type for consuming a `Fold`:
+
+    type Getting r a c = (c -> Const r c) -> a -> Const r a
+
+What we want (so that uncps can work) is something completely polymorphic in 'r'.
+
+    type Getter a c = forall r. (c -> Const r c) -> a -> Const r a
+
+Along the way, we get an interesting result, A 'Getter' is just a 'Fold' that doesn't use the 'Monoid'! Recall:
+
+    type Fold a c = forall r. Monoid r => (c -> Const r c) -> a -> Const r a
+
+We can go back and define (^.) now, and empower it to consume either a 'Fold' or 'Getter' or 'Traversal'.
+
+    (^.) :: a -> Getting c a c -> c
+    a ^. l = getConst (l Const a)
+
+Remember, we can consume 'Traversal' because a 'Traversal is a valid 'Fold'.
