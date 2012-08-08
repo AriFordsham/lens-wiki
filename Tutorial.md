@@ -112,8 +112,8 @@ We can write an inverse of `mapOf` fairly mechanically:
 
 It is trivial to verify that
 
-    sets . fmapOf = id
-    fmapOf . sets = id
+    sets . mapOf = id
+    mapOf . sets = id
 
 but if we want the `Setter` to act like a `Functor`, the argument the user supplies to sets
 should satisfy a version of the `Functor` laws. In particular, we'd like:
