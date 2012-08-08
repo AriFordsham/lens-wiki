@@ -2,10 +2,8 @@ Lenses are a form of functional reference that provide the ability to compose th
 
 Ignoring the implementation for the moment, lenses provide us with two operations:
 
-    (^.) :: a -> Simple Lens a b -> b
+    view :: Simple Lens a b -> a -> b
     set :: Simple Lens a b -> b -> a -> a
-
-
 
 We'll use the following lenses to start off:
   
@@ -14,7 +12,7 @@ We'll use the following lenses to start off:
 
 to both read from
 
-    >>> ("hello","world")^._2
+    >>> view _2 ("hello","world")
     ("world")
 
 and write to parts of a whole:
@@ -28,10 +26,10 @@ Moreover, lenses have the ability to be composed with (.).
 
 Notice (.) composes in the opposite order from what you would expect as a functional programmer, but to an imperative programmer they provide the nice idiom that 
 
-    >>> ("hello",("world","!!!"))^._2._1
+    >>> view (_2._1) ("hello",("world","!!!"))
     "!!!"
 
-You can also use 'id' as the identity lens
+Finally, you can use 'id' as the identity lens
 
     id :: Simple Lens a a
 
@@ -41,11 +39,11 @@ They satisfy 3 common-sense laws:
 
 First, that if you put something, you can get it back out
 
-    set l b a ^. l = b
+    view l (set l b a) = b
  
 Second that getting and then setting doesn't change the answer
 
-    set l (a^.l) a = a
+    set l (view l a) a = a
 
 And third, putting twice is the same as putting once, or rather, that the second put wins.
 
@@ -53,7 +51,27 @@ And third, putting twice is the same as putting once, or rather, that the second
 
 Note, that the type system isn't sufficient to check these laws for you, so you need to ensure them yourself no matter what lens implementation you use. (Some others will compose with (.) the other way.)
 
-To derive the type signature for lenses, we'll take a bit of an excursion through other types and typeclasses you may already be familiar with.
+We define infix operators to make working with lenses feel more imperative:
+
+    (^.) :: a -> Simple Lens a b -> b
+    (.~) :: Simple Lens a b -> b -> a -> a
+
+With these you can now use lenses like field accessors. 
+
+    >>> ("hello",("world","!!!"))^._2._1
+    "!!!"
+
+You can also write to then in something approaching an imperative style:
+
+    >>> _2 .~ 42 $ ("hello",0)
+    ("hello",42)
+
+There are also combinators for manipulating parts of the current state for a `State` monad, such as:
+
+    (.=) :: MonadState a m => SimpleLens a b -> b -> m ()
+    use  :: MonadState a m => SimpleLens a b -> m b
+
+To derive the type signature for the simple lenses, and to motivate generalizing these combinators to work on a /much/ wider menagerie of types, we'll take a bit of an excursion through other types and typeclasses you may already be familiar with.
 
 From here, we assume that you are acquainted with the types for `Functor`, `Foldable` and `Traversable` and can at least hand-waive the laws for them.
 
