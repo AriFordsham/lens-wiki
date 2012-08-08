@@ -14,13 +14,13 @@ We'll use the following lenses to start off:
 
 to both read from
 
-   >>> ("hello","world")^._2
-   ("world")
+    >>> ("hello","world")^._2
+    ("world")
 
 and write to parts of a whole:
 
-   >>> set _2 42 ("hello",0)
-   ("hello",42)
+    >>> set _2 42 ("hello",0)
+    ("hello",42)
 
 Moreover, lenses have the ability to be composed with (.).
 
@@ -28,8 +28,8 @@ Moreover, lenses have the ability to be composed with (.).
 
 Notice (.) composes in the opposite order from what you would expect as a functional programmer, but to an imperative programmer they provide the nice idiom that 
 
-  >>> ("hello",("world","!!!"))^._2._1
-  "!!!"
+    >>> ("hello",("world","!!!"))^._2._1
+    "!!!"
 
 You can also use 'id' as the identity lens
 
