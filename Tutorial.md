@@ -209,11 +209,11 @@ Then we can use
 
 instead of `amap`.
 
-We can also pass in the type of `map` provided by, say, `Data.ByteString.map`
+We can also pass in the type of `map` provided by, say, `Data.Text.map`
 
-    mapOf Data.ByteString.map :: (Char -> Char) -> ByteString -> ByteString
+    mapOf Data.Text.map :: (Char -> Char) -> Text -> Text
 
-We haven't gained much power over just passing in the functions `amap` or `Data.ByteString.map` directly, yet, but we have gained two things:
+We haven't gained much power over just passing in the functions `amap` or `Data.Text.map` directly, yet, but we have gained two things:
 
 * The composition of two setters, such as:
 
