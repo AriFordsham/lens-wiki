@@ -1,3 +1,37 @@
+Lenses are a form of functional reference that provide the ability to compose them.
+
+Ignoring the implementation for the moment, lenses provide us with two operations:
+
+    (^.) :: a -> Simple Lens a b -> b
+
+    set :: Simple Lens a b -> b -> a -> a
+
+and the ability to be composed with (.) and id
+
+    (.) :: Simple Lens a b -> Simple Lens b c -> Simple Lens a c
+
+    id :: Simple Lens a a
+
+They satisfy 3 common-sense laws:
+
+First, that if you put something, you can get it back out
+
+    set l b a ^. l = b
+ 
+Second that getting and then setting doesn't change the answer
+
+    set l (a^.l) a = a
+
+And third, putting twice is the same as putting once, or rather, that the second put wins.
+
+    set l b1 (set l b2 a) = set l b1 a
+
+Note, that the type system isn't sufficient to check these laws for you, so you need to ensure them yourself no matter what lens implementation you use.
+
+To derive the type signature for lenses, we'll take a bit of an excursion through other types and typeclasses you may already be familiar with.
+
+From here, we assume that you are acquainted with the types for `Functor`, `Foldable` and `Traversable` and can at least hand-waive the laws for them.
+
 **The power of (.)**
 
 There is a common folklore pattern for composing `(.)` in Haskell, to compose with a function that takes more and more arguments.
@@ -6,7 +40,7 @@ There is a common folklore pattern for composing `(.)` in Haskell, to compose wi
     (.).(.)     :: (a -> b) -> (c -> d -> a)      -> c -> d      -> b
     (.).(.).(.) :: (a -> b) -> (c -> d -> e -> a) -> c -> d -> e -> b
 
-It generalizes to `fmap`.
+It generalizes to `fmap` from `Functor`:
 
     fmap           :: Functor f
                    => (a -> b) -> f a         -> f b
@@ -15,7 +49,7 @@ It generalizes to `fmap`.
     fmap.fmap.fmap :: (Functor f, Functor g, Functor h)
                    => (a -> b) -> f (g (h a)) -> f (g (h b))
 
-It also generalizes to `foldMap`:
+It also generalizes to `foldMap` from `Foldable`:
 
     foldMap                 :: (Foldable f, Monoid m)
                             => (a -> m) -> f a         -> m
@@ -24,7 +58,7 @@ It also generalizes to `foldMap`:
     foldMap.foldMap.foldMap :: (Foldable f, Foldable g, Foldable h, Monoid m)
                             => (a -> m) -> f (g (h a)) -> m
 
-And it generalizes to `traverse`:
+And finally (for now) it generalizes to `traverse` from `Traversable`:
 
     traverse                   :: (Traversable f, Applicative m)
                                => (a -> m b) -> f a         -> m (f b)
