@@ -1,6 +1,6 @@
 In order to derive the type signature lenses, and to motivate generalizing these combinators to work on a much wider menagerie of types, we'll take a bit of an excursion through other types and typeclasses you may already be familiar with.
 
-From here, we'll assume that you are acquainted with the types for `Functor`, `Foldable` and `Traversable` and can at least hand-waive the laws for them.
+From here, we'll assume that you are acquainted with the types for `Functor`, `Foldable` and `Traversable` and can at least hand-waive the laws for them (see [Typeclassopedia](http://www.haskell.org/haskellwiki/Typeclassopedia)).
 
 **The power of (.)**
 
