@@ -457,11 +457,11 @@ When it gets applied the argument l will demand the properties of `c` that it ne
 
 For instance when we apply `(^.)` to a `Fold`, it will demand a `Monoid` instance for `c`:
 
-    (^.folded) :: Monoid m => a -> m
+    (^.folded) :: (Foldable f, Monoid m) => f m -> m
 
 Also, since, a `Monoid m` is needed to satisfy the `Applicative` for `Const m`,
 
-    (^.traverse) :: Monoid m => a -> m
+    (^.traverse) :: (Traversable t, Monoid m) => t m -> m
 
 But we can use `(^.)` to access a `Getter`, without any restrictions!
 
