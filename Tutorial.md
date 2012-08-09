@@ -29,7 +29,7 @@ Moreover, lenses have the ability to be composed with (.).
 Notice (.) composes in the opposite order from what you would expect as a functional programmer, but to an imperative programmer they provide the nice idiom that 
 
     >>> view (_2._1) ("hello",("world","!!!"))
-    "!!!"
+    "world"
 
 Finally, you can use `id` as the identity lens
 
@@ -61,7 +61,7 @@ We define infix operators to make working with lenses feel more imperative:
 With these you can now use lenses like field accessors. 
 
     >>> ("hello",("world","!!!"))^._2._1
-    "!!!"
+    "world"
 
 You can also write to then in something approaching an imperative style:
 
@@ -333,7 +333,7 @@ Picking
 
 we get something that subsumes
 
-    traverse :: (Traversable t => Traversal (t a) (t b) a b
+    traverse :: Traversable t => Traversal (t a) (t b) a b
 
 But, what happened? 
 
