@@ -335,7 +335,14 @@ we get something that subsumes
 
     traverse :: Traversable t => Traversal (t a) (t b) a b
 
-But, what happened? 
+We'll still be dealing with those 2-argument traversals a lot, along with their Setter equivalents, so we'll define
+
+    type Simple f a b = f a a b b
+
+(Note: 'Simple' 'Traversal' partially applies a type synonym. This is only legal with the `LiberalTypeSynonyms` extension turned on, but
+GHC allows it so long as the type synonym contains a higher-rank type, even without `LiberalTypeSynonyms`.)
+
+But, what happened?
 
 When I picked the type for `Getting`, I only used two type arguments.
 
@@ -345,6 +352,7 @@ This hints that for something to be a valid `Traversal` it should be possible to
 
     t pure = pure
     Compose . fmap (t f) . t g = t (Compose . fmap f . g)
+
 
 (There are also some less algebraic properties but commonsense properties that a valid Traversable should satisfy that are described in Jeremy Gibbons' paper, "The Essence of the Iterator Pattern")
 
@@ -473,3 +481,17 @@ With all of that we're finally ready to define
 
 **Lenses**
 
+A `Lens` is a `Traversal` that can also be used as a `Getter`. This means it can be used as a `Setter` and a `Fold` as well.
+
+Recall that a Getter was a `Fold` that can't use the `Monoid`.
+
+Without the `Monoid`, all that `Const` and `Identity` have in common is that each is a `Functor`.
+
+    type Lens a b c d = forall f. Functor f => (c -> f d) -> a -> f b
+
+We inherit the `Traversal` laws, so we know for a `Lens` `l`
+
+    l pure = pure
+    Compose . fmap (l f) . l g = l (Compose . fmap f . g)
+
+and we also know that a `Lens a b c d` can be used as a function from `(a -> c)`.
