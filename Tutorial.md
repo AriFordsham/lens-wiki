@@ -1,7 +1,7 @@
-Lens Tutorial
--------------
+What are Lenses?
+----------------
 
-Lenses are a form of functional reference that provide the ability to compose them.
+Lenses are composable functional references.
 
 Ignoring the implementation for the moment, lenses provide us with two operations:
 
@@ -9,6 +9,8 @@ Ignoring the implementation for the moment, lenses provide us with two operation
 view :: Simple Lens a b -> a -> b
 set :: Simple Lens a b -> b -> a -> a
 ```
+
+So we can view a lens as a pair of a getter and a setter that are in some sense compatible.
 
 We'll use the following lenses to start off:
 
@@ -31,13 +33,13 @@ and write to parts of a whole:
 ("hello",42)
 ```
 
-Moreover, lenses have the ability to be composed with (.).
+Moreover, we can compose lenses with `(.)`.
 
 ```haskell
 (.) :: Simple Lens a b -> Simple Lens b c -> Simple Lens a c
 ```
 
-Notice (.) composes in the opposite order from what you would expect as a functional programmer, but to an imperative programmer they provide the nice idiom that 
+Notice `(.)` composes in the opposite order from what you would expect as a functional programmer, but to an imperative programmer they provide the nice idiom that
 
 ```haskell
 >>> view (_2._1) ("hello",("world","!!!"))
@@ -50,7 +52,7 @@ Finally, you can use `id` as the identity lens
 id :: Simple Lens a a
 ```
 
-which just gives you back the value when used with (^.) and which when set completely replaces the old value.
+which just gives you back the value when used with `(^.)` and which when set completely replaces the old value.
 
 They satisfy 3 common-sense laws:
 
@@ -72,7 +74,7 @@ And third, putting twice is the same as putting once, or rather, that the second
 set l b1 (set l b2 a) = set l b1 a
 ```
 
-Note, that the type system isn't sufficient to check these laws for you, so you need to ensure them yourself no matter what lens implementation you use. (Some others will compose with (.) the other way.)
+Note, that the type system isn't sufficient to check these laws for you, so you need to ensure them yourself no matter what lens implementation you use. (Some others will compose with `(.)` the other way.)
 
 We define infix operators to make working with lenses feel more imperative:
 
@@ -81,7 +83,7 @@ We define infix operators to make working with lenses feel more imperative:
 (.~) :: Simple Lens a b -> b -> a -> a
 ```
 
-With these you can now use lenses like field accessors. 
+With these you can now use lenses like field accessors.
 
 ```literate-haskell
 > ("hello",("world","!!!"))^._2._1
@@ -115,4 +117,4 @@ check paddle other
       reset
 ```
 
-More information about how these types are derived is available under [Derivation](wiki/Derivation).
+More information about how the types for lenses can be derived is available under [Derivation](wiki/Derivation).
