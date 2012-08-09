@@ -202,6 +202,9 @@ which lets us write this as:
 
 ```haskell
 mapOf :: Setter a b c d -> (c -> d) -> a -> b
+-- or
+mapOf :: ((c -> Identity d) -> a -> Identity b)
+      ->  (c -> d)          -> a -> b
 mapOf t f = runIdentity . t (Identity . f)
 ```
 
@@ -213,6 +216,9 @@ We can write an inverse of `mapOf` fairly mechanically:
 
 ```haskell
 sets :: ((c -> d) -> a -> b) -> Setter a b c d
+-- or
+sets :: ((c -> d)          -> a -> b)
+     ->  (c -> Identity d) -> a -> Identity b
 sets l f = Identity . l (runIdentity . f)
 ```
 
@@ -245,6 +251,8 @@ So, what satisfies the functor laws out of the box? `fmap`!
 
 ```haskell
 mapped :: Functor f => Setter (f a) (f b) a b
+-- or
+mapped :: Functor f => (a -> Identity b) -> f a -> Identity (f b)
 mapped = sets fmap
 ```
 
@@ -265,14 +273,17 @@ amap :: (IArray a e', IArray a e, Ix i) => (e' -> e) -> a i e' -> a i e
 Given this, we can derive:
 
 ```haskell
-amapped :: (IArray a c, IArray a d) => Setter (a i c) (a i d) c d
+amapped :: (IArray a c, IArray a d, Ix i) => Setter (a i c) (a i d) c d
+-- or
+amapped :: (IArray a c, IArray a d, Ix i)
+        => (c -> Identity d) -> a i c -> Identity (a i d)
 amapped = sets amap
 ```
 
 Then we can use
 
 ```haskell
-mapOf amapped :: (IArray a c, IArray a d) => (c -> d) -> a i c -> a i d
+mapOf amapped :: (IArray a c, IArray a d, Ix i) => (c -> d) -> a i c -> a i d
 ```
 
 instead of `amap`.
@@ -281,6 +292,8 @@ We can also pass in the type of `map` provided by, say, `Data.Text.map`
 
 ```haskell
 tmapped :: Setter Text Text Char Char
+-- or
+tmapped :: (Char -> Identity Char) -> Text -> Identity Text
 tmapped = sets Data.Text.map
 ```
 
@@ -356,6 +369,9 @@ we can make the slightly nicer looking type
 
 ```haskell
 foldMapOf :: Getting m a c -> (c -> m) -> a -> m
+-- or
+foldMapOf :: ((c -> Const m c) -> a -> Const m a)
+          ->  (c -> m)         -> a -> m
 foldMapOf l f = getConst . l (Const . f)
 ```
 
@@ -368,7 +384,10 @@ foldMapDefault = foldMapOf traverse
 we could define an inverse of `foldMapOf` as we did with `mapOf`, above, etc.
 
 ```haskell
-folds :: ((c -> m) -> a -> m) -> Getting m a b c d
+folds :: ((c -> m) -> a -> m) -> Getting m a c
+-- or
+folds :: ((c -> m)         -> a -> m)
+      ->  (c -> Const m c) -> a -> Const m a
 folds l f = Const . l (getConst . f)
 ```
 
@@ -387,6 +406,8 @@ type Fold a b c d = forall m. Monoid m => (c -> Const m d) -> a -> Const m b
 
 ```haskell
 folded :: Foldable f => Fold (f c) b c d
+-- or
+folded :: (Foldable f, Monoid m) => (c -> Const m d) -> f c -> Const m b
 folded = folds foldMap
 ```
 
@@ -437,6 +458,8 @@ we get something that subsumes
 
 ```haskell
 traverse :: Traversable t => Traversal (t a) (t b) a b
+-- or
+traverse :: (Traversable t, Applicative f) => (a -> f b) -> t a -> f (t b)
 ```
 
 But, what happened? 
@@ -466,6 +489,8 @@ We can traverse both elements in a tuple:
 
 ```haskell
 both :: Traversal (a,a) (b,b) a b
+-- or
+both :: Applicative f => (a -> f b) -> (a,a) -> f (b,b)
 both f (a,b) = (,) <$> f a <*> f b
 ```
 
@@ -473,6 +498,8 @@ The left side of an `Either`:
 
 ```haskell
 traverseLeft :: Traversal (Either a c) (Either b c) a b
+-- or
+traverseLeft :: Applicative f => (a -> f b) -> Either a c -> f (Either b c)
 traverseLeft f (Left a) = Left <$> f a
 traverseLeft f (Right b) = pure $ Right b
 ```
