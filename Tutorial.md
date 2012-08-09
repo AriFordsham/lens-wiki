@@ -438,9 +438,23 @@ Along the way, we get an interesting result, A 'Getter' is just a 'Fold' that do
 
     type Fold a c = forall r. Monoid r => (c -> Const r c) -> a -> Const r a
 
-We can go back and define (^.) now, and empower it to consume either a 'Fold' or 'Getter' or 'Traversal'.
+We can go back and define `(^.)` now, and empower it to consume either a 'Fold' or 'Getter' or 'Traversal'.
 
     (^.) :: a -> Getting c a c -> c
     a ^. l = getConst (l Const a)
 
-Remember, we can consume 'Traversal' because a 'Traversal is a valid 'Fold'.
+Remember, we can consume a `Traversal` because every `Traversal` is a valid `Fold`, just like every `Getter` is a valid `Fold`.
+
+Also note that (^.) doesn't require anything of c!
+
+When it gets applied the argument l will demand the properties of 'c' that it needs:
+
+For instance when we apply (^.) to a Fold, it will require a Monoid instance for 'c':
+
+    (^.folded) :: Monoid m => a -> m
+
+Also, since, a Monoid m is needed to generate the Applicative for Const m,
+
+    (^.traverse) :: Monoid m => a -> m
+
+But we can use ^. to access a Getter, without any restrictions!
