@@ -6,9 +6,7 @@ If you are interested in the design behind these lenses, you may want to also di
 
 A quick overview of the key operations of the core of the hierarchy of lens types can be seen below.
 
-
 ![UML Diagram](https://s3.amazonaws.com/creately-published/h5nyo9ne1)
-
 <!-- ![UML Diagram](https://github.com/ekmett/lens/wiki/images/Hierarchy.png) --> 
 
 Contact Information
