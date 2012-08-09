@@ -325,7 +325,7 @@ Picking
 
 we get something that subsumes
 
-    traverse :: (Traversable t => Traversal (t a) (t b) a b
+    traverse :: Traversable t => Traversal (t a) (t b) a b
 
 But, what happened? 
 
