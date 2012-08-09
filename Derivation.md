@@ -2,7 +2,8 @@ In order to derive the type signature lenses, and to motivate generalizing these
 
 From here, we'll assume that you are acquainted with the types for `Functor`, `Foldable` and `Traversable` and can at least hand-waive the laws for them (see [Typeclassopedia](http://www.haskell.org/haskellwiki/Typeclassopedia)).
 
-**The power of (.)**
+The power of (.)
+----------------
 
 There is a common folklore pattern for composing `(.)` in Haskell, to compose with a function that takes more and more arguments.
 
@@ -68,7 +69,8 @@ foldMapDefault f = getConst . traverse (Const . f)
 If we rip `traverse` out of their definitions and pass it in as an argument, we can find out exactly what 
 properties are needed of `traverse` to make those definitions typecheck. We'll deal with `fmapDefault` first.
 
-**Setters**
+Setters
+-------
 
 ```
 ghci> let mapOf t f = runIdentity . t (Identity . f)
@@ -94,7 +96,7 @@ mapOf t f = runIdentity . t (Identity . f)
 
 (In the actual implementation we rename `Identity` to `Mutator` to provide nicer error messages)
 
-***Setter Laws***
+**Setter Laws**
 
 We can write an inverse of `mapOf` fairly mechanically:
 
@@ -222,7 +224,8 @@ set = (.~)
 
 In a few moments we'll see how they can be applied to a `Lens`, but first:
 
-**Folds**
+Folds
+-----
 
 Now lets apply the same treatment to the other default definition supplied by `Data.Traversable`:
 
@@ -313,7 +316,8 @@ a `Fold` and to permit the use of certain `Applicative` transformers as `Monoid`
 
 As with `Setter`, the composition of two folds using `(.)` is a valid `Fold`, and `id` is the identity fold that returns the container itself as its only result.
 
-**Traversals**
+Traversals
+----------
 
 Given the signatures of `Fold` and `Setter`, we can derive something that can be used as both -- after all
 `traverse` from `Traversal` served this function originally!
@@ -414,7 +418,8 @@ There are a number of combinators for working with traversals in [`Control.Lens.
 
 We're almost ready for lenses, but first we have one more diversion.
 
-**Getters**
+Getters
+-------
 
 If we convert a function from `(a -> c)` to continuation passing style, we get
 
@@ -532,7 +537,8 @@ We can use a `Getter` as a `Fold`, but it is not a valid `Traversal` or `Setter`
 
 With all of that we're finally ready to define
 
-**Lenses**
+Lenses
+------
 
 A `Lens` is a `Traversal` that can also be used as a `Getter`. This means it can be used as a `Setter` and a `Fold` as well.
 
