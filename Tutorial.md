@@ -465,4 +465,11 @@ Also, since, a `Monoid m` is needed to satisfy the `Applicative` for `Const m`,
 
 But we can use `(^.)` to access a `Getter`, without any restrictions!
 
+There are a number of combinators for working with getters in [`Control.Lens.Getter`](https://github.com/ekmett/lens/blob/master/src/Control/Lens/Getter.hs).
+
+We can use a 'Getter' as a 'Fold', but it is not a valid 'Traversal' or 'Setter', nor is a 'Traversal' or 'Setter' a 'Getter'.
+
+With all of that we're finally ready to define
+
+**Lenses**
 
