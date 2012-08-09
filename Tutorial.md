@@ -371,7 +371,7 @@ We can compose two traversals with each other using `(.)` as we did at the very 
 
     traverse.traverse :: (Traversable f, Traversable g) => Traversal (f (g a)) (f (g b)) a b
 
-but we can also compose them with a `Setter` or `Fold, yielding a `Setter` or `Fold` in turn.
+but we can also compose them with a `Setter` or `Fold`, yielding a `Setter` or `Fold` in turn.
 
 Unlike with mapped and folded, we will often want to use the `Traversal` directly as a combinator. 
 
