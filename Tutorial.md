@@ -357,7 +357,7 @@ So what else can we build a `Traversal` for?
 We can traverse both elements in a tuple:
 
     both :: Traversal (a,a) (b,b) a b
-    both f (a,a) = (,) <$> f a <*> f b
+    both f (a,b) = (,) <$> f a <*> f b
 
 The left side of an `Either`:
 
