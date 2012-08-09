@@ -4,6 +4,8 @@ You probably want to start with the [Tutorial](wiki/Tutorial).
 
 If you are interested in the design behind these lenses, you may want to also dig into their [Derivation](wiki/Derivation).
 
+![UML Diagram](https://github.com/ekmett/lens/wiki/images/Hierarchy.png)
+
 Contact Information
 -------------------
 
