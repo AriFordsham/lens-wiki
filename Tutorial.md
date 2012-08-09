@@ -299,17 +299,17 @@ We can define all of the combinators in `Data.Foldable` in terms of `foldMap`, s
 define them in terms of an arbitrary `Fold` in [`Control.Lens.Fold`](https://github.com/ekmett/lens/blob/master/src/Control/Lens/Fold.hs).
 
 (In the actual implementation the type of `Fold` is changed to use a typeclass constraint rather
-than an explicit 'Const m' to yield nicer error messages when you attempt to use a 'Setter' as
-a 'Fold' and to permit the use of certain 'Applicative' transformers as 'Monoid' transformers.)
+than an explicit `Const m` to yield nicer error messages when you attempt to use a `Setter` as
+a `Fold` and to permit the use of certain `Applicative` transformers as `Monoid` transformers.)
 
-As with `Setter`, the composition of two folds using (.) is a valid `Fold`, and `id` is the identity fold that returns the container itself as its only result.
+As with `Setter`, the composition of two folds using `(.)` is a valid `Fold`, and `id` is the identity fold that returns the container itself as its only result.
 
 **Traversals**
 
 Given the signatures of `Fold` and `Setter`, we can derive something that can be used as both -- after all
 `traverse` from `Traversal` served this function originally!
 
-Given the `Monoid` m, `Const m` forms an `Applicative`, and 'Identity' is also 'Applicative'.
+Given the `Monoid` m, `Const m` forms an `Applicative`, and `Identity` is also `Applicative`.
 
 So substituting back in to the definitions above, we find:
 
