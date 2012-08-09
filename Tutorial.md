@@ -407,7 +407,7 @@ Now, we can relax the type of uncps slightly to
     uncps' :: ((c -> c) -> a -> c) -> a -> c
     uncps' f = f id
 
-but not we no longer known our function `f :: (c -> c) -> a -> c` can't doing something
+but not we no longer know our function `f :: (c -> c) -> a -> c` can't doing something
 to combine the results of the function you pass it, and so we lose the `cps . uncps = id` law, so we only have:
 
     uncps' . cps  = id
