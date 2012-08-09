@@ -4,6 +4,10 @@ You probably want to start with the [Tutorial](wiki/Tutorial).
 
 If you are interested in the design behind these lenses, you may want to also dig into their [Derivation](wiki/Derivation).
 
+A quick overview of the key operations of the core of the hierarchy of lens types can be seen below.
+
+![UML Diagram](https://github.com/ekmett/lens/wiki/images/Hierarchy.png)
+
 Contact Information
 -------------------
 
