@@ -117,4 +117,4 @@ check paddle other
       reset
 ```
 
-More information about how the types for lenses can be derived is available under [Derivation](wiki/Derivation).
+More information about how the types for lenses can be derived is available under [Derivation](Derivation).
