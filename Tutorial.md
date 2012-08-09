@@ -115,4 +115,4 @@ check paddle other
       reset
 ```
 
-More information about how these types are derived, are available under [Derivation](wiki/Derivation).
+More information about how these types are derived is available under [Derivation](wiki/Derivation).
