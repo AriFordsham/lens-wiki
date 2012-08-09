@@ -52,7 +52,7 @@ Finally, you can use `id` as the identity lens
 id :: Simple Lens a a
 ```
 
-which just gives you back the value when used with `(^.)` and which when set completely replaces the old value.
+which just gives you back the value when used with `view` and which when set completely replaces the old value.
 
 They satisfy 3 common-sense laws:
 
