@@ -656,11 +656,16 @@ Recall that a Getter was a `Fold` that can't use the `Monoid`.
 
 Without the `Monoid`, all that `Const` and `Identity` have in common is that each is a `Functor`.
 
-    type Lens a b c d = forall f. Functor f => (c -> f d) -> a -> f b
+
+```haskell
+type Lens a b c d = forall f. Functor f => (c -> f d) -> a -> f b
+```
 
 We inherit the `Traversal` laws, so we know for a `Lens` `l`
 
-    l pure = pure
-    Compose . fmap (l f) . l g = l (Compose . fmap f . g)
+```haskell
+l pure = pure
+Compose . fmap (l f) . l g = l (Compose . fmap f . g)
+```
 
 and we also know that a `Lens a b c d` can be used as a function from `(a -> c)`.
