@@ -310,7 +310,7 @@ define them in terms of an arbitrary `Fold` in [`Control.Lens.Fold`](https://git
 than an explicit `Const m` to yield nicer error messages when you attempt to use a `Setter` as
 a `Fold` and to permit the use of certain `Applicative` transformers as `Monoid` transformers.)
 
-As with `Setter`, the composition of two folds using (.) is a valid `Fold`, and `id` is the identity fold that returns the container itself as its only result.
+As with `Setter`, the composition of two folds using `(.)` is a valid `Fold`, and `id` is the identity fold that returns the container itself as its only result.
 
 **Traversals**
 
