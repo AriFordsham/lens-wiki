@@ -142,7 +142,7 @@ mapped :: Functor f => (a -> Identity b) -> f a -> Identity (f b)
 mapped = sets fmap
 ```
 
-If is trivial then to check that
+It is trivial then to check that
 
 ```haskell
 fmap = mapOf mapped
@@ -239,10 +239,10 @@ If we plug in an argument for `traverse` and rip off the type signature, we get
 ```
 ghci> let foldMapOf t f = getConst . t (Const . f)
 ghci> :t foldMapOf
-foldMapOf :: (c -> Const m d) -> a -> Const m b) -> (c -> m) -> f c -> m
+foldMapOf :: ((c -> Const m d) -> a -> Const m b) -> (c -> m) -> f c -> m
 ```
 
-The second argument to Const is polymorphic in each case, but to avoid dangling type variables we'll eliminate them by making them match.
+The second argument to `Const` is polymorphic in each case, but to avoid dangling type variables we'll eliminate them by making them match.
 
 Writing it out, and making up a type alias:
 
@@ -250,7 +250,7 @@ Writing it out, and making up a type alias:
 type Getting m a c = (c -> Const m c) -> a -> Const m a
 ```
 
-(Note: In the actual implementation Const is renamed to `Accessor` for error reporting reasons)
+(Note: In the actual implementation `Const` is renamed to `Accessor` for error reporting reasons)
 
 we can make the slightly nicer looking type
 
@@ -350,7 +350,7 @@ traverse :: Traversable t => Traversal (t a) (t b) a b
 traverse :: (Traversable t, Applicative f) => (a -> f b) -> t a -> f (t b)
 ```
 
-We'll still be dealing with those 2-argument traversals a lot, along with their Setter equivalents, so we'll define
+We'll still be dealing with those 2-argument traversals a lot, along with their `Setter` equivalents, so we'll define
 
     type Simple f a b = f a a b b
 
