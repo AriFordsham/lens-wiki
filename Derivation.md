@@ -453,14 +453,14 @@ uncps' :: ((c -> c) -> a -> c) -> a -> c
 uncps' f = f id
 ```
 
-but not we no longer know our function `f :: (c -> c) -> a -> c` can't doing something
-to combine the results of the function you pass it, and so we lose the `cps . uncps = id` law, so we only have:
+but now we no longer know that our function `f :: (c -> c) -> a -> c` can't be doing something
+to combine the results of the function you pass it.  We lose the `cps . uncps = id` law and only have:
 
 ```haskell
 uncps' . cps  = id
 ```
 
-Now, lets compose them like we did for fmap, traverse and foldMap at the start:
+Now, let's compose them like we did for `fmap`, `traverse` and `foldMap` at the start:
 
 If we start with 3 functions:
 
