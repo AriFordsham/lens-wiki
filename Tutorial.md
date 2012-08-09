@@ -118,3 +118,5 @@ check paddle other
 ```
 
 More information about how the types for lenses can be derived is available under [Derivation](Derivation).
+
+For now, you may want to explore some code that uses lenses heavily, such as the [Pong Example](https://github.com/ekmett/lens/blob/master/examples/Pong.hs).
