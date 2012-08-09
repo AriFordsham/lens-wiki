@@ -31,7 +31,7 @@ Notice (.) composes in the opposite order from what you would expect as a functi
     >>> view (_2._1) ("hello",("world","!!!"))
     "!!!"
 
-Finally, you can use 'id' as the identity lens
+Finally, you can use `id` as the identity lens
 
     id :: Simple Lens a a
 
@@ -73,7 +73,7 @@ There are also combinators for manipulating parts of the current state for a `St
     (.=) :: MonadState a m => SimpleLens a b -> b -> m ()
     use  :: MonadState a m => SimpleLens a b -> m b
 
-Using these (and other combinators for manipulating state) yields code like the following snippet from the 'pong' example included in the distribution (where `p` is in the surrounding scope):
+Using these (and other combinators for manipulating state) yields code like the following snippet from the `pong` example included in the distribution (where `p` is in the surrounding scope):
 
     check paddle other
         | y >= p^.paddle - paddleHeight/2 && y <= p^.paddle + paddleHeight/2 = do
@@ -235,11 +235,19 @@ We haven't gained much power over just passing in the functions `amap` or `Data.
 * Another thing that we have won is that if we have a `Traversable` container, we can pass its `traverse` in
 to `mapOf` instead of a `Setter` for the container.
 
-Setters form a category, using `(.)` and `id` for composition and identity, but you can use the existing `(.)` and `id` from the `Prelude` for them (though they compose 'backwards').
+Setters form a category, using `(.)` and `id` for composition and identity, but you can use the existing `(.)` and `id` from the `Prelude` for them (though they compose `backwards`).
 
 However, to gain that power we traded in other functionality. Knowing `f` is a `Functor` lets us instantiate the type arguments `a` and `b` to anything we want, over and over again, we also need to manually check any of the formerly free theorems we want to use with out `Setter`.
 
 Many combinators for these are provided in [`Control.Lens.Setter`](https://github.com/ekmett/lens/blob/master/src/Control/Lens/Setter.hs).
+
+As an aside, we can now define the `(.~)` (and `set`) combinators we used during the introduction:
+
+    (.~), set :: Setter a b c d -> d -> a -> b
+    l .~ d = runIdentity . l (Identity . const d) 
+    set = (.~)
+
+In a few moments we'll see how they can be applied to a `Lens`, but first:
 
 **Folds**
 
@@ -260,7 +268,7 @@ Writing it out, and making up a type alias:
 
     type Getting m a c = (c -> Const m c) -> a -> Const m a
 
-(Note: In the actual implementation Const is renamed to 'Accessor' for error reporting reasons)
+(Note: In the actual implementation Const is renamed to `Accessor` for error reporting reasons)
 
 we can make the slightly nicer looking type
 
@@ -302,7 +310,7 @@ define them in terms of an arbitrary `Fold` in [`Control.Lens.Fold`](https://git
 than an explicit `Const m` to yield nicer error messages when you attempt to use a `Setter` as
 a `Fold` and to permit the use of certain `Applicative` transformers as `Monoid` transformers.)
 
-As with `Setter`, the composition of two folds using `(.)` is a valid `Fold`, and `id` is the identity fold that returns the container itself as its only result.
+As with `Setter`, the composition of two folds using (.) is a valid `Fold`, and `id` is the identity fold that returns the container itself as its only result.
 
 **Traversals**
 
@@ -342,7 +350,7 @@ This hints that for something to be a valid `Traversal` it should be possible to
 
 And the first of those laws requires `a ~ b`, `c ~ d` to be a possible choice of the type arguments to your `Traversal`. We implement this polymorphic overloading of traversals in a fairly ad hoc way, by just making the user provide the "family structure" for us.
 
-Given that our `Traversal` satisfies the `Traversable` laws, the laws for 'Setter' immediately follow, and 'Fold' had no extra laws to check.
+Given that our `Traversal` satisfies the `Traversable` laws, the laws for `Setter` immediately follow, and `Fold` had no extra laws to check.
 
 So what else can we build a `Traversal` for?
 
@@ -424,21 +432,19 @@ And when we compose these functions between functions, we obtain:
     cps f . cps g         :: (C -> r) -> (A -> r)
     cps f . cps g . cps h :: (D -> r) -> (A -> r)
 
-
-
 Earlier we provided a type for consuming a `Fold`:
 
     type Getting r a c = (c -> Const r c) -> a -> Const r a
 
-What we want (so that uncps can work) is something completely polymorphic in 'r'.
+What we want (so that uncps can work) is something completely polymorphic in `r`.
 
     type Getter a c = forall r. (c -> Const r c) -> a -> Const r a
 
-Along the way, we get an interesting result, A 'Getter' is just a 'Fold' that doesn't use the 'Monoid'! Recall:
+Along the way, we get an interesting result, A `Getter` is just a `Fold` that doesn't use the `Monoid`! Recall:
 
     type Fold a c = forall r. Monoid r => (c -> Const r c) -> a -> Const r a
 
-We can go back and define `(^.)` now, and empower it to consume either a 'Fold' or 'Getter' or 'Traversal'.
+We can go back and define `(^.)` now, and empower it to consume either a `Fold` or `Getter` or `Traversal`.
 
     (^.) :: a -> Getting c a c -> c
     a ^. l = getConst (l Const a)
@@ -447,9 +453,9 @@ Remember, we can consume a `Traversal` because every `Traversal` is a valid `Fol
 
 Also note that `(^.)` doesn't require anything of `c`!
 
-When it gets applied the argument l will demand the properties of 'c' that it needs:
+When it gets applied the argument l will demand the properties of `c` that it needs:
 
-For instance when we apply `(^.)` to a `Fold`, it will demand a `Monoid` instance for 'c':
+For instance when we apply `(^.)` to a `Fold`, it will demand a `Monoid` instance for `c`:
 
     (^.folded) :: Monoid m => a -> m
 
@@ -458,4 +464,5 @@ Also, since, a `Monoid m` is needed to satisfy the `Applicative` for `Const m`,
     (^.traverse) :: Monoid m => a -> m
 
 But we can use `(^.)` to access a `Getter`, without any restrictions!
+
 
