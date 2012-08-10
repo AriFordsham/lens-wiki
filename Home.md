@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/ekmett/lens.png?branch=master)](http://travis-ci.org/ekmett/lens)
+
 Welcome to the lens wiki!
 
 You probably want to start with the [Tutorial](wiki/Tutorial).
