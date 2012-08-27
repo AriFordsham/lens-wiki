@@ -373,8 +373,6 @@ Compose . fmap (t f) . t g = t (Compose . fmap f . g)
 ```
 
 
-(There are also some less algebraic properties but commonsense properties that a valid Traversable should satisfy that are described in Jeremy Gibbons' paper, "The Essence of the Iterator Pattern")
-
 And the first of those laws requires `a ~ b`, `c ~ d` to be a possible choice of the type arguments to your `Traversal`. We implement this polymorphic overloading of traversals in a fairly ad hoc way, by just making the user provide the "family structure" for us.
 
 Given that our `Traversal` satisfies the `Traversable` laws, the laws for `Setter` immediately follow, and `Fold` had no extra laws to check.
