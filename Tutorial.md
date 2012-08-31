@@ -44,6 +44,8 @@ Notice `(.)` composes in the opposite order from what you would expect as a func
 ```haskell
 >>> view (_2._1) ("hello",("world","!!!"))
 "world"
+>>> set (_2._2) "leaders" ("hello",("world","!!!"))
+("hello",("world","leaders"))
 ```
 
 Finally, you can use `id` as the identity lens
