@@ -2,7 +2,7 @@
 
 Welcome to the lens wiki!
 
-You probably want to start with the [Tutorial](wiki/Tutorial).
+You probably want to start with the [Tutorial](wiki/Tutorial) or a map of many of the [Operators](wiki/Operators).
 
 If you are interested in the design behind these lenses, you may want to also dig into their [Derivation](wiki/Derivation).
 
