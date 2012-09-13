@@ -120,7 +120,6 @@ Operators
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Type.html#v:-60--124--124--126-"><code>&lt;||~</code></td>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:-124--124--61-"><code>||=</code></a></td>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Type.html#v:-60--124--124--61-"><code>&lt;||=</code></td>
-  <td/>
 </tr>
 <tr>
   <td>logically and target(s)</td>
@@ -137,7 +136,6 @@ Operators
   <td><a href="http://ekmett.github.com/lens/Data-Bits-Lens.html#v:-60--124--126-"><code>&lt;|~</code></td>
   <td><a href="http://ekmett.github.com/lens/Data-Bits-Lens.html#v:-124--61-"><code>|=</code></a></td>
   <td><a href="http://ekmett.github.com/lens/Data-Bits-Lens.html#v:-60--124--61-"><code>&lt;|=</code></td>
-  <td/>
 </tr>
 <tr>
   <td>bitwise and target(s)</td>
