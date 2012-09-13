@@ -4,7 +4,6 @@ Operators
 <table>
 <thead>
 <tr>
-  <th>Description</th>
   <th>Combinator</th>
   <th>w/ Result</th>
   <th>State</th>
