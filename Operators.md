@@ -116,7 +116,6 @@ Operators
   <td>Bitwise or target(s)</td>
 </tr>
 <tr>
-  <td>bitwise and</td>
   <td><a href="http://ekmett.github.com/lens/Data-Bits-Lens.html#v:-38--126-"><code>&amp;~</code></a></td>
   <td><a href="http://ekmett.github.com/lens/Data-Bits-Lens.html#v:-60--38--126-"><code>&lt;&amp;~</code></td>
   <td><a href="http://ekmett.github.com/lens/Data-Bits-Lens.html#v:-38--61-"><code>&amp;=</code></a></td>
