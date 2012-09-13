@@ -18,7 +18,7 @@ Operators
   <td/>
   <td>use</td>
   <td/>
-  <td>`query` works on MonadReader</td>
+  <td><pre>query</pre> works on MonadReader</td>
 </tr>
 <tr>
   <td>replace target(s)</td>
