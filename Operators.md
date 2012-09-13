@@ -129,5 +129,12 @@ Operators
   <td><a href="http://ekmett.github.com/lens/Data-List-Lens.html#v:-60--43--43--61-"><code>&lt;++=</code></td>
   <td>Append to target list(s)</td>
 </tr>
+<tr>
+  <td><a href="http://ekmett.github.com/lens/Data-Monoid-Lens.html#v:-60--62--126-"><code>&lt;&gt;~</code></a></td>
+  <td><a href="http://ekmett.github.com/lens/Data-Monoid-Lens.html#v:-60--60--62--126-"><code>&lt;&lt;&gt;~</code></td>
+  <td><a href="http://ekmett.github.com/lens/Data-Monoid-Lens.html#v:-60--62--61-"><code>&lt;&gt;=</code></a></td>
+  <td><a href="http://ekmett.github.com/lens/Data-Monoid-Lens.html#v:-60--60--62--61-"><code>&lt;&lt;&gt;=</code></td>
+  <td><code>mappend</code> to the target monoidal value(s)</td>
+</tr>
 </tbody>
 </table>
