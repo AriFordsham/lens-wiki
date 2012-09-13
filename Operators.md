@@ -125,6 +125,14 @@ Operators
   <td/>
   <td>Perform monadic action(s)</td>
 </tr>
+<tr><th colspan=5><a href="http://ekmett.github.com/lens/Control-Lens.html">Control.Lens</a> (Indexed)</th></tr>
+<tr>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:imapOf"><code>imapOf</code></a>,<a href="http://ekmett.github.com/lens/Control-Lens-IndexedSetter.html#v:-37--64--126-"><code>%@~</code></a></td>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-IndexedLens.html#v:-60--37--64--126-"><code>&lt;%@~</code></td>
+  <td><a href=http://ekmett.github.com/lens/Control-Lens-IndexedSetter.html#v:-37--64--126-"><code>%@=</code></a></td>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-IndexedLens.html#v:-60--37--64--61-"><code>&lt;%@=</code></td>
+  <td>Update target(s) with access to the index.</td>
+</tr>
 <tr><th colspan=5><a href="http://ekmett.github.com/lens/Data-Bits-Lens.html">Data.Bits.Lens</a></th></tr>
 <tr>
   <td><a href="http://ekmett.github.com/lens/Data-Bits-Lens.html#v:-124--126-"><code>|~</code></a></td>
