@@ -127,7 +127,7 @@ Operators
 </tr>
 <tr><th colspan=5><a href="http://ekmett.github.com/lens/Control-Lens.html">Control.Lens</a> (Indexed)</th></tr>
 <tr>
-  <td><a href="http://ekmett.github.com/lens/Control-Lens-IndexedSetter.html#v:imapOf"><code>imapOf</code></a>,<a href="http://ekmett.github.com/lens/Control-Lens-IndexedSetter.html#v:-37--64--126-"><code>%@~</code></a></td>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-IndexedSetter.html#v:iover"><code>iover</code></a>,<a href="http://ekmett.github.com/lens/Control-Lens-IndexedSetter.html#v:imapOf"><code>imapOf</code></a>,<a href="http://ekmett.github.com/lens/Control-Lens-IndexedSetter.html#v:-37--64--126-"><code>%@~</code></a></td>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-IndexedLens.html#v:-60--37--64--126-"><code>&lt;%@~</code></td>
   <td><a href=http://ekmett.github.com/lens/Control-Lens-IndexedSetter.html#v:-37--64--126-"><code>%@=</code></a></td>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-IndexedLens.html#v:-60--37--64--61-"><code>&lt;%@=</code></td>
