@@ -4,9 +4,9 @@ Operators
 <table>
 <thead>
 <tr>
-  <th>Combinator</th>
+  <th>Combinator(s)</th>
   <th>w/ Result</th>
-  <th>State</th>
+  <th>Stateful</th>
   <th>w/ Result</th>
   <th>Notes</th>
 </tr>
