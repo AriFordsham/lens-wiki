@@ -13,12 +13,12 @@ Operators
 </tr>
 <tr>
   <td>view target(s)</td>
-  <td>view</td>
-  <td>[^.](http://ekmett.github.com/lens/Control-Lens-Getter.html#v:-94-.)</td>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:view"><code>view</code></a></td>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:-94-."><code>^.</code></a></td>
   <td/>
-  <td>[use](http://ekmett.github.com/lens/Control-Lens-Getter.html#v:use)</td>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:use"><code>use</code></a></td>
   <td/>
-  <td><code>query</code> works like <code>use</code>, but over a <code>MonadReader</code></td>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:query"><code>query</code></a> works like <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:use"><code>use</code></a>, but over a <code>MonadReader</code></td>
 </tr>
 <tr>
   <td>replace target(s)</td>
