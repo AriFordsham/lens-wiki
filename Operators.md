@@ -46,11 +46,13 @@ Operators
       return the old value</td>
 </tr>
 <tr>
-  <td>update w/ auxillary result</td>
-  <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:traverseOf"><code>id</code></a></td>
-  <td><a href="http://ekmett.github.com/lens/Control-Lens-Traversal.html#v:-37--37--126-"><code>%%~</code></a></td>
+  <td>update target(s)</td>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-Traversal.html#v:traverseOf"><code>id</code></a></td>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-Type.html#v:-37--37--126-"><code>%%~</code></a></td>
   <td/>
-  <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:-37--61-"><code>%=</code></a></td>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-Type.html#v:-37--37--61-"><code>%%=</code></a></td>
+  <td/>
+  <td>with an <code>Applicative</code> or auxillary result</td>
 </tr>
 <tr>
   <td>add to target(s)</td>
