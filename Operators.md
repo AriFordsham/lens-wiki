@@ -21,13 +21,6 @@ Operators
   <td>View target(s). <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:query"><code>query</code></a> works like <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:use"><code>use</code></a> over a <code>MonadReader</code></td>
 </tr>
 <tr>
-  <td><a href="http://ekmett.github.com/lens/Control-Lens-Action.html#v:perform"><code>perform</code></a>,<a href="http://ekmett.github.com/lens/Control-Lens-Action.html#v:performs"><code>performs</code></a><a href="http://ekmett.github.com/lens/Control-Lens-Action.html#v:-94-!"><code>^!</code></a></td>
-  <td/>
-  <td/>
-  <td/>
-  <td>Perform monadic action(s)</td>
-</tr>
-<tr>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:set"><code>set</code></a>, <a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:.-126-"><code>.~</code></a></td>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:-60-.-126-"><code>&lt;.~</code></a></td>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:.-61-"><code>.=</code></a></td>
@@ -115,7 +108,6 @@ Operators
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Type.html#v:-60--38--38--61-"><code>&lt;&amp;&amp;=</code></td>
   <td>Logically and target(s)</td>
 </tr>
-<tr><th colspan=5><a href="http://ekmett.github.com/lens/Control-Lens-Fold.html">Control.Lens.Fold</a></th></tr>
 <tr>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:headOf"><code>headOf</code>,<a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:-94--63-"><code>^?</code></a></td>
   <td/><td/><td/>
@@ -125,6 +117,13 @@ Operators
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:toListOf"><code>toListOf</code>,<a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:-94-.."><code>^..</code></a></td>
   <td/><td/><td/>
   <td>Return a list of the target(s)</td>
+</tr>
+<tr>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-Action.html#v:perform"><code>perform</code></a>,<a href="http://ekmett.github.com/lens/Control-Lens-Action.html#v:performs"><code>performs</code></a><a href="http://ekmett.github.com/lens/Control-Lens-Action.html#v:-94-!"><code>^!</code></a></td>
+  <td/>
+  <td/>
+  <td/>
+  <td>Perform monadic action(s)</td>
 </tr>
 <tr><th colspan=5><a href="http://ekmett.github.com/lens/Data-Bits-Lens.html">Data.Bits.Lens</a></th></tr>
 <tr>
