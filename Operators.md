@@ -2,6 +2,7 @@ Operators
 =========
 
 <table>
+<thead>
 <tr>
   <th>Description</th>
   <th>Named</th>
@@ -11,6 +12,8 @@ Operators
   <th>w/ Result</th>
   <th>Notes</th>
 </tr>
+</thead>
+<tbody>
 <tr>
   <td>view target(s)</td>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:view"><code>view</code></a></td>
@@ -97,4 +100,5 @@ Operators
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Type.html#v:-60--42--42--61-"><code>&lt;**=</code></td>
   <td>to an arbitrary power</td>
 </tr>
+</tbody>
 </table>
