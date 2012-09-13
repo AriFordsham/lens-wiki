@@ -129,5 +129,13 @@ Operators
   <td><a href="http://ekmett.github.com/lens/Data-Bits-Lens.html#v:-38--61-"><code>&amp;=</code></a></td>
   <td><a href="http://ekmett.github.com/lens/Data-Bits-Lens.html#v:-60--38--61-"><code>&lt;&amp;=</code></td>
 </tr>
+<tr>
+  <td>append to</td>
+  <td><a href="http://ekmett.github.com/lens/Data-List-Lens.html#v:-43--43--126-"><code>++~</code></a></td>
+  <td><a href="http://ekmett.github.com/lens/Data-List-Lens.html#v:-60--43--43--126-"><code>&lt;++~</code></td>
+  <td><a href="http://ekmett.github.com/lens/Data-List-Lens.html#v:-43--43--61-"><code>++=</code></a></td>
+  <td><a href="http://ekmett.github.com/lens/Data-List-Lens.html#v:-60--43--43--61-"><code>&lt;++=</code></td>
+</tr>
+
 </tbody>
 </table>
