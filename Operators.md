@@ -22,18 +22,18 @@ Operators
 </tr>
 <tr>
   <td>replace target(s)</td>
-  <td>set</td>
-  <td>.~</td>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:set"><code>set</code></a></td>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:.-126-"><code>.~</code></a></td>
   <td>&lt;.~</td>
-  <td>.=</td>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:.-61-"><code>.=</code></a></td>
   <td>&lt;.=</td>
 </tr>
 <tr>
   <td>update target(s)</td>
-  <td>over</td>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:over"><code>over</code></a></td>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:-37--126-"><code>%~</code></a></td>
   <td>%~</td>
-  <td>%~</td>
-  <td>%=</td>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:-37--61-"><code>%=</code></a></td>
   <td>&lt;%=</td>
 </tr>
 <tr>
