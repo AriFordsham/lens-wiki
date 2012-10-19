@@ -230,7 +230,7 @@ Folds
 Now lets apply the same treatment to the other default definition supplied by `Data.Traversable`:
 
 ```haskell
-foldMapDefault :: (Traversable f, Monoid m) => (a -> m) -> f a -> f b
+foldMapDefault :: (Traversable t, Monoid m) => (a -> m) -> t a -> m
 foldMapDefault f = getConst . traverse (Const . f)
 ```
 
