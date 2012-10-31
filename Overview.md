@@ -33,13 +33,13 @@ and write to parts of a whole:
 ("hello",42)
 ```
 
-Moreover, we can compose lenses with the Preludes `(.)`, which specializes perfectly:
+Moreover, we can compose lenses with Prelude's `(.)`, which specializes perfectly:
 
 ```haskell
 (.) :: Simple Lens a b -> Simple Lens b c -> Simple Lens a c
 ```
 
-Notice `(.)` composes in the opposite order from what you would expect as a functional programmer, but to an imperative programmer they provide the nice idiom that
+Notice that `(.)` composes in the opposite order from what you would expect as a functional programmer, but to an imperative programmer they provide the nice idiom that
 
 ```haskell
 >>> view (_2._1) ("hello",("world","!!!"))
