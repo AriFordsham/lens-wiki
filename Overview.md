@@ -33,7 +33,7 @@ and write to parts of a whole:
 ("hello",42)
 ```
 
-Moreover, we can compose lenses with `(.)`.
+Moreover, we can compose lenses with the Preludes `(.)`, which specializes perfectly:
 
 ```haskell
 (.) :: Simple Lens a b -> Simple Lens b c -> Simple Lens a c
@@ -48,7 +48,7 @@ Notice `(.)` composes in the opposite order from what you would expect as a func
 ("hello",("world","leaders"))
 ```
 
-Finally, you can use `id` as the identity lens
+Finally, you can use the ordinary Prelude `id` as the identity lens
 
 ```haskell
 id :: Simple Lens a a
@@ -89,6 +89,8 @@ With these you can now use lenses like field accessors.
 
 ```literate-haskell
 > ("hello",("world","!!!"))^._2._1
+"world"
+> ("hello",((1,True,"world"),"!!!"))^._2._1._3
 "world"
 ```
 
