@@ -68,6 +68,20 @@ ghci> view _2 (10,20)
 20
 ```
 
+You can also use `IndexedLens` for something similar to associative maps. Here's a retrieval:
+
+```haskell
+ghci> Map.fromList [("hello","there")] ^.at "hello"
+Just "there"
+```
+
+And this is how you set:
+
+```haskell
+ghci> Map.fromList [("hello","there")] % at "hello" ?~ "world"
+fromList [("hello","world")]
+```
+
 There are a large number of other lens variants provided by the library, in particular a `Traversal` generalizes `traverse` from `Data.Traversable`.
 
 We'll come back to those later, but continuing with just lenses:
