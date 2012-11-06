@@ -54,11 +54,32 @@ ghci> _1 .~ "hello" $ ((),"world")
 ("hello","world)
 ```
 
+It can be used in conjunction with `(%)` for familiar von Neumann style assignment syntax:
+
+```haskell
+ghci> ((), "world") % _1 .~ "hello"
+("hello","world)
+```
+
 Conversely `view`, can be used as an prefix alias for `(^.)`.
 
 ```haskell
 ghci> view _2 (10,20)
 20
+```
+
+You can also use `IndexedLens` for something similar to associative maps. Here's a retrieval:
+
+```haskell
+ghci> Map.fromList [("hello","there")] ^.at "hello"
+Just "there"
+```
+
+And this is how you set:
+
+```haskell
+ghci> Map.fromList [("hello","there")] % at "hello" ?~ "world"
+fromList [("hello","world")]
 ```
 
 There are a large number of other lens variants provided by the library, in particular a `Traversal` generalizes `traverse` from `Data.Traversable`.
@@ -68,6 +89,7 @@ We'll come back to those later, but continuing with just lenses:
 You can let the library automatically derive lenses for fields of your data type
 
 ```haskell
+{-# LANGUAGE TemplateHaskell #-}
 import Control.Lens
 
 data Foo a = Foo { _bar :: Int, _baz :: Int, _quux :: a }
