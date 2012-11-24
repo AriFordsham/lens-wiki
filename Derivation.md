@@ -208,7 +208,7 @@ We haven't gained much power over just passing in the functions `amap` or `Data.
 * Another thing that we have won is that if we have a `Traversable` container, we can pass its `traverse` in
 to `mapOf` instead of a `Setter` for the container.
 
-Setters form a category, using `(.)` and `id` for composition and identity, but you can use the existing `(.)` and `id` from the `Prelude` for them (though they compose `backwards`).
+Setters form a category, using `(.)` and `id` for composition and identity, but you can use the existing `(.)` and `id` from the `Prelude` for them (though they compose backwards).
 
 However, to gain that power we traded in other functionality. Knowing `f` is a `Functor` lets us instantiate the type arguments `a` and `b` to anything we want, over and over again, we also need to manually check any of the formerly free theorems we want to use with out `Setter`.
 
