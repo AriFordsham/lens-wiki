@@ -57,7 +57,7 @@ ghci> _1 .~ "hello" $ ((),"world")
 It can be used in conjunction with `(%)` for familiar von Neumann style assignment syntax:
 
 ```haskell
-ghci> ((), "world") % _1 .~ "hello"
+ghci> ((), "world") & _1 .~ "hello"
 ("hello","world)
 ```
 
@@ -78,7 +78,7 @@ Just "there"
 And this is how you set:
 
 ```haskell
-ghci> Map.fromList [("hello","there")] % at "hello" ?~ "world"
+ghci> Map.fromList [("hello","there")] & at "hello" ?~ "world"
 fromList [("hello","world")]
 ```
 
