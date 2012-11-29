@@ -8,7 +8,7 @@ h2. General FAQs
 * "How do you determine what falls into the scope of @lens@?":#scope
 * "Will you be splitting out a separate @lens-core@ package?":#lens-core
 * "Wasn't @fclabels@ or @data-lens@ good enough for you?":#good-enough
-
+* "How does this relate to 'Bananas, Lenses, Envelopes and Barbed Wire'?":#bananas
 
 h2. Usage Guidelines
 
@@ -85,6 +85,16 @@ However, the style of lenses used by @lens@ can be defined using functions from 
 There really wasn't a good library for working with van Laarhoven lens families when @lens@ was started. @lens-family@ had tried to be that library, but it required 3 separate packages to work with and used the same names between its Haskell 98 @lens-family-core@ package and the main @lens-family@ package. Moreover, it is shackled by Haskell 98. That said, the combinators for working with lenses from @lens-family-core@ are mostly compatible with the lenses provided by or for use by this package.
 
 By adopting and generalizing van Laarhoven lenses we are able to both provide rigorous laws for each of our lens variants *and* provide a better user experience, because almost any lens, projection, traversal, isomorphism, etc. that the user goes to reach for can be used with any combinator and it just "does the right thing". Unlike earlier lens libraries explicit conversions are almost entirely eliminated and the combinatorial explosion of combinators is eliminated along at least one axis.
+
+h4. <a name="bananas">Q:</a> How does this package relate to "Bananas, Lenses, Envelopes and Barbed Wire?"
+
+*A:* It doesn't. 
+
+Erik Meijer /et al./'s <a href="http://eprints.eemcs.utwente.nl/7281/01/db-utwente-40501F46.pdf">Functional Programming with Bananas, Lenses, Envelopes and Barbed Wire"</a> is a wonderful paper about a completely unrelated topic.
+
+In that paper they define catamorphisms, or folds, which they indicate syntactically with "banana brackets" @(|..|)@ and they define anamorphisms, or unfolds, which they indicate syntactically with "lenses" @[(..)]@.
+
+The "banana bracket" term is still sometimes used to talk about catamorphisms, but the other colloquial terms for their notations never really caught on.
 
 ***
 
