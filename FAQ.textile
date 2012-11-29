@@ -1,7 +1,7 @@
 h2. General FAQs
 
 * "What are goals of this project?":#goals
-* "How do you determine what falls into the scope of lens?":#scope
+* "How do you determine what falls into the scope of @lens@?":#scope
 * "Will you be splitting out a separate @lens-core@ package?":#lens-core
 
 h2. Usage Guidelines
