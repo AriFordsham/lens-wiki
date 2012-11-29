@@ -87,11 +87,13 @@ h4. <a name="lens-resources">Q:</a> Where can I learn more about lenses in gener
 
 * The @Bazaar@ comonad, which is used to characterize traversals and to implement many combinators is equivalent in power to an indexed version of the Cartesian Store comonad from Russell's <a href="http://arxiv.org/abs/1103.2841">"Functor is to Lens as Applicative is to Biplate: Introducing Multiplate"</a>, which is called the Kleene Store by him elsewhere. That type goes back farther to Twan van Laarhoven, who called it a @FunList@ in <a href="http://twanvl.nl/blog/haskell/non-regular1">"A non-regular data type challenge"</a>.
 
-* The name lens goes back to Benjamin Pierce's <a href="http://www.cis.upenn.edu/~bcpierce/papers/index.shtml#Lenses">work on bidirectional programming</a>. 
+* The name lens goes back to Benjamin Pierce's <a href="http://www.cis.upenn.edu/~bcpierce/papers/index.shtml#Lenses">work on bidirectional programming</a>. The notion of a lens in this package corresponds to his notion of a "very well-behaved lens".
 
 * Before that they were a folklore technique in the functional programming world, known as "functional references":
 ** <a href="http://article.gmane.org/gmane.comp.lang.haskell.cafe/28094">http://article.gmane.org/gmane.comp.lang.haskell.cafe/28094</a>
 ** <a href="http://twanvl.nl/blog/haskell/overloading-functional-references">http://twanvl.nl/blog/haskell/overloading-functional-references</a>
+
+* Janis Voightländer's work on <a href="http://link.springer.com/chapter/10.1007%2F978-3-642-32202-0_1">bidirectional programming</a> is also related.
 
 h4. <a name="bananas">Q:</a> How does this package relate to "Bananas, Lenses, Envelopes and Barbed Wire?"
 
