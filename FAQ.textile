@@ -19,7 +19,7 @@ h4. <a name="goals">Q:</a> What are the goals of this project? Why does this pro
 
 We simply provide you with a vocabulary for composing them and working with their compositions.
 
-One goal of @lens@ has been to provide a consistent vocabulary that lets you access and work with data.
+One goal of @lens@ has been to provide a consistent vocabulary that lets you access and work with pure data of any sort, while retaining the ability to be able to reason about your code with laws.
 
 h4. <a name="scope">Q:</a> How do you determine what falls into the scope of @lens@?
 
