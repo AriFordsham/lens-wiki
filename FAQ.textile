@@ -94,7 +94,7 @@ Erik Meijer _et al._'s <a href="http://eprints.eemcs.utwente.nl/7281/01/db-utwen
 
 In that paper they define <a href="http://comonad.com/haskell/catamorphisms.html">catamorphisms</a> (folds) which they indicate syntactically with "banana brackets" @(|..|)@ and they define anamorphisms (unfolds) which they indicate syntactically with "lenses" @[(..)]@ along with a couple of other <a href="http://comonad.com/reader/2009/recursion-schemes/">recursion schemes</a>.
 
-The "banana bracket" term is still sometimes used to talk about catamorphisms, but the other colloquial terms for their notations never really caught on.
+The "banana bracket" term is still sometimes used to talk about catamorphisms, but the other colloquial terms for their notations never really caught on. The notion of "lenses" that they use is just a reference to their syntax, and has nothing to do with the notion of a lens used by this library.
 
 ***
 
