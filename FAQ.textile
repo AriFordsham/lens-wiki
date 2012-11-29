@@ -79,7 +79,7 @@ h4. <a name="lens-resources">Q:</a> Where can I learn more about lenses in gener
 
 * Russell O'Connor wrote a blog post on <a href="http://r6.ca/blog/20120623T104901Z.html">Polymorphic Update with van Laarhoven Lenses</a>, which inspired Edward Kmett to post on his blog, the Comonad.Reader, <a href="http://comonad.com/reader/2012/mirrored-lenses/">Mirrored Lenses</a> the immediate precursor to the approach taken here.
 
-* The idea of a "van Laarhoven" lens goes back farther to Twan van Laarhoven. A number of posts about lenses or "functional references" can be found on <a href="http://twanvl.nl/>his blog</a>. 
+* The idea of a "van Laarhoven" lens goes back farther to Twan van Laarhoven. A number of posts about lenses or "functional references" can be found on <a href="http://twanvl.nl/">his blog</a>. 
 
 * The term "van Laarhoven" lens was coined by Russell O'Connor in <a href="http://arxiv.org/abs/1103.2841">"Functor is to Lens as Applicative is to Biplate: Introducing Multiplate"</a>. The concept now known as a Traversal can be viewed as a "biplate family" mixing the vocabulary from the Mirrored Lenses post and Russell's paper.
 
