@@ -92,6 +92,7 @@ h4. <a name="lens-resources">Q:</a> Where can I learn more about lenses in gener
 * Before that they were a folklore technique in the functional programming world, known as "functional references":
 ** <a href="http://article.gmane.org/gmane.comp.lang.haskell.cafe/28094">http://article.gmane.org/gmane.comp.lang.haskell.cafe/28094</a>
 ** <a href="http://twanvl.nl/blog/haskell/overloading-functional-references">http://twanvl.nl/blog/haskell/overloading-functional-references</a>
+** <a href="http://twanvl.nl/blog/haskell/References-Arrows-and-Categories">http://twanvl.nl/blog/haskell/References-Arrows-and-Categories</a>
 
 * Janis Voightländer's work on <a href="http://link.springer.com/chapter/10.1007%2F978-3-642-32202-0_1">bidirectional programming</a> is also related.
 
