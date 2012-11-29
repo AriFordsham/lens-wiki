@@ -3,6 +3,7 @@ h2. General FAQs
 * "What are goals of this project?":#goals
 * "How do you determine what falls into the scope of @lens@?":#scope
 * "Will you be splitting out a separate @lens-core@ package?":#lens-core
+* "Wasn't @fclabels@ or @data-lens@ good enough for you?":#good-enough
 
 h2. Usage Guidelines
 
@@ -18,9 +19,11 @@ h4. <a name="goals">Q:</a> What are the goals of this project? Why does this pro
 
 We simply provide you with a vocabulary for composing them and working with their compositions.
 
+One goal of @lens@ has been to provide a consistent vocabulary that lets you access and work with data.
+
 h4. <a name="scope">Q:</a> How do you determine what falls into the scope of @lens@?
 
-As a rule @lens@ incurs no package dependency that is not either in the <a href="http://www.haskell.org/platform/">Haskell Platform</a> or required to implement its own functionality.
+As a rule @lens@ incurs no package dependency that is not either in the <a href="http://www.haskell.org/platform/">Haskell Platform</a> *or* required to implement its own functionality.
 
 That said, we've tried to provide a "Batteries Included" API that provides useful tools for operating with anything that *does* fall into its scope.
 
@@ -38,11 +41,25 @@ The combinators in @Control.Lens.Plated@ are generally useful when working with 
 
 One part we *could* splinter out into a separate package are the combinators in @Control.Lens.Zipper@, but they are sort of the "killer app" for lenses and having them brought into scope by default with the rest of @Control.Lens@ minimizes confusion and encourages their adoption.
 
+h4. <a name="good-enough">Q:</a> Wasn't @fclabels@ or @data-lens@ good enough for you?
+
+Most of the power of @lens@ comes from working with generalizations of the notion of a Van Laarhoven lens. 
+
+None of @fclabels@, @data-lens@, @data-accessor@, @lenses@, @yall@, etc. provided this style of lens and most had attempted to generalize the idea of a @Lens@ by shoe-horning a @Monad@ or some other notion of partiality into the middle of it. This came at the expense of the laws that made working with lenses worth doing.
+
+Providing lenses for any of these libraries required picking up a dependency on a package, which means that it is really impractical or impossible for a reasonably "core" package on hackage to reasonably provide lenses for them.
+
+However, the style of lenses used by @lens@ can be defined using functions from the @Prelude@. No dependencies need be incurred to *supply* lenses, merely to use them!
+
+There really wasn't a good library for working with Van Laarhoven lens families when @lens@ was started. @lens-family@ had tried to be that library, but it required 3 separate packages to work with and used the same names between its Haskell 98 @lens-family-core@ package and the main @lens-family@ package. Moreover, it is shackled by Haskell 98. That said, the combinators for working with lenses from @lens-family-core@ are mostly compatible with the lenses provided by or for use by this package.
+
+By adopting and generalizing van Laarhoven lenses we are able to provide a better user experience, because almost any lens, projection, traversal, isomorphism, etc. that the user goes to reach for can be used with any combinator and it just "does the right thing". Explicit conversions are mostly eliminated.
+
 ***
 
 h3=. Usage Guidelines
 
-h4. <a name="using_getters">Q:</a> When should I define or use a @Getter@ rather than a function?
+h4. <a name="using-getters">Q:</a> When should I define or use a @Getter@ rather than a function?
 
 *A:* In general you shouldn't bother defining values that are just a @Getter@. It is almost always
 a better idea to just supply a function, and then drop it into the chain of lenses or traversals with @to@,
