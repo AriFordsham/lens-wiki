@@ -1,4 +1,4 @@
-h2. General FAQs
+h2. General
 
 * "What are goals of this project?":#goals
 * "How do you determine what falls into the scope of @lens@?":#scope
@@ -17,7 +17,7 @@ h2. Usage Guidelines
 
 ***
 
-h3=. General
+h3=. General FAQs
 
 h4. <a name="goals">Q:</a> What are the goals of this project? Why does this project exist?
 
