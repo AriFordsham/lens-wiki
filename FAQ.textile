@@ -90,7 +90,7 @@ h4. <a name="bananas">Q:</a> How does this package relate to "Bananas, Lenses, E
 
 *A:* It doesn't. 
 
-Erik Meijer /et al./'s <a href="http://eprints.eemcs.utwente.nl/7281/01/db-utwente-40501F46.pdf">Functional Programming with Bananas, Lenses, Envelopes and Barbed Wire"</a> is a wonderful paper about a completely unrelated topic.
+Erik Meijer _et al._'s <a href="http://eprints.eemcs.utwente.nl/7281/01/db-utwente-40501F46.pdf">Functional Programming with Bananas, Lenses, Envelopes and Barbed Wire"</a> is a wonderful paper about a completely unrelated topic.
 
 In that paper they define catamorphisms, or folds, which they indicate syntactically with "banana brackets" @(|..|)@ and they define anamorphisms, or unfolds, which they indicate syntactically with "lenses" @[(..)]@.
 
