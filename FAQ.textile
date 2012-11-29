@@ -26,7 +26,7 @@ h4. <a name="lens-core">Q:</a> Will you be splitting out a separate @lens-core@ 
 
 *A:* This is on the surface a very reasonable request, but it doesn't work very well in practice. To implement even basic @lens@ functionality requires a number of language extensions.
 
-Consider the extensions needed to break out the types and combinators for lenses, traversals, etc. separately from the rest of the package. We'd need @Rank2Types@ to even write @Lens@. Working with indexed lenses needs @TypeFamilies@, because without type equality coercions type inference for them is unusable. By the time we get done with @Projection@ and @Iso@ we've brought in a whole pile of extensions and already tied ourselves to the Glasgow Haskell Compiler.
+Consider the extensions needed to break out the types and combinators for lenses, traversals, etc. separately from the rest of the package. We'd need @Rank2Types@ to even write @Lens@. Working with indexed lenses needs @TypeFamilies@, because without type equality coercions type inference for them is unusable. By the time we get done with @Projection@ and @Iso@ we've brought in a whole pile of extensions and already tied ourselves to the <a href="http://www.haskell.org/ghc/">Glorious Glasgow Haskell Compiler</a>.
 
 Even with just this functionality, implementing these combinators already dragged in the @mtl@ and a large number of dependencies. We had to define a large number of internal types along the way, types we actually expose elsewhere to the user in the API, like @Context@ and @Bazaar@, which have useful @Comonad@ instances. This forces us to implement them correctly, orphan those instances or remove functionality.
 
