@@ -83,7 +83,7 @@ h4. <a name="lens-resources">Q:</a> Where can I learn more about lenses in gener
 
 * The term "van Laarhoven" lens was coined by Russell O'Connor in <a href="http://arxiv.org/abs/1103.2841">"Functor is to Lens as Applicative is to Biplate: Introducing Multiplate"</a>. The concept now known as a Traversal can be viewed as a "biplate family" mixing the vocabulary from the Mirrored Lenses post and Russell's paper.
 
-* The @Bazaar@ comonad, which is used to characterize traversals and to implement many combinators is an indexed version of the Kleene Store comonad from Russell's <a href="http://arxiv.org/abs/1103.2841">"Functor is to Lens as Applicative is to Biplate: Introducing Multiplate"</a>. That type goes back farther to Twan van Laarhoven, who called it a @FunList@ in <a href="http://twanvl.nl/blog/haskell/non-regular1">"A non-regular data type challenge"</a>.
+* The @Bazaar@ comonad, which is used to characterize traversals and to implement many combinators is equivalent in power to an indexed version of the Cartesian Store comonad from Russell's <a href="http://arxiv.org/abs/1103.2841">"Functor is to Lens as Applicative is to Biplate: Introducing Multiplate"</a>, which is called the Kleene Store by him elsewhere. That type goes back farther to Twan van Laarhoven, who called it a @FunList@ in <a href="http://twanvl.nl/blog/haskell/non-regular1">"A non-regular data type challenge"</a>.
 
 ***
 
