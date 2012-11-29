@@ -36,6 +36,8 @@ The combinators in @Control.Lens.Plated@ are generally useful when working with 
 
 One part we *could* splinter out into a separate package are the combinators in @Control.Lens.Zipper@, but they are sort of the "killer app" for lenses and having them brought into scope by default with the rest of @Control.Lens@ minimizes confusion and encourages their adoption.
 
+***
+
 h3=. Usage Guidelines
 
 h4. <a name="using_getters">Q:</a> When should I define or use a @Getter@ rather than a function?
