@@ -43,7 +43,7 @@ One part we *could* splinter out into a separate package are the combinators in 
 
 h4. <a name="good-enough">Q:</a> Wasn't @fclabels@ or @data-lens@ good enough for you?
 
-Most of the power of @lens@ comes from working with generalizations of the notion of a Van Laarhoven lens. 
+Most of the power of @lens@ comes from working with generalizations of the notion of a van Laarhoven lens. 
 
 None of @fclabels@, @data-lens@, @data-accessor@, @lenses@, @yall@, etc. provided this style of lens and most had attempted to generalize the idea of a @Lens@ by shoe-horning a @Monad@ or some other notion of partiality into the middle of it. This came at the expense of the laws that made working with lenses worth doing.
 
@@ -51,9 +51,9 @@ Providing lenses for any of these libraries required picking up a dependency on 
 
 However, the style of lenses used by @lens@ can be defined using functions from the @Prelude@. No dependencies need be incurred to *supply* lenses, merely to use them!
 
-There really wasn't a good library for working with Van Laarhoven lens families when @lens@ was started. @lens-family@ had tried to be that library, but it required 3 separate packages to work with and used the same names between its Haskell 98 @lens-family-core@ package and the main @lens-family@ package. Moreover, it is shackled by Haskell 98. That said, the combinators for working with lenses from @lens-family-core@ are mostly compatible with the lenses provided by or for use by this package.
+There really wasn't a good library for working with van Laarhoven lens families when @lens@ was started. @lens-family@ had tried to be that library, but it required 3 separate packages to work with and used the same names between its Haskell 98 @lens-family-core@ package and the main @lens-family@ package. Moreover, it is shackled by Haskell 98. That said, the combinators for working with lenses from @lens-family-core@ are mostly compatible with the lenses provided by or for use by this package.
 
-By adopting and generalizing van Laarhoven lenses we are able to provide a better user experience, because almost any lens, projection, traversal, isomorphism, etc. that the user goes to reach for can be used with any combinator and it just "does the right thing". Explicit conversions are mostly eliminated.
+By adopting and generalizing van Laarhoven lenses we are able to both provide rigorous laws for each of our lens variants *and* provide a better user experience, because almost any lens, projection, traversal, isomorphism, etc. that the user goes to reach for can be used with any combinator and it just "does the right thing". Unlike earlier lens libraries explicit conversions are almost entirely eliminated and the combinatorial explosion of combinators is eliminated along at least one axis.
 
 ***
 
