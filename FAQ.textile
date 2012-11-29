@@ -2,6 +2,10 @@ h2. General FAQs
 
 * "What are goals of this project?":#goals
 
+h2. Usage Guidelines
+
+* "When should I define or use a @Getter@ rather than a function?":#using_getters
+
 ***
 
 h3=. General
@@ -11,3 +15,11 @@ h4. <a name="goals">Q:</a> What are the goals of this project? Why does this pro
 *A:* The @lens@ library exists to provide more composable versions of the abstractions you already know how to use in Haskell. Every Haskell programmer already knows how to work with functors and functions or `Foldable` and `Traversable` containers. 
 
 We simply provide you with a vocabulary for composing them and working with their compositions.
+
+h3=. Usage Guidelines
+
+h4. <a name="using_getters">Q:</a> When should I define or use a @Getter@ rather than a function?
+
+*A:* In general you shouldn't bother defining values that are just a @Getter@. It is almost always
+a better idea to just supply a function, and then drop it into the chain of lenses or traversals with @to@,
+or by simply applying it to the final result.
