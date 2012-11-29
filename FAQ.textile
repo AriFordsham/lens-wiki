@@ -5,6 +5,10 @@ h2. General FAQs
 * "Will you be splitting out a separate @lens-core@ package?":#lens-core
 * "Wasn't @fclabels@ or @data-lens@ good enough for you?":#good-enough
 
+h2. Resources
+
+* "Where can I learning about lenses?":#lens-resources
+
 h2. Usage Guidelines
 
 * "When should I define or use a @Getter@ rather than a function?":#using-getters
@@ -54,6 +58,20 @@ However, the style of lenses used by @lens@ can be defined using functions from 
 There really wasn't a good library for working with van Laarhoven lens families when @lens@ was started. @lens-family@ had tried to be that library, but it required 3 separate packages to work with and used the same names between its Haskell 98 @lens-family-core@ package and the main @lens-family@ package. Moreover, it is shackled by Haskell 98. That said, the combinators for working with lenses from @lens-family-core@ are mostly compatible with the lenses provided by or for use by this package.
 
 By adopting and generalizing van Laarhoven lenses we are able to both provide rigorous laws for each of our lens variants *and* provide a better user experience, because almost any lens, projection, traversal, isomorphism, etc. that the user goes to reach for can be used with any combinator and it just "does the right thing". Unlike earlier lens libraries explicit conversions are almost entirely eliminated and the combinatorial explosion of combinators is eliminated along at least one axis.
+
+***
+
+h3=. Resources
+
+h4. <a name="lens-resources">Q:</a> Where can I learn more about lenses in general?
+
+*A:*
+
+* The first answer to <a href="http://stackoverflow.com/questions/5767129/lenses-fclabels-data-accessor-which-library-for-structure-access-and-mutatio/5769285#5769285">"lenses, fclabels, data-accessor - which library for structure access and mutation is better"</a> on Stack Overflow goes into some depth about how you can think about lenses and the different design trade-offs between the lens libraries that were then extant in Haskell.
+
+* The author, Edward Kmett, has video on youtube from his presentation on <a href="https://www.youtube.com/watch?v=efv0SQNde5Q&list=PLEDE5BE0C69AF6CCE&feature=plcp">"Lenses: A Functional Imperative"</a> covering the approach originally used in scalaz library for Scala. Slides are available online.
+
+* <a href="https://www.youtube.com/watch?v=BiHH3LzKV04">Seth Tisue</a> gave an excellent introduction to lenses as provided by Miles Sabin's <a href="https://github.com/milessabin/shapeless">shapeless</a> library in Scala. The turtle example from his talk is available in the @examples/@ folder.
 
 ***
 
