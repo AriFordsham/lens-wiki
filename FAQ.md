@@ -5,6 +5,7 @@ h2. General FAQs
 
 * "What are goals of this project?":#goals
 
+***
 
 h3=. General
 
