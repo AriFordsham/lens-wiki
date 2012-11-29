@@ -7,7 +7,7 @@ h2. General
 
 h2. Resources
 
-* "Where can I learning about lenses?":#lens-resources
+* "Where can I learn about lenses?":#lens-resources
 * "How does this relate to 'Bananas, Lenses, Envelopes and Barbed Wire'?":#bananas
 
 
