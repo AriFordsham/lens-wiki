@@ -90,8 +90,6 @@ You can let the library automatically derive lenses for fields of your data type
 
 ```haskell
 {-# LANGUAGE TemplateHaskell #-}
-import Control.Lens
-
 data Foo a = Foo { _bar :: Int, _baz :: Int, _quux :: a }
 makeLenses ''Foo
 ```
