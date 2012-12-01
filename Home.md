@@ -6,6 +6,8 @@ You probably want to start with some [Examples](wiki/Examples), the [Overview](w
 
 If you are interested in the design behind these lenses, you may want to also dig into their [Derivation](wiki/Derivation).
 
+Please help us by expanding the [FAQ](wiki/FAQ).
+
 A quick overview of the key operations of the core of the hierarchy of lens types can be seen below.
 
 [![UML Diagram](https://s3.amazonaws.com/creately-published/h5nyo9ne1)](https://creately.com/diagram/h5nyo9ne1/QZ9UBOtw4AJWtmAKYK3wT8Mm1HM%3D)
