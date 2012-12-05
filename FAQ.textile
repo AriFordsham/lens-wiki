@@ -49,7 +49,7 @@ h4. <a name="good-enough">Q:</a> Wasn't @fclabels@ or @data-lens@ good enough fo
 
 Most of the power of @lens@ comes from working with generalizations of the notion of a van Laarhoven lens. 
 
-None of @fclabels@, @data-lens@, @data-accessor@, @lenses@, @yall@, etc. provided this style of lens and most had attempted to generalize the idea of a @Lens@ by shoe-horning a @Monad@ or some other notion of partiality into the middle of it. This came at the expense of the laws that made working with lenses worth doing.
+*A:* None of @fclabels@, @data-lens@, @data-accessor@, @lenses@, @yall@, etc. provided this style of lens and most had attempted to generalize the idea of a @Lens@ by shoe-horning a @Monad@ or some other notion of partiality into the middle of it. This came at the expense of the laws that made working with lenses worth doing.
 
 Providing lenses for any of these libraries required picking up a dependency on a package, which means that it is really impractical or impossible for a reasonably "core" package on hackage to reasonably provide lenses for them.
 
