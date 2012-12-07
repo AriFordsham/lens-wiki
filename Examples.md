@@ -54,7 +54,7 @@ ghci> _1 .~ "hello" $ ((),"world")
 ("hello","world)
 ```
 
-It can be used in conjunction with `(%)` for familiar von Neumann style assignment syntax:
+It can be used in conjunction with `(&)` for familiar von Neumann style assignment syntax:
 
 ```haskell
 ghci> ((), "world") & _1 .~ "hello"
