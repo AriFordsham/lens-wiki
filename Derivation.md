@@ -123,7 +123,7 @@ mapOf l id = id
 mapOf l f . mapOf l g = mapOf l (f . g)
 ```
 
-so the function `m` you supply to sets must satisfy
+so the function `m` you supply to `sets` must satisfy
 
 ```haskell
 m id = id
@@ -210,7 +210,7 @@ to `mapOf` instead of a `Setter` for the container.
 
 Setters form a category, using `(.)` and `id` for composition and identity, but you can use the existing `(.)` and `id` from the `Prelude` for them (though they compose backwards).
 
-However, to gain that power we traded in other functionality. Knowing `f` is a `Functor` lets us instantiate the type arguments `a` and `b` to anything we want, over and over again, we also need to manually check any of the formerly free theorems we want to use with out `Setter`.
+However, to gain that power we traded in other functionality. Knowing `f` is a `Functor` lets us instantiate the type arguments `a` and `b` to anything we want, over and over again, we also need to manually check any of the formerly free theorems we want to use with our `Setter`.
 
 Many combinators for these are provided in [`Control.Lens.Setter`](https://github.com/ekmett/lens/blob/master/src/Control/Lens/Setter.hs).
 
