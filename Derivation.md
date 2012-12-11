@@ -73,7 +73,7 @@ Setters
 -------
 
 ```
-ghci> let mapOf t f = runIdentity . t (Identity . f)
+ghci> let mapOf l f = runIdentity . l (Identity . f)
 ghci> :t mapOf
 mapOf :: ((c -> Identity d) -> a -> Identity b) -> (c -> d) -> a -> b
 ```
@@ -91,7 +91,7 @@ mapOf :: Setter a b c d -> (c -> d) -> a -> b
 -- or
 mapOf :: ((c -> Identity d) -> a -> Identity b)
       ->  (c -> d)          -> a -> b
-mapOf t f = runIdentity . t (Identity . f)
+mapOf l f = runIdentity . l (Identity . f)
 ```
 
 (In the actual implementation we rename `Identity` to `Mutator` to provide nicer error messages)
@@ -237,7 +237,7 @@ foldMapDefault f = getConst . traverse (Const . f)
 If we plug in an argument for `traverse` and rip off the type signature, we get
 
 ```
-ghci> let foldMapOf t f = getConst . t (Const . f)
+ghci> let foldMapOf l f = getConst . l (Const . f)
 ghci> :t foldMapOf
 foldMapOf :: ((c -> Const m d) -> a -> Const m b) -> (c -> m) -> f c -> m
 ```
@@ -368,8 +368,8 @@ type Getting m a c = (c -> Const m c) -> a -> Const m a
 This hints that for something to be a valid `Traversal` it should be possible to choose `a ~ b`, and `c ~ d` and get a meaningful traversal. In fact the `Traversable` laws, which we still want to have hold for a `Traversal`, tell us that:
 
 ```haskell
-t pure = pure
-Compose . fmap (t f) . t g = t (Compose . fmap f . g)
+l pure = pure
+Compose . fmap (l f) . l g = l (Compose . fmap f . g)
 ```
 
 
