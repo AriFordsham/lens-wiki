@@ -496,7 +496,7 @@ What we want (so that uncps can work) is something completely polymorphic in `r`
 type Getter a c = forall r. (c -> Const r c) -> a -> Const r a
 ```
 
-Along the way, we get an interesting result, A `Getter` is just a `Fold` that doesn't use the `Monoid`! Recall:
+Along the way, we get an interesting result: a `Getter` is just a `Fold` that doesn't use the `Monoid`! Recall:
 
 ```haskell
 type Fold a c = forall r. Monoid r => (c -> Const r c) -> a -> Const r a
@@ -513,7 +513,7 @@ Remember, we can consume a `Traversal` because every `Traversal` is a valid `Fol
 
 Also note that `(^.)` doesn't require anything of `c`!
 
-When it gets applied the argument l will demand the properties of `c` that it needs:
+When it gets applied, the argument `l` will demand the properties of `c` that it needs:
 
 For instance when we apply `(^.)` to a `Fold`, it will demand a `Monoid` instance for `c`:
 
