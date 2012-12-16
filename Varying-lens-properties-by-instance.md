@@ -15,7 +15,7 @@ newtype ReadOnly = ReadOnly String
 rwName :: SimpleLens ReadWrite String
 rwName f (ReadWrite s) = ReadWrite `fmap` f s
 
-       -- Gettable f => SimpleLensLike f ReadWrite String
+       -- Gettable f => SimpleLensLike f ReadOnly String
 roName :: Getter ReadOnly String
 roName = to (\(ReadOnly a) -> a)
 ```
