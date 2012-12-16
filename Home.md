@@ -19,6 +19,6 @@ Contact Information
 Contributions and bug reports are welcome!  Please, feel free to update the content, as this is much more useful as a living
 document than as something that gets updated when I remember to do so.
 
-I can be contacted through github or on the #haskell IRC channel on irc.freenode.net.
+I can be contacted through github or on the #haskell or #haskell-lens IRC channels on irc.freenode.net.
 
 -Edward Kmett
