@@ -47,9 +47,7 @@ One part we *could* splinter out into a separate package are the combinators in 
 
 h4. <a name="good-enough">Q:</a> Wasn't @fclabels@ or @data-lens@ good enough for you?
 
-Most of the power of @lens@ comes from working with generalizations of the notion of a van Laarhoven lens. 
-
-*A:* None of @fclabels@, @data-lens@, @data-accessor@, @lenses@, @yall@, etc. provided this style of lens and most had attempted to generalize the idea of a @Lens@ by shoe-horning a @Monad@ or some other notion of partiality into the middle of it. This came at the expense of the laws that made working with lenses worth doing.
+*A:* Most of the power of @lens@ comes from working with generalizations of the notion of a van Laarhoven lens. None of @fclabels@, @data-lens@, @data-accessor@, @lenses@, @yall@, etc. provided this style of lens and most had attempted to generalize the idea of a @Lens@ by shoe-horning a @Monad@ or some other notion of partiality into the middle of it. This came at the expense of the laws that made working with lenses worth doing.
 
 Providing lenses for any of these libraries required picking up a dependency on a package, which means that it is really impractical or impossible for a reasonably "core" package on hackage to reasonably provide lenses for them.
 
@@ -75,7 +73,7 @@ h4. <a name="lens-resources">Q:</a> Where can I learn more about lenses in gener
 
 * If you prefer to learn by example, the @examples/@ folder contains a number of fully worked examples, including a playable game of pong and a brainfuck interpreter that were written by <a href="/nandykins">nandykins</a> to learn his way around @lens@.
 
-* The <a href="/lens/wiki/Derivation">Derivation</a> page of this wiki covers some of the motivation about how and why van Laarhoven lenses compose so well.
+* The <a href="/ekmett/lens/wiki/Derivation">Derivation</a> page of this wiki covers some of the motivation about how and why van Laarhoven lenses compose so well.
 
 * Russell O'Connor wrote a blog post on <a href="http://r6.ca/blog/20120623T104901Z.html">Polymorphic Update with van Laarhoven Lenses</a>, which inspired Edward Kmett to post on his blog, the Comonad.Reader, <a href="http://comonad.com/reader/2012/mirrored-lenses/">Mirrored Lenses</a> the immediate precursor to the approach taken here.
 
