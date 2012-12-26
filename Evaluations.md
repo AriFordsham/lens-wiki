@@ -211,7 +211,7 @@ getConst $ outed <$> Const [3,4,5,6]
 ```
 
 ```haskell
--- Better: over (partsOf' (both . both . mapped)) (*10) ((3,4),(5,6))
+-- Better: over (partsOf' (both . both) . mapped) (*10) ((3,4),(5,6))
 over (partsOf' (both . both)) (map (*10)) ((3,4),(5,6))
 
 runIdentity $ outed <$> (Identity . map (*10)) [3,4,5,6]
