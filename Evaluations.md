@@ -3,8 +3,9 @@
 This page contains manual evaluations of various interesting function calls to
 demonstrate what is going on in the internals of Lens.
 
-Some functions have been simplified by making them less generic than the actual
-versions in Lens for pedagogical reasons.
+Note 1: Some functions have been simplified by making them less generic or
+shorter-but-less-efficient than the actual versions in Lens for pedagogical
+reasons. See the Lens source code for the actual implementations.
 
 * `Const` ≡ `Accessor`
 * `Identity` ≡ `Mutator`
@@ -41,7 +42,7 @@ both . (\f (x,y) -> (,) <$> f x <*> f y)
 ```haskell
 view (iso (*10) (/10)) 5
 
--- view l = getConst . l Const
+-- view l = getConst . l Const  -- (See note 1)
 getConst $ iso (*10) (/10) Const 5
 
 -- iso sa bt = lmap sa . rmap (fmap bt)
@@ -137,7 +138,7 @@ both sell ("foo","bar")
 
 (,) <$> sell "foo" <*> sell "bar"
 
--- sell a = Bazaar (\f -> f a)
+-- sell a = Bazaar (\f -> f a)  -- (See note 1)
 (,) <$> Bazaar (\f -> f "foo") <*> Bazaar (\f -> f "bar")
 
 -- fmap f (Bazaar k) = Bazaar (fmap f . k)
@@ -173,7 +174,7 @@ let b = Bazaar $ \g -> (both . both) g ((3,4),(5,6))
     inned = toListOf (flip runBazaar) b
 in  outs b <$> f inned
 
--- toListOf l = getConst . l (\x -> Const [x])
+-- toListOf l = getConst . l (\x -> Const [x])  -- (See note 1)
 let b = Bazaar $ \g -> (both . both) g ((3,4),(5,6))
     inned = getConst $ flip runBazaar (\x -> Const [x]) b
 in  outs b <$> f inned
