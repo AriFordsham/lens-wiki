@@ -50,10 +50,8 @@ getConst $ (lmap (*10) . rmap (fmap (/10))) Const 5
 
 getConst $ lmap (*10) (rmap (fmap (/10)) Const) 5
 
--- lmap{(->)} = flip (.)
--- rmap{(->)} = (.)
-getConst $ flip (.) (*10) (fmap (/10) . Const) 5
-
+-- lmap f sa = sa . f
+-- rmap f bt = f . bt
 getConst $ (fmap (/10) . Const . (*10)) 5
 
 (*10) 5
@@ -74,10 +72,8 @@ runIdentity $ (lmap (*10) . rmap (fmap (/10))) (Identity . (+1)) 5
 
 runIdentity $ lmap (*10) (rmap (fmap (/10)) (Identity . (+1))) 5
 
--- lmap{(->)} = flip (.)
--- rmap{(->)} = (.)
-runIdentity $ flip (.) (*10) (fmap (/10) . Identity . (+1)) 5
-
+-- lmap f sa = sa . f
+-- rmap f bt = f . bt
 runIdentity $ (fmap (/10) . Identity . (+1) . (*10)) 5
 
 (/10) . (+1) . (*10) $ 5
