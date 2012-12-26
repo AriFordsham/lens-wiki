@@ -150,7 +150,7 @@ Bazaar (\f -> both f ("foo","bar"))
 
 ### `partsOf' (both . both)`
 
-See above for an evaluations of `both . both` and `l sell s`.
+See above for evaluations of `both . both` and `l sell s`.
 
 (Based on pre-3.8, 2012-12-26)
 
