@@ -73,9 +73,9 @@ Setters
 -------
 
 ```
-ghci> let mapOf l f = runIdentity . l (Identity . f)
-ghci> :t mapOf
-mapOf :: ((c -> Identity d) -> a -> Identity b) -> (c -> d) -> a -> b
+ghci> let over l f = runIdentity . l (Identity . f)
+ghci> :t over
+over :: ((c -> Identity d) -> a -> Identity b) -> (c -> d) -> a -> b
 ```
 
 So lets define a type alias for that:
@@ -87,18 +87,18 @@ type Setter a b c d = (c -> Identity d) -> a -> Identity b
 which lets us write this as:
 
 ```haskell
-mapOf :: Setter a b c d -> (c -> d) -> a -> b
+over :: Setter a b c d -> (c -> d) -> a -> b
 -- or
-mapOf :: ((c -> Identity d) -> a -> Identity b)
+over :: ((c -> Identity d) -> a -> Identity b)
       ->  (c -> d)          -> a -> b
-mapOf l f = runIdentity . l (Identity . f)
+over l f = runIdentity . l (Identity . f)
 ```
 
 (In the actual implementation we rename `Identity` to `Mutator` to provide nicer error messages)
 
 **Setter Laws**
 
-We can write an inverse of `mapOf` fairly mechanically:
+We can write an inverse of `over` fairly mechanically:
 
 ```haskell
 sets :: ((c -> d) -> a -> b) -> Setter a b c d
@@ -111,16 +111,16 @@ sets l f = Identity . l (runIdentity . f)
 It is trivial to verify that
 
 ```haskell
-sets . mapOf = id
-mapOf . sets = id
+sets . over = id
+over . sets = id
 ```
 
 but if we want the `Setter` to act like a `Functor`, the argument the user supplies to sets
 should satisfy a version of the `Functor` laws. In particular, we'd like:
 
 ```haskell
-mapOf l id = id
-mapOf l f . mapOf l g = mapOf l (f . g)
+over l id = id
+over l f . over l g = over l (f . g)
 ```
 
 so the function `m` you supply to `sets` must satisfy
@@ -145,7 +145,7 @@ mapped = sets fmap
 It is trivial then to check that
 
 ```haskell
-fmap = mapOf mapped
+fmap = over mapped
 ```
 
 Now we can write a number of combinators that are parameterized on the `Functor`-like construction they work over.
@@ -169,7 +169,7 @@ amapped = sets amap
 Then we can use
 
 ```haskell
-mapOf amapped :: (IArray a c, IArray a d, Ix i) => (c -> d) -> a i c -> a i d
+over amapped :: (IArray a c, IArray a d, Ix i) => (c -> d) -> a i c -> a i d
 ```
 
 instead of `amap`.
@@ -186,7 +186,7 @@ tmapped = sets Data.Text.map
 And it follows that:
 
 ```haskell
-mapOf tmapped :: (Char -> Char) -> Text -> Text
+over tmapped :: (Char -> Char) -> Text -> Text
 ```
 
 We haven't gained much power over just passing in the functions `amap` or `Data.Text.map` directly, yet, but we have gained two things:
@@ -203,10 +203,10 @@ We haven't gained much power over just passing in the functions `amap` or `Data.
   mapped.mapped :: (Functor f, Functor g) => Setter (f (g a)) (f (g b)) a b
   ```
 
-  So you can use `mapOf (mapped.mapped)` to recover the original `fmap.fmap` above. This lets you get away without using `Compose` to manually bolt functors to meet the shape requirements.
+  So you can use `over (mapped.mapped)` to recover the original `fmap.fmap` above. This lets you get away without using `Compose` to manually bolt functors to meet the shape requirements.
 
 * Another thing that we have won is that if we have a `Traversable` container, we can pass its `traverse` in
-to `mapOf` instead of a `Setter` for the container.
+to `over` instead of a `Setter` for the container.
 
 Setters form a category, using `(.)` and `id` for composition and identity, but you can use the existing `(.)` and `id` from the `Prelude` for them (though they compose backwards).
 
@@ -268,7 +268,7 @@ It follows by substitution that
 foldMapDefault = foldMapOf traverse
 ```
 
-we could define an inverse of `foldMapOf` as we did with `mapOf`, above, etc.
+we could define an inverse of `foldMapOf` as we did with `over`, above, etc.
 
 ```haskell
 folds :: ((c -> m) -> a -> m) -> Getting m a c
