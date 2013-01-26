@@ -27,9 +27,9 @@ One goal of @lens@ has been to provide a consistent vocabulary that lets you acc
 
 h4. <a name="scope">Q:</a> How do you determine what falls into the scope of @lens@?
 
-As a rule @lens@ incurs no package dependency that is not either in the <a href="http://www.haskell.org/platform/">Haskell Platform</a> *or* required to implement its own functionality.
+As a rule @lens@ tries to incur no package dependency that is not either in the <a href="http://www.haskell.org/platform/">Haskell Platform</a> *or* required to implement its own functionality.
 
-That said, we've tried to provide a "Batteries Included" API that provides useful tools for operating with anything that *does* fall into its scope.
+That said, we've tried to provide a "Batteries Included" API that provides useful tools for operating with anything that *does* fall into its scope, and we've wandered outside of these lines occasionally, when to do otherwise would have a performance impact or the dependency was small and had large impact on the generality of the library.
 
 h4. <a name="lens-core">Q:</a> Will you be splitting out a separate @lens-core@ package? The @build-depends:@ list has a lot of stuff I don't use.
 
