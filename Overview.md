@@ -94,7 +94,7 @@ With these you can now use lenses like field accessors.
 "world"
 ```
 
-You can also write to then in something approaching an imperative style:
+You can also write to them in something approaching an imperative style:
 
 ```literate-haskell
 > _2 .~ 42 $ ("hello",0)
