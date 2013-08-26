@@ -6,8 +6,8 @@ Lenses are composable functional references.
 Ignoring the implementation for the moment, lenses provide us with two operations:
 
 ```haskell
-view :: Simple Lens a b -> a -> b
-set :: Simple Lens a b -> b -> a -> a
+view :: Lens' a b -> a -> b
+set :: Lens' a b -> b -> a -> a
 ```
 
 So we can view a lens as a pair of a getter and a setter that are in some sense compatible.
@@ -15,8 +15,8 @@ So we can view a lens as a pair of a getter and a setter that are in some sense 
 We'll use the following lenses to start off:
 
 ```haskell
-_1 :: Simple Lens (a,b) a
-_2 :: Simple Lens (a,b) b
+_1 :: Lens' (a,b) a
+_2 :: Lens' (a,b) b
 ```
 
 to both read from
@@ -36,7 +36,7 @@ and write to parts of a whole:
 Moreover, we can compose lenses with Prelude's `(.)`, which specializes perfectly:
 
 ```haskell
-(.) :: Simple Lens a b -> Simple Lens b c -> Simple Lens a c
+(.) :: Lens' a b -> Lens' b c -> Lens' a c
 ```
 
 Notice that `(.)` composes in the opposite order from what you would expect as a functional programmer, but to an imperative programmer they provide the nice idiom that
@@ -51,7 +51,7 @@ Notice that `(.)` composes in the opposite order from what you would expect as a
 Finally, you can use the ordinary Prelude `id` as the identity lens
 
 ```haskell
-id :: Simple Lens a a
+id :: Lens' a a
 ```
 
 which just gives you back the value when used with `view` and which when set completely replaces the old value.
@@ -81,8 +81,8 @@ Note, that the type system isn't sufficient to check these laws for you, so you 
 We define infix operators to make working with lenses feel more imperative:
 
 ```haskell
-(^.) :: a -> Simple Lens a b -> b
-(.~) :: Simple Lens a b -> b -> a -> a
+(^.) :: a -> Lens' a b -> b
+(.~) :: Lens' a b -> b -> a -> a
 ```
 
 With these you can now use lenses like field accessors.
@@ -104,8 +104,8 @@ You can also write to them in something approaching an imperative style:
 There are also combinators for manipulating parts of the current state for a `State` monad, such as:
 
 ```haskell
-(.=) :: MonadState a m => SimpleLens a b -> b -> m ()
-use  :: MonadState a m => SimpleLens a b -> m b
+(.=) :: MonadState a m => Lens' a b -> b -> m ()
+use  :: MonadState a m => Lens' a b -> m b
 ```
 
 Using these (and other combinators for manipulating state) yields code like the following snippet from the `pong` example included in the distribution (where `p` is in the surrounding scope):
