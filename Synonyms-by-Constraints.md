@@ -23,7 +23,7 @@ Given a general type signature like `p a (f b) -> p s (f t)` the following c
 |                       | Applicative f   |
 |                       |                 |
 | **Setter** s t a b    | (->) ~ p        |
-|                       | Settable p      |
+|                       | Settable f      |
 |                       |                 |
 | **Action** m s a      | (->) ~ p        |
 |                       | b ~ a           |
