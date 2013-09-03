@@ -196,8 +196,9 @@ like Isos, but since our isomorphisms is partial in one direction, the
 data Doing a = Done a | Doing (Doing a)
 
 -- using @right'@ from package @profunctors@
--- class Profunctor p => Choice p where
---  right' :: p a b -> p (Either c a) (Either c b)
+-- 
+--   class Profunctor p => Choice p where
+--     right' :: p a b -> p (Either c a) (Either c b)
 
 _Done :: Prism' (Doing a) a
 _Done = dimap to fro . right' where
