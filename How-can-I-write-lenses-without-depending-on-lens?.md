@@ -199,6 +199,7 @@ data Doing a = Done a | Doing (Doing a)
 -- 
 --   class Profunctor p => Choice p where
 --     right' :: p a b -> p (Either c a) (Either c b)
+--     ...
 
 _Done :: Prism' (Doing a) a
 _Done = dimap to fro . right' where
