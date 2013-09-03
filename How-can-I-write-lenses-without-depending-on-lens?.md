@@ -221,5 +221,7 @@ prism bt seta = dimap seta (either pure (fmap bt)) . right'
 ---
 
 *Todo:*
+
 1. generalize this to the 4-parameter `s t a b` formulations.
+
 2. finish out the other types
