@@ -11,7 +11,7 @@ Traversal, Fold, Getter, ~~Setter~~, ~~Review~~, ~~Action~~, and
 The various guides follow, ordered by needed dependencies.
 
 **A note on inlining**. Generally, all lens-like functions get their
-best performance when aggressively INLINEd. GHC can infer inlining
+best performance when aggressively `INLINE`'d. GHC can infer inlining
 within a module, but the `INLINE` pragma is recommended for all
 lens-like functions so that they'll be inlined in other modules as
 well. (`<edwardk> INLINE all the things // lens really really needs to inline`)
