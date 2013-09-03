@@ -1,6 +1,6 @@
 For whenever you need to translate an expanded type signature into the correct Lens/Prism/Traversal/&c. synonym.
 
-Given a general type signature like `p a (f b) -> p s (f t)` the following c
+Given a general type signature like `p a (f b) -> p s (f t)` the following constraints on `p`, `f`, `a`, `b`, `s`, and `t` determine the kind of lens you have.
 
 | Synonym               | Constraints     |
 |-----------------------|-----------------|
