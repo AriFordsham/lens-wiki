@@ -218,6 +218,8 @@ prism bt seta = dimap seta (either pure (fmap bt)) . right'
 {-# INLINE prism #-}
 ```
 
+---
 
-*Todo:* generalize this to the 4-parameter `s t a b` formulations.
-*Todo:* finish out the other types
+*Todo:*
+1. generalize this to the 4-parameter `s t a b` formulations.
+2. finish out the other types
