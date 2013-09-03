@@ -201,7 +201,8 @@ data Doing a = Done a | Doing (Doing a)
 --     right' :: p a b -> p (Either c a) (Either c b)
 --     ...
 
-_Done :: Prism' (Doing a) a
+-- _Done :: Prism' (Doing a) a
+_Done :: (Choice p, Applicative f) => p a (f a) -> p (Doing a) (f (Doing a))
 _Done = dimap to fro . right' where
   to (Done a)    = Right a
   to x           = Left x
