@@ -14,6 +14,7 @@ h2. Resources
 h2. Usage Guidelines
 
 * "When should I define or use a @Getter@ rather than a function?":#using-getters
+* "How can I build lenses without depending on the package itself?":#lenscrafting
 
 ***
 
@@ -113,3 +114,7 @@ h4. <a name="using-getters">Q:</a> When should I define or use a @Getter@ rather
 *A:* In general you shouldn't bother defining values that are just a @Getter@. It is almost always
 a better idea to just supply a function, and then drop it into the chain of lenses or traversals with @to@,
 or by simply applying it to the final result.
+
+h4. <a name="lenscrafting">Q:</a> How can I build lenses without depending on the package itself?
+
+*A:* It may be possible to define your lens using only base, or you may need to depend on one or both of profunctors and contravariant. More details are avaialble on the "<em>How can I write lenses without depending on lens?</em>":https://github.com/ekmett/lens/wiki/How-can-I-write-lenses-without-depending-on-lens%3F page
