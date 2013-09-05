@@ -1,7 +1,7 @@
 What are Lenses?
 ----------------
 
-Lenses are composable functional references.
+Lenses are composable functional references. They allow you to access and modify data potentially very deep within a structure!
 
 Ignoring the implementation for the moment, lenses provide us with two operations:
 
