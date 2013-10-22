@@ -11,11 +11,11 @@ import GHC.Exts -- for the Constraint kind
 newtype ReadWrite = ReadWrite String
 newtype ReadOnly = ReadOnly String
 
-       -- Functor f => SimpleLensLike f ReadWrite String
-rwName :: SimpleLens ReadWrite String
+       -- Functor f => LensLike' f ReadWrite String
+rwName :: Lens' ReadWrite String
 rwName f (ReadWrite s) = ReadWrite `fmap` f s
 
-       -- Gettable f => SimpleLensLike f ReadOnly String
+       -- Gettable f => LensLike' f ReadOnly String
 roName :: Getter ReadOnly String
 roName = to (\(ReadOnly a) -> a)
 ```
@@ -26,7 +26,7 @@ Using a multi-parameter type class
 Now the only difference between a Getter and a Lens is the restriction on the type of Functor it can be used with. So, the first idea is to let our class take that Functor as a parameter:
 ```haskell
 class NamedMPTC f a where
-  nameMPTC :: SimpleLensLike f a String
+  nameMPTC :: LensLike' f a String
 
 instance Functor f => NamedMPTC f ReadWrite where
   nameMPTC = rwName
@@ -55,7 +55,7 @@ This means we'll need at least GHC 7.4. Let's see the code first:
 ```haskell
 class Named a where
     type NameConstraint a f :: Constraint
-    name :: NameConstraint a f => SimpleLensLike f a String
+    name :: NameConstraint a f => LensLike' f a String
 
 instance Named ReadWrite where
     type NameConstraint ReadWrite f = Functor f
@@ -67,11 +67,11 @@ instance Named ReadOnly where
 ```
 Let's see how the types work. First let's look at the type of `name`:
 ```haskell
-name :: (NameConstraint a f, Named a) => SimpleLensLike f a String
+name :: (NameConstraint a f, Named a) => LensLike' f a String
 ```
 When we specialize to `a = ReadOnly`, the `Named a` constraint is satisfied and `NameConstraint a f` just becomes `Gettable f`, so we end up with
 ```haskell
-name :: Gettable f => SimpleLensLike f ReadOnly String
+name :: Gettable f => LensLike' f ReadOnly String
 ```
 which is exactly the type of `roName` we had before.
 

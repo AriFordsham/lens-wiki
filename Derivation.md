@@ -73,54 +73,54 @@ Setters
 -------
 
 ```
-ghci> let mapOf l f = runIdentity . l (Identity . f)
-ghci> :t mapOf
-mapOf :: ((c -> Identity d) -> a -> Identity b) -> (c -> d) -> a -> b
+ghci> let over l f = runIdentity . l (Identity . f)
+ghci> :t over
+over :: ((a -> Identity b) -> s -> Identity t) -> (a -> b) -> s -> t
 ```
 
 So lets define a type alias for that:
 
 ```haskell
-type Setter a b c d = (c -> Identity d) -> a -> Identity b
+type Setter s t a b = (a -> Identity b) -> s -> Identity t
 ```
 
 which lets us write this as:
 
 ```haskell
-mapOf :: Setter a b c d -> (c -> d) -> a -> b
+over :: Setter s t a b -> (a -> b) -> s -> t
 -- or
-mapOf :: ((c -> Identity d) -> a -> Identity b)
-      ->  (c -> d)          -> a -> b
-mapOf l f = runIdentity . l (Identity . f)
+over :: ((a -> Identity b) -> s -> Identity t)
+     ->  (a -> b)          -> s -> t
+over l f = runIdentity . l (Identity . f)
 ```
 
 (In the actual implementation we rename `Identity` to `Mutator` to provide nicer error messages)
 
 **Setter Laws**
 
-We can write an inverse of `mapOf` fairly mechanically:
+We can write an inverse of `over` fairly mechanically:
 
 ```haskell
-sets :: ((c -> d) -> a -> b) -> Setter a b c d
+sets :: ((a -> b) -> s -> t) -> Setter s t a b
 -- or
-sets :: ((c -> d)          -> a -> b)
-     ->  (c -> Identity d) -> a -> Identity b
+sets :: ((a -> b)          -> s -> t)
+     ->  (a -> Identity b) -> s -> Identity t
 sets l f = Identity . l (runIdentity . f)
 ```
 
 It is trivial to verify that
 
 ```haskell
-sets . mapOf = id
-mapOf . sets = id
+sets . over = id
+over . sets = id
 ```
 
 but if we want the `Setter` to act like a `Functor`, the argument the user supplies to sets
 should satisfy a version of the `Functor` laws. In particular, we'd like:
 
 ```haskell
-mapOf l id = id
-mapOf l f . mapOf l g = mapOf l (f . g)
+over l id = id
+over l f . over l g = over l (f . g)
 ```
 
 so the function `m` you supply to `sets` must satisfy
@@ -145,7 +145,7 @@ mapped = sets fmap
 It is trivial then to check that
 
 ```haskell
-fmap = mapOf mapped
+fmap = over mapped
 ```
 
 Now we can write a number of combinators that are parameterized on the `Functor`-like construction they work over.
@@ -169,7 +169,7 @@ amapped = sets amap
 Then we can use
 
 ```haskell
-mapOf amapped :: (IArray a c, IArray a d, Ix i) => (c -> d) -> a i c -> a i d
+over amapped :: (IArray a c, IArray a d, Ix i) => (c -> d) -> a i c -> a i d
 ```
 
 instead of `amap`.
@@ -186,7 +186,7 @@ tmapped = sets Data.Text.map
 And it follows that:
 
 ```haskell
-mapOf tmapped :: (Char -> Char) -> Text -> Text
+over tmapped :: (Char -> Char) -> Text -> Text
 ```
 
 We haven't gained much power over just passing in the functions `amap` or `Data.Text.map` directly, yet, but we have gained two things:
@@ -203,10 +203,10 @@ We haven't gained much power over just passing in the functions `amap` or `Data.
   mapped.mapped :: (Functor f, Functor g) => Setter (f (g a)) (f (g b)) a b
   ```
 
-  So you can use `mapOf (mapped.mapped)` to recover the original `fmap.fmap` above. This lets you get away without using `Compose` to manually bolt functors to meet the shape requirements.
+  So you can use `over (mapped.mapped)` to recover the original `fmap.fmap` above. This lets you get away without using `Compose` to manually bolt functors to meet the shape requirements.
 
 * Another thing that we have won is that if we have a `Traversable` container, we can pass its `traverse` in
-to `mapOf` instead of a `Setter` for the container.
+to `over` instead of a `Setter` for the container.
 
 Setters form a category, using `(.)` and `id` for composition and identity, but you can use the existing `(.)` and `id` from the `Prelude` for them (though they compose backwards).
 
@@ -217,7 +217,7 @@ Many combinators for these are provided in [`Control.Lens.Setter`](https://githu
 As an aside, we can now define the `(.~)` (and `set`) combinators we used during the introduction:
 
 ```haskell
-(.~), set :: Setter a b c d -> d -> a -> b
+(.~), set :: Setter s t a b -> b -> s -> t
 l .~ d = runIdentity . l (Identity . const d)
 set = (.~)
 ```
@@ -239,7 +239,7 @@ If we plug in an argument for `traverse` and rip off the type signature, we get
 ```
 ghci> let foldMapOf l f = getConst . l (Const . f)
 ghci> :t foldMapOf
-foldMapOf :: ((c -> Const m d) -> a -> Const m b) -> (c -> m) -> f c -> m
+foldMapOf :: ((a -> Const r b) -> s -> Const r t) -> (a -> r) -> s -> r
 ```
 
 The second argument to `Const` is polymorphic in each case, but to avoid dangling type variables we'll eliminate them by making them match.
@@ -247,7 +247,7 @@ The second argument to `Const` is polymorphic in each case, but to avoid danglin
 Writing it out, and making up a type alias:
 
 ```haskell
-type Getting m a c = (c -> Const m c) -> a -> Const m a
+type Getting r s a = (a -> Const r a) -> s -> Const r s
 ```
 
 (Note: In the actual implementation `Const` is renamed to `Accessor` for error reporting reasons)
@@ -255,10 +255,10 @@ type Getting m a c = (c -> Const m c) -> a -> Const m a
 we can make the slightly nicer looking type
 
 ```haskell
-foldMapOf :: Getting m a c -> (c -> m) -> a -> m
+foldMapOf :: Getting r s a -> (a -> r) -> s -> r
 -- or
-foldMapOf :: ((c -> Const m c) -> a -> Const m a)
-          ->  (c -> m)         -> a -> m
+foldMapOf :: ((a -> Const r a) -> s -> Const r s)
+          ->  (a -> r)         -> s -> r
 foldMapOf l f = getConst . l (Const . f)
 ```
 
@@ -268,13 +268,13 @@ It follows by substitution that
 foldMapDefault = foldMapOf traverse
 ```
 
-we could define an inverse of `foldMapOf` as we did with `mapOf`, above, etc.
+we could define an inverse of `foldMapOf` as we did with `over`, above, etc.
 
 ```haskell
-folds :: ((c -> m) -> a -> m) -> Getting m a c
+folds :: ((a -> r) -> s -> r) -> Getting r s a
 -- or
-folds :: ((c -> m)         -> a -> m)
-      ->  (c -> Const m c) -> a -> Const m a
+folds :: ((a -> r)         -> s -> r)
+      ->  (a -> Const r a) -> s -> Const r s
 folds l f = Const . l (getConst . f)
 ```
 
@@ -288,13 +288,13 @@ foldMapOf . folds = id
 and so we can see that we can pass something other than `traverse` to `foldMapOf`:
 
 ```haskell
-type Fold a b c d = forall m. Monoid m => (c -> Const m d) -> a -> Const m b
+type Fold s t a b = forall m. Monoid m => (a -> Const m b) -> s -> Const m t
 ```
 
 ```haskell
-folded :: Foldable f => Fold (f c) b c d
+folded :: Foldable f => Fold (f a) (f a) a a
 -- or
-folded :: (Foldable f, Monoid m) => (c -> Const m d) -> f c -> Const m b
+folded :: (Foldable f, Monoid m) => (a -> Const m a) -> f a -> Const m (f a)
 folded = folds foldMap
 ```
 
@@ -327,19 +327,19 @@ Given the `Monoid` m, `Const m` forms an `Applicative`, and `Identity` is also `
 So substituting back in to the definitions above, we find:
 
 ```haskell
-type SimpleTraversal a c = forall f. Applicative f => (c -> f c) -> a -> f a
+type SimpleTraversal s a = forall f. Applicative f => (a -> f a) -> s -> f s
 ```
 
 But this is weaker than what we started with, since
 
 ```haskell
-traverse :: (Traversable t, Applicative f) => (c -> f d) -> t c -> f (t d)
+traverse :: (Traversable t, Applicative f) => (a -> f b) -> t a -> f (t b)
 ```
 
 Picking
 
 ```haskell
-type Traversal a b c d = forall f. Applicative f => (c -> f d) -> a -> f b
+type Traversal s t a b = forall f. Applicative f => (a -> f b) -> s -> f t
 ```
 
 we get something that subsumes
@@ -362,10 +362,10 @@ But, what happened?
 When I picked the type for `Getting`, I only used two type arguments.
 
 ```haskell
-type Getting m a c = (c -> Const m c) -> a -> Const m a
+type Getting r s a = (a -> Const r a) -> s -> Const r s
 ```
 
-This hints that for something to be a valid `Traversal` it should be possible to choose `a ~ b`, and `c ~ d` and get a meaningful traversal. In fact the `Traversable` laws, which we still want to have hold for a `Traversal`, tell us that:
+This hints that for something to be a valid `Traversal` it should be possible to choose `s ~ t`, and `a ~ b` and get a meaningful traversal. In fact the `Traversable` laws, which we still want to have hold for a `Traversal`, tell us that:
 
 ```haskell
 l pure = pure
@@ -373,7 +373,7 @@ Compose . fmap (l f) . l g = l (Compose . fmap f . g)
 ```
 
 
-And the first of those laws requires `a ~ b`, `c ~ d` to be a possible choice of the type arguments to your `Traversal`. We implement this polymorphic overloading of traversals in a fairly ad hoc way, by just making the user provide the "family structure" for us.
+And the first of those laws requires `s ~ t`, `a ~ b` to be a possible choice of the type arguments to your `Traversal`. We implement this polymorphic overloading of traversals in a fairly ad hoc way, by just making the user provide the "family structure" for us.
 
 Given that our `Traversal` satisfies the `Traversable` laws, the laws for `Setter` immediately follow, and `Fold` had no extra laws to check.
 
@@ -487,35 +487,35 @@ cps f . cps g . cps h :: (D -> r) -> (A -> r)
 Earlier we provided a type for consuming a `Fold`:
 
 ```haskell
-type Getting r a c = (c -> Const r c) -> a -> Const r a
+type Getting r s a = (a -> Const r a) -> s -> Const r s
 ```
 
 What we want (so that uncps can work) is something completely polymorphic in `r`.
 
 ```haskell
-type Getter a c = forall r. (c -> Const r c) -> a -> Const r a
+type Getter s a = forall r. (a -> Const r a) -> s -> Const r s
 ```
 
 Along the way, we get an interesting result: a `Getter` is just a `Fold` that doesn't use the `Monoid`! Recall:
 
 ```haskell
-type Fold a c = forall r. Monoid r => (c -> Const r c) -> a -> Const r a
+type Fold s a = forall r. Monoid r => (a -> Const r a) -> s -> Const r s
 ```
 
 We can go back and define `(^.)` now, and empower it to consume either a `Fold` or `Getter` or `Traversal`.
 
 ```haskell
-(^.) :: a -> Getting c a c -> c
+(^.) :: s -> Getting a s a -> a
 a ^. l = getConst (l Const a)
 ```
 
 Remember, we can consume a `Traversal` because every `Traversal` is a valid `Fold`, just like every `Getter` is a valid `Fold`.
 
-Also note that `(^.)` doesn't require anything of `c`!
+Also note that `(^.)` doesn't require anything of `a`!
 
-When it gets applied, the argument `l` will demand the properties of `c` that it needs:
+When it gets applied, the argument `l` will demand the properties of `a` that it needs:
 
-For instance when we apply `(^.)` to a `Fold`, it will demand a `Monoid` instance for `c`:
+For instance when we apply `(^.)` to a `Fold`, it will demand a `Monoid` instance for `a`:
 
 ```haskell
 (^.folded) :: (Foldable f, Monoid m) => f m -> m
@@ -546,7 +546,7 @@ Without the `Monoid`, all that `Const` and `Identity` have in common is that eac
 
 
 ```haskell
-type Lens a b c d = forall f. Functor f => (c -> f d) -> a -> f b
+type Lens s t a b = forall f. Functor f => (a -> f b) -> s -> f t
 ```
 
 We inherit the `Traversal` laws, so we know for a `Lens` `l`
@@ -556,4 +556,4 @@ l pure = pure
 Compose . fmap (l f) . l g = l (Compose . fmap f . g)
 ```
 
-and we also know that a `Lens a b c d` can be used as a function from `(a -> c)`.
+and we also know that a `Lens s t a b` can be used as a function from `(s -> a)`.

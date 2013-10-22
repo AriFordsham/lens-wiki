@@ -14,6 +14,7 @@ h2. Resources
 h2. Usage Guidelines
 
 * "When should I define or use a @Getter@ rather than a function?":#using-getters
+* "How can I build lenses without depending on the package itself?":#lenscrafting
 
 ***
 
@@ -27,15 +28,15 @@ One goal of @lens@ has been to provide a consistent vocabulary that lets you acc
 
 h4. <a name="scope">Q:</a> How do you determine what falls into the scope of @lens@?
 
-As a rule @lens@ incurs no package dependency that is not either in the <a href="http://www.haskell.org/platform/">Haskell Platform</a> *or* required to implement its own functionality.
+As a rule @lens@ tries to incur no package dependency that is not either in the <a href="http://www.haskell.org/platform/">Haskell Platform</a> *or* required to implement its own functionality.
 
-That said, we've tried to provide a "Batteries Included" API that provides useful tools for operating with anything that *does* fall into its scope.
+That said, we've tried to provide a "Batteries Included" API that provides useful tools for operating with anything that *does* fall into its scope, and we've wandered outside of these lines occasionally, when to do otherwise would have a performance impact or the dependency was small and had large impact on the generality of the library.
 
 h4. <a name="lens-core">Q:</a> Will you be splitting out a separate @lens-core@ package? The @build-depends:@ list has a lot of stuff I don't use.
 
 *A:* This is on the surface a very reasonable request, but it doesn't work very well in practice. To implement even basic @lens@ functionality requires a number of language extensions.
 
-Consider the extensions needed to break out the types and combinators for lenses, traversals, etc. separately from the rest of the package. We'd need @Rank2Types@ to even write @Lens@. Working with indexed lenses needs @TypeFamilies@, because without type equality coercions type inference for them is unusable. By the time we get done with @Projection@ and @Iso@ we've brought in a whole pile of extensions and already tied ourselves to the <a href="http://www.haskell.org/ghc/">Glorious Glasgow Haskell Compiler</a>.
+Consider the extensions needed to break out the types and combinators for lenses, traversals, etc. separately from the rest of the package. We'd need @Rank2Types@ to even write @Lens@. Working with indexed lenses needs @TypeFamilies@, because without type equality coercions type inference for them is unusable. By the time we get done with @Prism@ and @Iso@ we've brought in a whole pile of extensions and already tied ourselves to the <a href="http://www.haskell.org/ghc/">Glorious Glasgow Haskell Compiler</a>.
 
 Even with just this functionality, implementing these combinators already dragged in the @mtl@ and a large number of dependencies. We had to define a large number of internal types along the way, types we actually expose elsewhere to the user in the API, like @Context@ and @Bazaar@, which have useful @Comonad@ instances. This forces us to implement them correctly, orphan those instances or remove functionality.
 
@@ -55,7 +56,7 @@ However, the style of lenses used by @lens@ can be defined using functions from 
 
 There really wasn't a good library for working with van Laarhoven lens families when @lens@ was started. @lens-family@ had tried to be that library, but it required 3 separate packages to work with and used the same names between its Haskell 98 @lens-family-core@ package and the main @lens-family@ package. Moreover, it is shackled by Haskell 98. That said, the combinators for working with lenses from @lens-family-core@ are mostly compatible with the lenses provided by or for use by this package.
 
-By adopting and generalizing van Laarhoven lenses we are able to both provide rigorous laws for each of our lens variants *and* provide a better user experience, because almost any lens, projection, traversal, isomorphism, etc. that the user goes to reach for can be used with any combinator and it just "does the right thing". Unlike earlier lens libraries explicit conversions are almost entirely eliminated and the combinatorial explosion of combinators is eliminated along at least one axis.
+By adopting and generalizing van Laarhoven lenses we are able to both provide rigorous laws for each of our lens variants *and* provide a better user experience, because almost any lens, prism, traversal, isomorphism, etc. that the user goes to reach for can be used with any combinator and it just "does the right thing". Unlike earlier lens libraries explicit conversions are almost entirely eliminated and the combinatorial explosion of combinators is eliminated along at least one axis.
 
 ***
 
@@ -113,3 +114,7 @@ h4. <a name="using-getters">Q:</a> When should I define or use a @Getter@ rather
 *A:* In general you shouldn't bother defining values that are just a @Getter@. It is almost always
 a better idea to just supply a function, and then drop it into the chain of lenses or traversals with @to@,
 or by simply applying it to the final result.
+
+h4. <a name="lenscrafting">Q:</a> How can I build lenses without depending on the package itself?
+
+*A:* It may be possible to define your lens using only base, or you may need to depend on one or both of profunctors and contravariant. More details are avaialble on the "<em>How can I write lenses without depending on lens?</em>":https://github.com/ekmett/lens/wiki/How-can-I-write-lenses-without-depending-on-lens%3F page
