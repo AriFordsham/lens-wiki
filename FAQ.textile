@@ -44,8 +44,6 @@ Since we're already tied to GHC, and the Template Haskell code generator for @ma
 
 The combinators in @Control.Lens.Plated@ are generally useful when working with any @Traversal@ and we use @Plated@ internally.
 
-One part we *could* splinter out into a separate package are the combinators in @Control.Lens.Zipper@, but they are sort of the "killer app" for lenses and having them brought into scope by default with the rest of @Control.Lens@ minimizes confusion and encourages their adoption.
-
 h4. <a name="good-enough">Q:</a> Wasn't @fclabels@ or @data-lens@ good enough for you?
 
 *A:* Most of the power of @lens@ comes from working with generalizations of the notion of a van Laarhoven lens. None of @fclabels@, @data-lens@, @data-accessor@, @lenses@, @yall@, etc. provided this style of lens and most had attempted to generalize the idea of a @Lens@ by shoe-horning a @Monad@ or some other notion of partiality into the middle of it. This came at the expense of the laws that made working with lenses worth doing.
