@@ -54,7 +54,7 @@ However, the style of lenses used by @lens@ can be defined using functions from 
 
 There really wasn't a good library for working with van Laarhoven lens families when @lens@ was started. @lens-family@ had tried to be that library, but it required 3 separate packages to work with and used the same names between its Haskell 98 @lens-family-core@ package and the main @lens-family@ package. Moreover, it is shackled by Haskell 98. That said, the combinators for working with lenses from @lens-family-core@ are mostly compatible with the lenses provided by or for use by this package.
 
-By adopting and generalizing van Laarhoven lenses we are able to both provide rigorous laws for each of our lens variants *and* provide a better user experience, because almost any lens, prism, traversal, isomorphism, etc. that the user goes to reach for can be used with any combinator and it just "does the right thing". Unlike earlier lens libraries explicit conversions are almost entirely eliminated and the combinatorial explosion of combinators is eliminated along at least one axis.
+By adopting and generalizing van Laarhoven lenses we are able to both provide rigorous laws for each of our lens variants *and* provide a better user experience, because almost any lens, prism, traversal, isomorphism, etc. that the user goes to reach for can be used with any combinator and it just "does the right thing". Unlike earlier lens libraries explicit conversions are almost entirely absent, and the combinatorial explosion of combinators is eliminated along at least one axis.
 
 ***
 
