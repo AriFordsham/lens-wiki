@@ -10,8 +10,7 @@ Please help us by expanding the [FAQ](wiki/FAQ).
 
 A quick overview of the key operations of the core of the hierarchy of lens types can be seen below.
 
-[![UML Diagram](https://s3.amazonaws.com/creately-published/h5nyo9ne1)](https://creately.com/diagram/h5nyo9ne1/QZ9UBOtw4AJWtmAKYK3wT8Mm1HM%3D)
-<!-- ![UML Diagram](https://github.com/ekmett/lens/wiki/images/Hierarchy.png) --> 
+[![UML Diagram](https://raw.githubusercontent.com/wiki/ekmett/lens/images/Hierarchy.png)](https://creately.com/diagram/h5nyo9ne1/QZ9UBOtw4AJWtmAKYK3wT8Mm1HM%3D)
 
 Contact Information
 -------------------
