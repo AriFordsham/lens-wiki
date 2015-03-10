@@ -106,7 +106,7 @@ A `Lens` takes 4 parameters because it can change the types of the whole when yo
 Often you won't need this flexibility, a `Simple Lens` takes 2 parameters, and can be used directly as a `Lens`.
 
 You can also write to setters that target multiple parts of a structure, or their composition with other
-lenses or setters. The canonical example of a setter is 'mapped':
+lenses or setters. The canonical example of a setter is `mapped`:
 
 ```haskell
 mapped :: Functor f => Setter (f a) (f b) a b
