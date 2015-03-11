@@ -426,7 +426,7 @@ cps :: (a -> c) -> (c -> r) -> a -> r
 cps f g = g . f
 ```
 
-That is to say, rather than return a result `c`, it takes a function from `(c -> m)` and calls it with the answer instead.
+That is to say, rather than return a result `c`, it takes a function from `(c -> r)` and calls it with the answer instead.
 
 If we have a CPS'd function that is polymorphic in its return type, we can get the original function back out:
 
