@@ -14,23 +14,23 @@ Operators
 <tbody>
 <tr><th colspan=5><a href="http://ekmett.github.com/lens/Control-Lens.html">Control.Lens</a></th></tr>
 <tr>
-  <td><a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:view"><code>view</code></a>,<a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:views"><code>views</code></a>,<a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:-94-."><code>^.</code></a></td>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:view"><code>view</code></a>, <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:views"><code>views</code></a>, <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:-94-."><code>^.</code></a></td>
   <td/>
-  <td><a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:use"><code>use</code></a>,<a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:uses"><code>uses</code></a></td>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:use"><code>use</code></a>, <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:uses"><code>uses</code></a></td>
   <td/>
   <td>View target(s). <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:view"><code>view</code></a> works like <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:use"><code>use</code></a> over a <code>MonadReader</code></td>
 </tr>
 <tr>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:set"><code>set</code></a>, <a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:.-126-"><code>.~</code></a></td>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:-60-.-126-"><code>&lt;.~</code></a></td>
-  <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:assign"><code>assign</code></a>,<a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:.-61-"><code>.=</code></a></td>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:assign"><code>assign</code></a>, <a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:.-61-"><code>.=</code></a></td>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:-60-.-61-"><code>&lt;.=</code></a></td>
   <td>Replace target(s). <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--60-.-126-"><code>&lt;&lt;.~</code></a> and
       <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--60-.-61-"><code>&lt;&lt;.=</code></a>
       return the old value</td>
 </tr>
 <tr>
-  <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:over"><code>over</code></a>,<a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:mapOf"><code>mapOf</code></a>,<a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:-37--126-"><code>%~</code></a></td>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:over"><code>over</code></a>, <a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:mapOf"><code>mapOf</code></a>, <a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:-37--126-"><code>%~</code></a></td>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--37--126-"><code>&lt;%~</code></td>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:-37--61-"><code>%=</code></a></td>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--37--61-"><code>&lt;%=</code></td>
@@ -39,7 +39,7 @@ Operators
       return the old value</td>
 </tr>
 <tr>
-  <td><code>id</code>,<a href="http://ekmett.github.com/lens/Control-Lens-Traversal.html#v:traverseOf"><code>traverseOf</code></a>,<a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-37--37--126-"><code>%%~</code></a></td>
+  <td><code>id</code>, <a href="http://ekmett.github.com/lens/Control-Lens-Traversal.html#v:traverseOf"><code>traverseOf</code></a>, <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-37--37--126-"><code>%%~</code></a></td>
   <td/>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-37--37--61-"><code>%%=</code></a></td>
   <td/>
@@ -116,17 +116,17 @@ Operators
   <td><code>mappend</code> to the target monoidal value(s)</td>
 </tr>
 <tr>
-  <td><a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:headOf"><code>headOf</code>,<a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:-94--63-"><code>^?</code></a></td>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:headOf"><code>headOf</code>, <a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:-94--63-"><code>^?</code></a></td>
   <td/><td/><td/>
   <td>Return <code>Just</code> the first target or <code>Nothing</code></td>
 </tr>
 <tr>
-  <td><a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:toListOf"><code>toListOf</code>,<a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:-94-.."><code>^..</code></a></td>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:toListOf"><code>toListOf</code>, <a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:-94-.."><code>^..</code></a></td>
   <td/><td/><td/>
   <td>Return a list of the target(s)</td>
 </tr>
 <tr>
-  <td><a href="http://ekmett.github.com/lens/Control-Lens-Action.html#v:perform"><code>perform</code></a>,<a href="http://ekmett.github.com/lens/Control-Lens-Action.html#v:performs"><code>performs</code></a><a href="http://ekmett.github.com/lens/Control-Lens-Action.html#v:-94-!"><code>^!</code></a></td>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-Action.html#v:perform"><code>perform</code></a>, <a href="http://ekmett.github.com/lens/Control-Lens-Action.html#v:performs"><code>performs</code></a><a href="http://ekmett.github.com/lens/Control-Lens-Action.html#v:-94-!"><code>^!</code></a></td>
   <td/>
   <td/>
   <td/>
@@ -134,14 +134,14 @@ Operators
 </tr>
 <tr><th colspan=5><a href="http://ekmett.github.com/lens/Control-Lens.html">Control.Lens</a> (Indexed)</th></tr>
 <tr>
-  <td><a href="http://ekmett.github.com/lens/Control-Lens-IndexedSetter.html#v:iover"><code>iover</code></a>,<a href="http://ekmett.github.com/lens/Control-Lens-IndexedSetter.html#v:imapOf"><code>imapOf</code></a>,<a href="http://ekmett.github.com/lens/Control-Lens-Operators.html#v:-37--64--126-"><code>%@~</code></a></td>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-IndexedSetter.html#v:iover"><code>iover</code></a>, <a href="http://ekmett.github.com/lens/Control-Lens-IndexedSetter.html#v:imapOf"><code>imapOf</code></a>, <a href="http://ekmett.github.com/lens/Control-Lens-Operators.html#v:-37--64--126-"><code>%@~</code></a></td>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Operators.html#v:-60--37--64--126-"><code>&lt;%@~</code></td>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Operators.html#v:-37--64--61-"><code>%@=</code></a></td>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Operators.html#v:-60--37--64--61-"><code>&lt;%@=</code></td>
   <td>Update target(s) with access to the index.</td>
 </tr>
 <tr>
-  <td><a href="http://ekmett.github.com/lens/Control-Lens-Indexed.html#v:withIndex"><code>withIndex</code></a>,<a href="http://ekmett.github.com/lens/Control-Lens-IndexedTraversal.html#v:itraverseOf"><code>itraverseOf</code></a>,<a href="http://ekmett.github.com/lens/Control-Lens-Operators.html#v:-37--37--64--126-"><code>%%@~</code></a></td>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-Indexed.html#v:withIndex"><code>withIndex</code></a>, <a href="http://ekmett.github.com/lens/Control-Lens-IndexedTraversal.html#v:itraverseOf"><code>itraverseOf</code></a>, <a href="http://ekmett.github.com/lens/Control-Lens-Operators.html#v:-37--37--64--126-"><code>%%@~</code></a></td>
   <td/>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Operators.html#v:-37--37--64--61-"><code>%%@=</code></a></td>
   <td/>
