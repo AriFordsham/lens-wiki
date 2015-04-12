@@ -152,7 +152,7 @@ Isos are easy to construct using only your two functions `to` and
 `fro` and 
 
 ```haskell
-dimap :: Profunctor p => (s -> a) -> (b -> t) -> p a b -> p s t`
+dimap :: Profunctor p => (s -> a) -> (b -> t) -> p a b -> p s t
 ```
 
 For instance, the running example `State` is isomorphic to a pair of
