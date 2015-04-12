@@ -168,7 +168,7 @@ asAPair = dimap (\(State wa wb) -> (wa, wb)) (fmap $ uncurry State)
 {-# INLINE asAPair #-}
 ```
 
-Note the use of `fmap` on the second function necessary for lifting
+Note that the use of `fmap` on the second function is necessary for lifting
 your isomorphism witness up into the `Functor`.
 
 
