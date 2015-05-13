@@ -1,7 +1,7 @@
 [![Build Status](https://secure.travis-ci.org/ekmett/lens.png?branch=master)](http://travis-ci.org/ekmett/lens)
 
 Welcome to the lens wiki!
-
+  
 You probably want to start with some [Examples](wiki/Examples), the [Overview](wiki/Overview) or a cheatsheet of many of the [Operators](wiki/Operators).
 
 If you are interested in the design behind these lenses, you may want to also dig into their [Derivation](wiki/Derivation).
