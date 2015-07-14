@@ -45,6 +45,7 @@ Operators
   <td/>
   <td>Update target(s) with an <code>Applicative</code> or auxiliary result</td>
 </tr>
+<tr><th colspan=5><a href="http://ekmett.github.com/lens/Control-Lens.html">Control.Lens (math)</a></th></tr>
 <tr>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:-43--126-"><code>+~</code></a></td>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--43--126-"><code>&lt;+~</code></td>
@@ -94,6 +95,7 @@ Operators
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--42--42--61-"><code>&lt;**=</code></td>
   <td>Raise target(s) to an arbitrary power</td>
 </tr>
+<tr><th colspan=5><a href="http://ekmett.github.com/lens/Control-Lens.html">Control.Lens (logic)</a></th></tr>
 <tr>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:-124--124--126-"><code>||~</code></a></td>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--124--124--126-"><code>&lt;||~</code></td>
