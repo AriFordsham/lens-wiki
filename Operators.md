@@ -39,7 +39,9 @@ Operators
       return the old value</td>
 </tr>
 <tr>
-  <td><code>id</code>, <a href="http://ekmett.github.com/lens/Control-Lens-Traversal.html#v:traverseOf"><code>traverseOf</code></a>, <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-37--37--126-"><code>%%~</code></a></td>
+  <td><code>id</code>, 
+      <a href="http://ekmett.github.com/lens/Control-Lens-Traversal.html#v:traverseOf"><code>traverseOf</code></a>, 
+      <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-37--37--126-"><code>%%~</code></a></td>
   <td/>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-37--37--61-"><code>%%=</code></a></td>
   <td/>
