@@ -47,6 +47,21 @@ Operators
   <td/>
   <td>Update target(s) with an <code>Applicative</code> or auxiliary result</td>
 </tr>
+<tr><th colspan=5><a href="http://ekmett.github.com/lens/Control-Lens.html">Control.Lens</a> (Indexed)</th></tr>
+<tr>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-IndexedSetter.html#v:iover"><code>iover</code></a> / <a href="http://ekmett.github.com/lens/Control-Lens-Operators.html#v:-37--64--126-"><code>%@~</code></a></td>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-Operators.html#v:-60--37--64--126-"><code>&lt;%@~</code></td>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-Operators.html#v:-37--64--61-"><code>%@=</code></a></td>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-Operators.html#v:-60--37--64--61-"><code>&lt;%@=</code></td>
+  <td>Update target(s) with access to the index.</td>
+</tr>
+<tr>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-Indexed.html#v:withIndex"><code>withIndex</code></a>, <a href="http://ekmett.github.com/lens/Control-Lens-IndexedTraversal.html#v:itraverseOf"><code>itraverseOf</code></a>, <a href="http://ekmett.github.com/lens/Control-Lens-Operators.html#v:-37--37--64--126-"><code>%%@~</code></a></td>
+  <td/>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-Operators.html#v:-37--37--64--61-"><code>%%@=</code></a></td>
+  <td/>
+  <td>Update target(s) with an <code>Applicative</code> or auxiliary result with access to the index.</td>
+</tr>
 <tr><th colspan=5><a href="http://ekmett.github.com/lens/Control-Lens.html">Control.Lens (math)</a></th></tr>
 <tr>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:-43--126-"><code>+~</code></a></td>
@@ -135,21 +150,6 @@ Operators
   <td/>
   <td/>
   <td>Perform monadic action(s)</td>
-</tr>
-<tr><th colspan=5><a href="http://ekmett.github.com/lens/Control-Lens.html">Control.Lens</a> (Indexed)</th></tr>
-<tr>
-  <td><a href="http://ekmett.github.com/lens/Control-Lens-IndexedSetter.html#v:iover"><code>iover</code></a> / <a href="http://ekmett.github.com/lens/Control-Lens-Operators.html#v:-37--64--126-"><code>%@~</code></a></td>
-  <td><a href="http://ekmett.github.com/lens/Control-Lens-Operators.html#v:-60--37--64--126-"><code>&lt;%@~</code></td>
-  <td><a href="http://ekmett.github.com/lens/Control-Lens-Operators.html#v:-37--64--61-"><code>%@=</code></a></td>
-  <td><a href="http://ekmett.github.com/lens/Control-Lens-Operators.html#v:-60--37--64--61-"><code>&lt;%@=</code></td>
-  <td>Update target(s) with access to the index.</td>
-</tr>
-<tr>
-  <td><a href="http://ekmett.github.com/lens/Control-Lens-Indexed.html#v:withIndex"><code>withIndex</code></a>, <a href="http://ekmett.github.com/lens/Control-Lens-IndexedTraversal.html#v:itraverseOf"><code>itraverseOf</code></a>, <a href="http://ekmett.github.com/lens/Control-Lens-Operators.html#v:-37--37--64--126-"><code>%%@~</code></a></td>
-  <td/>
-  <td><a href="http://ekmett.github.com/lens/Control-Lens-Operators.html#v:-37--37--64--61-"><code>%%@=</code></a></td>
-  <td/>
-  <td>Update target(s) with an <code>Applicative</code> or auxiliary result with access to the index.</td>
 </tr>
 <tr><th colspan=5><a href="http://ekmett.github.com/lens/Data-Bits-Lens.html">Data.Bits.Lens</a></th></tr>
 <tr>
