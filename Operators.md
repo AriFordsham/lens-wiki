@@ -25,7 +25,7 @@ Operators
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:-60-.-126-"><code>&lt;.~</code></a></td>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:assign"><code>assign</code></a>, <a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:.-61-"><code>.=</code></a></td>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:-60-.-61-"><code>&lt;.=</code></a></td>
-  <td>Replace target(s). <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--60-.-126-"><code>&lt;&lt;.~</code></a> and
+  <td>Replace target(s) with value. <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--60-.-126-"><code>&lt;&lt;.~</code></a> and
       <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--60-.-61-"><code>&lt;&lt;.=</code></a>
       return the old value</td>
 </tr>
@@ -34,7 +34,7 @@ Operators
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--37--126-"><code>&lt;%~</code></td>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:-37--61-"><code>%=</code></a></td>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--37--61-"><code>&lt;%=</code></td>
-  <td>Update target(s). <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--60--37--126-"><code>&lt;&lt;%~</code></a> and
+  <td>Update target(s) with function. <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--60--37--126-"><code>&lt;&lt;%~</code></a> and
       <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--60--37--61-"><code>&lt;&lt;%=</code></a>
       return the old value</td>
 </tr>
