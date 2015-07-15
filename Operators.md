@@ -14,7 +14,12 @@ Operators
 <tbody>
 <tr><th colspan=5><a href="http://ekmett.github.com/lens/Control-Lens.html">Control.Lens</a></th></tr>
 <tr>
-  <td><a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:view"><code>view</code></a>, <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:views"><code>views</code></a>, <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:-94-."><code>^.</code></a></td>
+  <td>
+      <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:view"><code>view</code></a>
+      /
+      <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:-94-."><code>^.</code></a>,
+      <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:views"><code>views</code></a>      
+  </td>
   <td/>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:use"><code>use</code></a>, <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:uses"><code>uses</code></a></td>
   <td/>
