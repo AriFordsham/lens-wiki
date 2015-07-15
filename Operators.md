@@ -34,7 +34,7 @@ Operators
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--37--126-"><code>&lt;%~</code></td>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:-37--61-"><code>%=</code></a></td>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--37--61-"><code>&lt;%=</code></td>
-  <td>Update target(s) with function. <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--60--37--126-"><code>&lt;&lt;%~</code></a> and
+  <td>Replace target(s) with value-modifying function. <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--60--37--126-"><code>&lt;&lt;%~</code></a> and
       <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--60--37--61-"><code>&lt;&lt;%=</code></a>
       return the old value</td>
 </tr>
