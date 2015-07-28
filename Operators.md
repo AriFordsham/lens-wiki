@@ -63,9 +63,14 @@ Operators
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--37--126-"><code>&lt;%~</code></td>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:-37--61-"><code>%=</code></a></td>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--37--61-"><code>&lt;%=</code></td>
-  <td>Replace target(s) by applying function. <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--60--37--126-"><code>&lt;&lt;%~</code></a> and
-      <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--60--37--61-"><code>&lt;&lt;%=</code></a>
-      return the old value</td>
+  <td>Replace target(s) by applying function. 
+      <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--60--37--126-">
+        <code>&lt;&lt;%~</code></a> and
+      <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--60--37--61-">
+        <code>&lt;&lt;%=</code></a>
+      return the old value
+      <p><code>over _2 (map toUpper) ("hello","world")</code></p>
+  </td>
 </tr>
 <tr>
   <td><code>id</code> / <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-37--37--126-"><code>%%~</code></a>,
