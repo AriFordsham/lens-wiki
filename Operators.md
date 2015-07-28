@@ -49,9 +49,14 @@ Operators
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:-60-.-126-"><code>&lt;.~</code></a></td>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:assign"><code>assign</code></a> / <a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:.-61-"><code>.=</code></a></td>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:-60-.-61-"><code>&lt;.=</code></a></td>
-  <td>Replace target(s) with value. <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--60-.-126-"><code>&lt;&lt;.~</code></a> and
-      <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--60-.-61-"><code>&lt;&lt;.=</code></a>
-      return the old value</td>
+  <td>Replace target(s) with value. 
+      <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--60-.-126-">
+        <code> &lt;&lt;.~</code> </a> and
+      <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--60-.-61-">
+        <code> &lt;&lt;.= </code></a>
+      return the old value.
+      <p><code>set _2 "pluto" ("hello","world")</code></p>
+  </td>
 </tr>
 <tr>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:over"><code>over</code></a> / <a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:-37--126-"><code>%~</code></a></td>
