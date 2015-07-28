@@ -40,6 +40,7 @@ Operators
       <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:uses"><code>uses</code></a></td>
   <td/>
   <td>View after applying a function to the target.
+      <code>views _2 (map toUpper) ("hello","world") == "WORLD"</code>
   </td>
 </tr>
 
