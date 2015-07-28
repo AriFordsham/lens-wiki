@@ -27,6 +27,7 @@ Operators
          works like 
          <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:use"><code>use</code></a> 
          over a <code>MonadReader</code>. 
+      <code>view _2 ("hello","world") == "world"</code>
   </td>
 </tr>
 
