@@ -73,12 +73,16 @@ Operators
   </td>
 </tr>
 <tr>
-  <td><code>id</code> / <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-37--37--126-"><code>%%~</code></a>,
-      <a href="http://ekmett.github.com/lens/Control-Lens-Traversal.html#v:traverseOf"><code>traverseOf</code></a> 
+  <td>
+      <code>id</code> / 
+      <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-37--37--126-"><code>%%~</code></a>,
+      <a href="http://ekmett.github.com/lens/Control-Lens-Traversal.html#v:traverseOf"> 
+        <code> traverseOf </code></a> 
       </td>
-  <td/>
-  <td><a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-37--37--61-"><code>%%=</code></a></td>
-  <td/>
+  <td/><td>
+      <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-37--37--61-">
+        <code>%%=</code></a>   
+  </td><td/>
   <td>Update target(s) with an <code>Applicative</code> or auxiliary result</td>
 </tr>
 <tr><th colspan=5><a href="http://ekmett.github.com/lens/Control-Lens.html">Control.Lens (Indexed)</a></th></tr>
