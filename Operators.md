@@ -181,8 +181,13 @@ Operators
 
 <tr><th colspan=5><a href="http://ekmett.github.com/lens/Control-Lens-Fold.html">Control.Lens.Fold</a></th></tr>
 <tr>
-  <td><a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:headOf"><code>headOf</code>, <a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:-94--63-"><code>^?</code></a></td>
-  <td/><td/><td/>
+  <td>
+      <a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:headOf">
+        <code>headOf</code>, 
+      <a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:-94--63-"><code>^?</code></a>
+  </td>
+  <td/>
+  <td/><td/>
   <td>Return <code>Just</code> the first target or <code>Nothing</code></td>
 </tr>
 <tr>
@@ -193,12 +198,19 @@ Operators
 
 <tr><th colspan=5><a href="http://ekmett.github.com/lens/Control-Lens-Action.html">Control.Lens.Action</a></th></tr>
 <tr>
-  <td><a href="http://ekmett.github.com/lens/Control-Lens-Action.html#v:perform"><code>perform</code></a>, <a href="http://ekmett.github.com/lens/Control-Lens-Action.html#v:performs"><code>performs</code></a><a href="http://ekmett.github.com/lens/Control-Lens-Action.html#v:-94-!"><code>^!</code></a></td>
+  <td>
+      <a href="http://ekmett.github.com/lens/Control-Lens-Action.html#v:perform">
+        <code>perform</code></a>, 
+      <a href="http://ekmett.github.com/lens/Control-Lens-Action.html#v:performs">
+        <code>performs</code></a>
+      <a href="http://ekmett.github.com/lens/Control-Lens-Action.html#v:-94-!">
+        <code>^!</code></a></td>
   <td/>
   <td/>
   <td/>
   <td>Perform monadic action(s)</td>
 </tr>
+
 <tr><th colspan=5><a href="http://ekmett.github.com/lens/Data-Bits-Lens.html">Data.Bits.Lens</a></th></tr>
 <tr>
   <td><a href="http://ekmett.github.com/lens/Data-Bits-Lens.html#v:-124--126-"><code>.|.~</code></a></td>
