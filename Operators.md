@@ -134,10 +134,24 @@ Operators
 
 <tr><th colspan=5><a href="http://ekmett.github.com/lens/Control-Lens.html">Control.Lens (Indexed)</a></th></tr>
 <tr>
-  <td><a href="http://ekmett.github.io/lens/Control-Lens-Setter.html#v:iover"><code>iover</code></a> / <a href="http://ekmett.github.com/lens/Control-Lens-Operators.html#v:-37--64--126-"><code>%@~</code></a></td>
-  <td><a href="http://ekmett.github.com/lens/Control-Lens-Operators.html#v:-60--37--64--126-"><code>&lt;%@~</code></td>
-  <td><a href="http://ekmett.github.com/lens/Control-Lens-Operators.html#v:-37--64--61-"><code>%@=</code></a></td>
-  <td><a href="http://ekmett.github.com/lens/Control-Lens-Operators.html#v:-60--37--64--61-"><code>&lt;%@=</code></td>
+  <td>
+    <a href="http://ekmett.github.io/lens/Control-Lens-Setter.html#v:iover">
+      <code>iover</code></a> / 
+    <a href="http://ekmett.github.com/lens/Control-Lens-Operators.html#v:-37--64--126-">
+      <code>%@~</code></a>
+  </td>
+  <td>
+    <a href="http://ekmett.github.com/lens/Control-Lens-Operators.html#v:-60--37--64--126-">
+      <code>&lt;%@~</code>
+  </td>
+  <td>
+    <a href="http://ekmett.github.com/lens/Control-Lens-Operators.html#v:-37--64--61-">
+      <code>%@=</code></a>
+  </td>
+  <td>
+    <a href="http://ekmett.github.com/lens/Control-Lens-Operators.html#v:-60--37--64--61-">
+      <code>&lt;%@=</code>
+  </td>
   <td>Update target(s) with access to the index.</td>
 </tr>
 <tr>
