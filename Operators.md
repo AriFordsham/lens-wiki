@@ -133,13 +133,13 @@ Operators
 
 
 
-<tr><th colspan=5><a href="http://ekmett.github.com/lens/Control-Lens.html">Control.Lens (Indexed)</a></th></tr>
+<tr><th colspan=5><a href="http://ekmett.github.com/lens/Control-Lens.html">Control.Lens (Getting Indexed)</a></th></tr>
 
 
 
 <tr>
   <td>
-    <a href="http://ekmett.github.io/lens/Control-Lens-Setter.html#v:iview">
+    <a href="http://ekmett.github.io/lens/Control-Lens-Getter.html#v:iview">
       <code>iview</code></a> / 
     <code>^@.</code>
   </td>
@@ -155,9 +155,11 @@ Operators
 </td>
 </tr>
 
+
+
 <tr>
   <td>
-    <a href="http://ekmett.github.io/lens/Control-Lens-Setter.html#v:iviews">
+    <a href="http://ekmett.github.io/lens/Control-Lens-Getter.html#v:iviews">
       <code>iviews</code></a> 
     <code></code>
   </td>
@@ -172,6 +174,8 @@ Operators
   <td>    View a function of the index and value of an IndexedGetter into the current environment.
 </td>
 </tr>
+
+<tr><th colspan=5><a href="http://ekmett.github.com/lens/Control-Lens.html">Control.Lens (Setting Indexed)</a></th></tr>
 
 
 <tr>
