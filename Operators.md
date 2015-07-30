@@ -133,6 +133,27 @@ Operators
 
 
 <tr><th colspan=5><a href="http://ekmett.github.com/lens/Control-Lens.html">Control.Lens (Indexed)</a></th></tr>
+
+
+
+<tr>
+  <td>
+    <a href="http://ekmett.github.io/lens/Control-Lens-Setter.html#v:iset">
+      <code>iset</code></a> / 
+    <code>.@~</code>
+  </td>
+  <td>
+    
+  </td>
+  <td>
+    
+  </td>
+  <td>
+    
+  </td>
+  <td>Set target(s) with access to the index.</td>
+</tr>
+
 <tr>
   <td>
     <a href="http://ekmett.github.io/lens/Control-Lens-Setter.html#v:iover">
