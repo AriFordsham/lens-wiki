@@ -83,7 +83,11 @@ Operators
       <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-37--37--61-">
         <code>%%=</code></a>   
   </td><td/>
-  <td>Update target(s) with an <code>Applicative</code> or auxiliary result</td>
+  <td>Update target(s) with an <code>Applicative</code> or auxiliary result
+      <p><code>( (%%~) each $ \x -> if even x then Just . succ $ x else Nothing ) [2,4,6]</code></p>
+      <p><code>( (%%~) _2 $ \x -> if even x then Just . succ $ x else Nothing ) (2,4,6)</code></p>
+  </td>
+
 </tr>
 <tr><th colspan=5><a href="http://ekmett.github.com/lens/Control-Lens.html">Control.Lens (Indexed)</a></th></tr>
 <tr>
