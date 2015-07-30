@@ -157,6 +157,25 @@ Operators
 
 <tr>
   <td>
+    <a href="http://ekmett.github.io/lens/Control-Lens-Setter.html#v:iviews">
+      <code>iviews</code></a> 
+    <code></code>
+  </td>
+  <td>
+    
+  </td>
+  <td> <code> iuses </code>
+  </td>
+
+  <td> 
+  </td>
+  <td>    View a function of the index and value of an IndexedGetter into the current environment.
+</td>
+</tr>
+
+
+<tr>
+  <td>
     <a href="http://ekmett.github.io/lens/Control-Lens-Setter.html#v:iset">
       <code>iset</code></a> / 
     <code>.@~</code>
