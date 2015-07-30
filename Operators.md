@@ -146,10 +146,10 @@ Operators
   <td>
     
   </td>
-  <td>
+  <td> <code> iuse </code>
   </td>
 
-  <td>
+  <td> 
   </td>
   <td>    View the index and value of an IndexedGetter or IndexedLens.
 </td>
