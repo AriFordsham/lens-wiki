@@ -70,6 +70,7 @@ Operators
         <code>&lt;&lt;%=</code></a>
       return the old value
       <p><code>over _2 (map toUpper) ("hello","world")</code></p>
+      <p><code>over each (map toUpper) ["hello","world"]</code></p>
   </td>
 </tr>
 <tr>
