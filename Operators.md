@@ -114,7 +114,7 @@ Operators
   <td>Return a list of the target(s)</td>
 </tr>
 
-<tr><th colspan=5><a href="http://ekmett.github.com/lens/Control-Lens-Action.html">Control.Lens.Action</a></th></tr>
+<tr><th colspan=5><a href="http://ekmett.github.com/lens/Control-Lens-Action.html">Control.Lens.Action (has everything here been removed from lens package??) </a></th></tr>
 <tr>
   <td>
       <a href="http://ekmett.github.com/lens/Control-Lens-Action.html#v:perform">
