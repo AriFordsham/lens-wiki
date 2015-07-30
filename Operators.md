@@ -161,7 +161,6 @@ Operators
   <td>
     <a href="http://ekmett.github.io/lens/Control-Lens-Getter.html#v:iviews">
       <code>iviews</code></a> 
-    <code></code>
   </td>
   <td>
     
