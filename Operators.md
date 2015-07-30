@@ -22,14 +22,15 @@ Operators
   <td/>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:use"><code>use</code></a>
   <td/>
-  <td>View single target, or fold multiple monoidal targets. <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:view"> 
-      <code>view</code></a> 
-         works like 
-         <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:use"><code>use</code></a> 
-         over a <code>MonadReader</code>. 
+  <td>View single target, or fold multiple monoidal targets. 
       <p><code>view _2 ("hello","world") == "world"</code></p>
       <p><code>("hello","world") ^. _2 == "world"</code></p>
       <p><code>[Sum 3, Sum 4] ^. each == Sum 7</code></p>
+         <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:use"><code>use</code></a> 
+          works just like
+         <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:view"><code>view</code></a> 
+         except in a MonadState instead of a MonadReader.
+
   </td>
 </tr>
 
@@ -42,7 +43,7 @@ Operators
       <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:uses"><code>uses</code></a></td>
   <td/>
   <td>View/fold after applying a function.
-      <p><code>views _2 (map toUpper) ("hello","world")</code></p>
+      <p><code>views _2 (map toUpper) ("hello","world") == "WORLD"</code></p>
       <p><code>views each (Sum . succ . getSum) [Sum 1, Sum 2] == Sum 5</p></code>
   </td>
 </tr>
@@ -52,14 +53,14 @@ Operators
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:-60-.-126-"><code>&lt;.~</code></a></td>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:assign"><code>assign</code></a> / <a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:.-61-"><code>.=</code></a></td>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:-60-.-61-"><code>&lt;.=</code></a></td>
-  <td>Replace target(s) with value. 
+  <td>Replace target(s) with value.       
+      <p><code> set _2 "pluto" ("hello","world") == ("hello","pluto")</code></p>
+      <p><code>set each 0 [1,2] == [0,0]</code></p>
       <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--60-.-126-">
         <code> &lt;&lt;.~</code> </a> and
       <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--60-.-61-">
         <code> &lt;&lt;.= </code></a>
       return the old value.
-      <p><code> set _2 "pluto" ("hello","world") == ("hello","pluto")</code></p>
-      <p><code>set each 0 [1,2] == [0,0]</code></p>
   </td>
 </tr>
 <tr>
