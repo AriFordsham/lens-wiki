@@ -146,8 +146,8 @@ Operators
     
   </td>
   <td>
-    
-  </td><code>.@=</code>
+    <code>.@=</code>
+  </td>
   <td>
     
   </td>
