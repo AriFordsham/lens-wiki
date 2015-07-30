@@ -22,12 +22,14 @@ Operators
   <td/>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:use"><code>use</code></a>
   <td/>
-  <td>View target(s). <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:view"> 
+  <td>View single target, or fold multiple monoidal targets. <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:view"> 
       <code>view</code></a> 
          works like 
          <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:use"><code>use</code></a> 
          over a <code>MonadReader</code>. 
-      <p><code>view _2 ("hello","world")</code></p>
+      <p><code>view _2 ("hello","world") == "world"</code></p>
+      <p><code>("hello","world") ^. _2 == "world"</code></p>
+      <p><code>[Sum 3, Sum 4] ^. each == Sum 7</code></p>
   </td>
 </tr>
 
@@ -39,8 +41,9 @@ Operators
   <td>
       <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:uses"><code>uses</code></a></td>
   <td/>
-  <td>View after applying a function to the target.
+  <td>View/fold after applying a function.
       <p><code>views _2 (map toUpper) ("hello","world")</code></p>
+      <p><code>views each (Sum . succ . getSum) [Sum 1, Sum 2] == Sum 5</p></code>
   </td>
 </tr>
 
