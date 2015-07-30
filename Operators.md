@@ -58,7 +58,8 @@ Operators
       <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--60-.-61-">
         <code> &lt;&lt;.= </code></a>
       return the old value.
-      <p><code>set _2 "pluto" ("hello","world")</code></p>
+      <p><code> set _2 "pluto" ("hello","world") == ("hello","pluto")</code></p>
+      <p><code>set each 0 [1,2] == [0,0]</code></p>
   </td>
 </tr>
 <tr>
