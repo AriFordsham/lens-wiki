@@ -139,6 +139,24 @@ Operators
 
 <tr>
   <td>
+    <a href="http://ekmett.github.io/lens/Control-Lens-Setter.html#v:iview">
+      <code>iview</code></a> / 
+    <code>^@.</code>
+  </td>
+  <td>
+    
+  </td>
+  <td>
+  </td>
+
+  <td>
+  </td>
+  <td>    View the index and value of an IndexedGetter or IndexedLens.
+</td>
+</tr>
+
+<tr>
+  <td>
     <a href="http://ekmett.github.io/lens/Control-Lens-Setter.html#v:iset">
       <code>iset</code></a> / 
     <code>.@~</code>
