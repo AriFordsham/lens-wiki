@@ -153,8 +153,8 @@ Operators
   </td>
   <td>
     View the index and value of an IndexedGetter or IndexedLens.
-    <br><code> let m = Data.Map.fromList [(1,"hello"),(2,"world")] </code></br>
-    <br><code> in  m ^@. iat 2 == (2,Just "world") </code> </br>
+    <br><code> let mapHW = Data.Map.fromList [(1,"hello"),(2,"world")] </code></br>
+    <br><code> mapHW ^@. iat 2 == (2,Just "world") </code> </br>
     </p>
 </td>
 </tr>
