@@ -75,7 +75,7 @@ Operators
 <tr>
   <td>
       <code>id</code> / 
-      <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-37--37--126-"><code>%%~</code></a>,
+      <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-37--37--126-"><code>%%~</code></a> /
       <a href="http://ekmett.github.com/lens/Control-Lens-Traversal.html#v:traverseOf"> 
         <code> traverseOf </code></a> 
       </td>
