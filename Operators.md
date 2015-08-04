@@ -104,6 +104,20 @@ Operators
     <a href="http://ekmett.github.com/lens/Control-Lens-Fold.html">Control.Lens.Fold</a>
     /     <a href="http://ekmett.github.com/lens/Control-Lens-Prism.html">Control.Lens.Prism</a>
 </th></tr>
+
+<tr>
+  <td>
+      <a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:review">
+        <code>review</code></a> 
+  </td>
+  <td/>
+  <td/><td/>
+  <td>
+       Choose a branch of a sum type
+       <p><code> ( review _Right $ 1 ) == Right 1 </code></p>
+  </td>
+</tr>
+
 <tr>
   <td>
       <a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:preview">
@@ -116,10 +130,12 @@ Operators
   <td/>
   <td/><td/>
   <td>
-       Return <code>Just</code> the first target or <code>Nothing</code>
-       <p><code> ( review _Right $ 1 ) == Right 1 </code></p>
+       Attempt to extract branch of a sum type.
        <p><code> ( preview _Right . review _Right $ 1 ) == Just 1 </code></p>
-       <p><code> (  ( view _Right . review _Right $ [1,2,3] ) == [1,2,3] ) </code></p>
+       <p>works with view if a monoid... </p>
+       <p><code>  ( view _Right . Right $ [1,2,3] ) == [1,2,3] </code></p>
+       <p><code>  ( view _Right . Left $ [1,2,3] ) == () </code></p>
+
   </td>
 </tr>
 <tr>
