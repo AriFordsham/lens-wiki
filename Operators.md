@@ -111,7 +111,7 @@ Operators
       <a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:-94--63-">
         <code>^?</code></a> /
       <a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:firstOf">
-        <code>firstOF</code></a>
+        <code>firstOf</code></a>
   </td>
   <td/>
   <td/><td/>
