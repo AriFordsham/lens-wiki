@@ -103,8 +103,8 @@ Operators
 <tr><th colspan=5><a href="http://ekmett.github.com/lens/Control-Lens-Fold.html">Control.Lens.Fold</a></th></tr>
 <tr>
   <td>
-      <a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:headOf">
-        <code>headOf</code>, 
+      <a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:preview">
+        <code>preview</code>, 
       <a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:-94--63-"><code>^?</code></a>
   </td>
   <td/>
