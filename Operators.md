@@ -104,7 +104,7 @@ Operators
 <tr>
   <td>
       <a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:preview">
-        <code>preview</code>, 
+        <code>preview</code> / 
       <a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:-94--63-"><code>^?</code></a>
   </td>
   <td/>
