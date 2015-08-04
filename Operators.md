@@ -124,7 +124,12 @@ Operators
 <tr>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:toListOf"><code>toListOf</code> / <a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:-94-.."><code>^..</code></a></td>
   <td/><td/><td/>
-  <td>Return a list of the target(s)</td>
+  <td>
+    Return a list of the target(s)
+    <p><code>toListOf traverse ('a','b')  == "b"</code></p>
+    <p><code>toListOf each ('a','b')  == "ab"</code></p>
+  </td>
+  
 </tr>
 
 <tr><th colspan=5><a href="http://ekmett.github.com/lens/Control-Lens-Action.html">Control.Lens.Action (has everything here been removed from lens package??) </a></th></tr>
