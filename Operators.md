@@ -100,7 +100,10 @@ Operators
   </td>
 </tr>
 
-<tr><th colspan=5><a href="http://ekmett.github.com/lens/Control-Lens-Fold.html">Control.Lens.Fold</a></th></tr>
+<tr><th colspan=5>
+    <a href="http://ekmett.github.com/lens/Control-Lens-Fold.html">Control.Lens.Fold</a>
+    /     <a href="http://ekmett.github.com/lens/Control-Lens-Prism.html">Control.Lens.Prism</a>
+</th></tr>
 <tr>
   <td>
       <a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:preview">
