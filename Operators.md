@@ -23,7 +23,9 @@ Operators
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:use"><code>use</code></a>
   <td/>
   <td>View single target, or fold multiple monoidal targets. 
-      <p><code>view _2 ("hello","world") == "world"</code></p>
+       <p><code>view (to snd) ("hello","world") == "world"</code></p>
+      <p><code>view _2 ("hello","world") == "world" -- same thing </code></p>
+      <p><code>view _2 ("hello","world","yeeha") == "world" -- but also works on triples!</code></p>
       <p><code>("hello","world") ^. _2 == "world"</code></p>
       <p><code>[Sum 3, Sum 4] ^. each == Sum 7</code></p>
          <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:use"><code>use</code></a> 
