@@ -107,12 +107,19 @@ Operators
 <tr>
   <td>
       <a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:preview">
-        <code>preview</code> / 
-      <a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:-94--63-"><code>^?</code></a>
+        <code>preview</code></a>  / 
+      <a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:-94--63-">
+        <code>^?</code></a> /
+      <a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:firstOf">
+        <code>firstOF</code></a>
   </td>
   <td/>
   <td/><td/>
-  <td>Return <code>Just</code> the first target or <code>Nothing</code></td>
+  <td>
+       Return <code>Just</code> the first target or <code>Nothing</code>
+       <p><code> ( review _Right $ 1 ) == Right 1 </code></p>
+       <p><code> ( preview _Right . review _Right $ 1 ) == Just 1 </code></p>
+  </td>
 </tr>
 <tr>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:toListOf"><code>toListOf</code> / <a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:-94-.."><code>^..</code></a></td>
