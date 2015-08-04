@@ -138,6 +138,22 @@ Operators
 
   </td>
 </tr>
+
+<tr>
+  <td>
+      <a href="http://ekmett.github.com/lens/Control-Lens-Prism.html#v:previews">
+        <code>previews</code></a> 
+  </td>
+  <td/>
+  <td/><td/>
+  <td>
+       preview after applying a function
+       <p><code> ( previews _Right (+1) . Right $ 1 ) == Just 2 </code></p>
+  </td>
+</tr>
+
+
+
 <tr>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:toListOf"><code>toListOf</code> / <a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:-94-.."><code>^..</code></a></td>
   <td/><td/><td/>
