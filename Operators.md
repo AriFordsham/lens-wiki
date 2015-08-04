@@ -23,7 +23,7 @@ Operators
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:use"><code>use</code></a>
   <td/>
   <td>View single target, or fold multiple monoidal targets. 
-       <p><code>view (to snd) ("hello","world") == "world"</code></p>
+       <p><code>view (to snd) ("hello","world") == "world" -- convert prelude.snd function into lens</code></p>
       <p><code>view _2 ("hello","world") == "world" -- same thing </code></p>
       <p><code>view _2 ("hello","world","yeeha") == "world" -- but also works on triples!</code></p>
       <p><code>("hello","world") ^. _2 == "world"</code></p>
