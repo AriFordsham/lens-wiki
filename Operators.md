@@ -107,7 +107,7 @@ Operators
 
 <tr>
   <td>
-      <a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:review">
+      <a href="http://ekmett.github.com/lens/Control-Lens-Prism.html#v:review">
         <code>review</code></a> 
   </td>
   <td/>
