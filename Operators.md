@@ -119,6 +119,7 @@ Operators
        Return <code>Just</code> the first target or <code>Nothing</code>
        <p><code> ( review _Right $ 1 ) == Right 1 </code></p>
        <p><code> ( preview _Right . review _Right $ 1 ) == Just 1 </code></p>
+       <p><code> (  ( view _Right . review _Right $ [1,2,3] ) == [1,2,3] ) </code></p>
   </td>
 </tr>
 <tr>
