@@ -59,11 +59,17 @@ Operators
   <td>Replace target(s) with value.       
       <p><code> set _2 "pluto" ("hello","world") == ("hello","pluto")</code></p>
       <p><code>set each 0 [1,2] == [0,0]</code></p>
+      <p><code>set (setting Control.Arrow.second) 3 (1,2) == (1,3)</code></p>
+      <p><code></code></p>
+      <p><code> ( set (upon snd) 3 $ (1,2) ) == (1,3) -- warning, here be dragons, see docu for upon</code></p>
+
       <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--60-.-126-">
         <code> &lt;&lt;.~</code> </a> and
       <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--60-.-61-">
         <code> &lt;&lt;.= </code></a>
       return the old value.
+
+
   </td>
 </tr>
 <tr>
