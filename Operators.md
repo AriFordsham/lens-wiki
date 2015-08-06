@@ -20,24 +20,20 @@ Operators
       /
       <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:-94-.">
        <code>^.</code></a>
-     , 
-     <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:to">
-       <code>to</code></a>
   </td>
   <td/>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:use"><code>use</code></a>
   <td/>
   <td>View single target, or fold multiple monoidal targets. 
-       <p><code>view (to snd) ("hello","world") == "world" -- convert prelude.snd function into lens</code></p>
-      <p><code>view _2 ("hello","world") == "world" -- same thing </code></p>
-      <p><code>view _2 ("hello","world","yeeha") == "world" -- but also works on triples!</code></p>
-      <p><code>("hello","world") ^. _2 == "world"</code></p>
-      <p><code>[Sum 3, Sum 4] ^. each == Sum 7</code></p>
+      <p><code>view _2 ("hello","world") == "world" -- works on anything with two fields </code></p>
+      <p><code>view _2 ("hello","world","yeeha") == "world" -- second field from a triple</code></p>
+      <p><code>("hello","world") ^. _2 == "world" -- roughly equivalent to view </code></p>
+      <p><code>[Sum 3, Sum 4] ^. each == Sum 7 -- if it's a traversal, fold it</code></p>
          <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:use"><code>use</code></a> 
           works just like
          <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:view"><code>view</code></a> 
-         except in a MonadState instead of a MonadReader.
-
+         except in a MonadState instead of a MonadReader.  
+ 
   </td>
 </tr>
 
@@ -51,10 +47,25 @@ Operators
   <td/>
   <td>View/fold after applying a function.
       <p><code>views _2 (map toUpper) ("hello","world") == "WORLD"</code></p>
-      <p><code>views each (Sum . succ . getSum) [Sum 1, Sum 2] == Sum 5</p></code>
+      <p><code>views each (Sum . succ . getSum) [Sum 1, Sum 2] == Sum 5 </p></code>
   </td>
 </tr>
 
+<tr>
+  <td>
+     <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:to">
+       <code>to</code></a>
+  </td>
+  <td/>
+  <td>
+  <td/>
+  <td>
+      Build a getter.
+      <p><code>view (to snd) ("hello","world") == "world" -- to snd is same as _2 but only works on tuples</code></p>
+      
+
+  </td>
+</tr>
 <tr><th colspan=5><a href="http://ekmett.github.com/lens/Control-Lens.html">Control.Lens (Setting)</a></th></tr>
 <tr>
   <td>
