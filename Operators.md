@@ -57,7 +57,11 @@ Operators
         <code>set</code></a> 
       / 
       <a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:.-126-">
-        <code>.~</code></a></td>
+        <code>.~</code></a>
+      , 
+      <a href="http://ekmett.github.com/lens/Data-Data-Lens.html#v:upon">
+        <code>upon</code></a>
+  </td>
   <td>
       <a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:-60-.-126-">
         <code>&lt;.~</code></a>
