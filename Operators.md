@@ -163,8 +163,9 @@ Operators
         <code>%%=</code></a>   
   </td><td/>
   <td>Update target(s) with an Applicative or auxiliary result
-      <p><code>( (%%~) each $ \x -> if even x then Just . succ $ x else Nothing ) [2,4,6]</code></p>
-      <p><code>( (%%~) _2 $ \x -> if even x then Just . succ $ x else Nothing ) (2,4,6)</code></p>
+      <p><code>succIfEven x =  if even x then Just . succ $ x else Nothing</code></p>
+      <p><code> ( ( (%%~) each succIfEven ) [2,4,6] == Just [3,5,7] </code></p>
+      <p><code> ( (%%~) _2 succIfEven ) (2,4,6) == Just (2,5,6) </code></p>
       <p>traverseOf can replace (%%~) above but is less general. traverseOf applies to Over type, whereas (%%~) applies to Optical type. Over p is equivalent to Optical p (->) </p>
   </td>
 </tr>
