@@ -69,6 +69,7 @@ Operators
 
   </td>
 </tr>
+
 <tr><th colspan=5><a href="http://ekmett.github.com/lens/Control-Lens.html">Control.Lens (Setting)</a></th></tr>
 <tr>
   <td>
@@ -77,9 +78,6 @@ Operators
       / 
       <a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:.-126-">
         <code>.~</code></a>
-      , 
-      <a href="http://ekmett.github.com/lens/Data-Data-Lens.html#v:upon">
-        <code>upon</code></a>
   </td>
   <td>
       <a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:-60-.-126-">
@@ -99,19 +97,17 @@ Operators
   <td>Replace target(s) with value.       
       <p><code> set _2 "pluto" ("hello","world") == ("hello","pluto")</code></p>
       <p><code>set each 0 [1,2] == [0,0]</code></p>
-      <p><code>set (setting Control.Arrow.second) 3 (1,2) == (1,3)</code></p>
-      <p><code></code></p>
-      <p><code> ( set (upon snd) 3 $ (1,2) ) == (1,3) -- warning, here be dragons, see docu for upon</code></p>
-
+      <p>
       <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--60-.-126-">
         <code> &lt;&lt;.~</code> </a> and
       <a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--60-.-61-">
         <code> &lt;&lt;.= </code></a>
       return the old value.
-
-
+      </p>
   </td>
 </tr>
+
+
 <tr>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:over"><code>over</code></a> / <a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:-37--126-"><code>%~</code></a></td>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--37--126-"><code>&lt;%~</code></td>
@@ -128,6 +124,32 @@ Operators
 
   </td>
 </tr>
+
+<tr>
+  <td>
+      <a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:setting">
+        <code>setting</code></a>
+      , 
+      <a href="http://ekmett.github.com/lens/Data-Data-Lens.html#v:upon">
+        <code>upon</code></a>
+  </td>
+  <td>
+  </td>
+  <td>
+  </td>
+  <td>
+
+  </td>
+  <td>Build a setter, sanely: 
+      <p><code>set (setting Control.Arrow.second) 3 (1,2) == (1,3)</code></p>
+
+      Warning, here be dragons, grok the types, see docu for upon
+      <p><code>  set (upon snd) 3 $ (1,2) == (1,3)  </code></p>
+
+      
+  </td>
+</tr>
+
 <tr>
   <td>
       <code>id</code> / 
