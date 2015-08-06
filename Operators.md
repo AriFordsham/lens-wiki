@@ -52,10 +52,27 @@ Operators
 
 <tr><th colspan=5><a href="http://ekmett.github.com/lens/Control-Lens.html">Control.Lens (Setting)</a></th></tr>
 <tr>
-  <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:set"><code>set</code></a> / <a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:.-126-"><code>.~</code></a></td>
-  <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:-60-.-126-"><code>&lt;.~</code></a></td>
-  <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:assign"><code>assign</code></a> / <a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:.-61-"><code>.=</code></a></td>
-  <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:-60-.-61-"><code>&lt;.=</code></a></td>
+  <td>
+      <a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:set">
+        <code>set</code></a> 
+      / 
+      <a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:.-126-">
+        <code>.~</code></a></td>
+  <td>
+      <a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:-60-.-126-">
+        <code>&lt;.~</code></a>
+  </td>
+  <td>
+      <a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:assign">
+        <code>assign</code></a> 
+      / 
+      <a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:.-61-">
+        <code>.=</code></a>
+  </td>
+  <td>
+      <a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:-60-.-61-">
+        <code>&lt;.=</code></a>
+  </td>
   <td>Replace target(s) with value.       
       <p><code> set _2 "pluto" ("hello","world") == ("hello","pluto")</code></p>
       <p><code>set each 0 [1,2] == [0,0]</code></p>
