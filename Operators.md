@@ -64,7 +64,7 @@ Operators
   <td>
       Build a getter, sanely:
       <p><code>view (to snd) ("hello","world") == "world" -- to snd is same as _2 but only works on tuples</code></p>
-      Less safe, here be dragons, read the docs: 
+      Less safe, here be dragons, mull the types, read the docs... : 
       <p><code>view (upon snd) ("hello","world") == "world" </code></p>      
 
   </td>
