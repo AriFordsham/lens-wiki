@@ -54,7 +54,9 @@ Operators
 <tr>
   <td>
      <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:to">
-       <code>to</code></a>
+       <code>to</code></a> / 
+      <a href="http://ekmett.github.com/lens/Data-Data-Lens.html#v:upon">
+        <code>upon</code></a>
   </td>
   <td/>
   <td>
@@ -62,7 +64,8 @@ Operators
   <td>
       Build a getter.
       <p><code>view (to snd) ("hello","world") == "world" -- to snd is same as _2 but only works on tuples</code></p>
-      
+      Less safe, here be dragons, read the docs: 
+      <p><code>view (upon snd) ("hello","world") == "world" </code></p>      
 
   </td>
 </tr>
