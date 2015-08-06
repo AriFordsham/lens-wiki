@@ -20,6 +20,9 @@ Operators
       /
       <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:-94-.">
        <code>^.</code></a>
+     , 
+     <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:to">
+       <code>to</code></a>
   </td>
   <td/>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:use"><code>use</code></a>
