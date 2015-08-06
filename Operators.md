@@ -143,7 +143,7 @@ Operators
   <td>Build a setter, sanely: 
       <p><code>set (setting Control.Arrow.second) 3 (1,2) == (1,3)</code></p>
 
-      Warning, here be dragons, grok the types, see docu for upon
+      Warning, here be dragons, grok the types, see docu for upon:
       <p><code>  set (upon snd) 3 $ (1,2) == (1,3)  </code></p>
 
       
