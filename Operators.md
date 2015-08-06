@@ -141,10 +141,11 @@ Operators
 
   </td>
   <td>Build a setter, sanely: 
-      <p><code>set (setting Control.Arrow.second) 3 (1,2) == (1,3)</code></p>
+      <p><code>import Control.Arrow (second)</code></p>
+      <p><code>set (setting second) "pluto" ("hello","world") == ("hello","pluto")  -- setting second is same as _2 but only works on tuples</code></p>
 
-      Warning, here be dragons, grok the types, see docu for upon:
-      <p><code>  set (upon snd) 3 $ (1,2) == (1,3)  </code></p>
+      Same, but warning... here be dragons, grok the types, see docu for upon:
+      <p><code>  set (upon snd) "pluto" ("hello","world") == ("hello","pluto") </code></p>
 
       
   </td>
