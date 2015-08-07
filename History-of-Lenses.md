@@ -16,7 +16,7 @@
 
 [CPS based functional references](http://www.twanvl.nl/blog/haskell/cps-functional-references)
 
-**Russel O'Connor realises such lenses can support polymorphic update**
+**Russell O'Connor realises such lenses can support polymorphic update**
 
 [Polymorphic Update with van Laarhoven Lenses](http://r6.ca/blog/20120623T104901Z.html)
 
