@@ -16,7 +16,7 @@
 
 [CPS based functional references](http://www.twanvl.nl/blog/haskell/cps-functional-references)
 
-**Russell O'Connor realises such lenses can support polymorphic update and noticed that they relate to his concept of a multilens (a concept which is now called a "traversal") if you vary the constraints*
+**Russell O'Connor realises such lenses can support polymorphic update and noticed that they relate to his concept of a multilens (a concept which is now called a "traversal") if you vary the constraints**
 
 [Polymorphic Update with van Laarhoven Lenses](http://r6.ca/blog/20120623T104901Z.html)
 
