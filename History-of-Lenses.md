@@ -16,10 +16,10 @@
 
 [CPS based functional references](http://www.twanvl.nl/blog/haskell/cps-functional-references)
 
-**Russell O'Connor realises such lenses can support polymorphic update**
+**Russell O'Connor realises such lenses can support polymorphic update and noticed that they relate to his concept of a multilens (a concept which is now called a "traversal") if you vary the constraints*
 
 [Polymorphic Update with van Laarhoven Lenses](http://r6.ca/blog/20120623T104901Z.html)
 
-**Edward Kmett realises that by changing the constraint on the Functor, it is possible to have lens-like things like Getters, Setters, and Traversals**
+**Edward Kmett realises that you can put laws on the notion of polymorphic update**
 
 [Mirrored Lenses](http://comonad.com/reader/2012/mirrored-lenses/)
