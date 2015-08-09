@@ -24,24 +24,9 @@ Operators
   <td/>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:use"><code>use</code></a>
   <td/>
-  <td>View single target, or fold multiple monoidal targets.
-         <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:use"><code>use</code></a> 
-         works just like
-         <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:view"><code>view</code></a> 
-         except in a MonadState instead of a MonadReader.  
+  <td>View a single target, or fold multiple monoidal targets.
   </td>
 </tr>
-<tr>
-  <td colspan=5>
-<pre>
-view _2 ("hello","world") == "world" 
-view _2 ("hello","world","yeeha") == "world"
-("hello","world") ^. _2 == "world"
-[Sum 3, Sum 4] ^. each == Sum 7  
-</pre>
-  </td>
-</tr>
-
 <tr>
   <td>
       <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:views"><code>views</code></a>      
@@ -53,15 +38,6 @@ view _2 ("hello","world","yeeha") == "world"
   <td>View/fold after applying a function. </td>
 </tr>
 <tr>
-  <td colspan=5>
-<pre>
-views _2 (map toUpper) ("hello","world") == "WORLD"
-views each (Sum . succ . getSum) [Sum 1, Sum 2] == Sum 5
-</pre>
-  </td>
-</tr>
-
-<tr>
   <td>
      <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:to">
        <code>to</code></a>
@@ -71,13 +47,6 @@ views each (Sum . succ . getSum) [Sum 1, Sum 2] == Sum 5
   <td/>
   <td>
       Build a getter from a plain function.
-  </td>
-</tr>
-<tr>
-  <td colspan=5>
-<pre>
-view (to snd) ("hello","world") == "world"
-</pre>
   </td>
 </tr>
 <tr/> <!-- to make table coloring match first section -->
@@ -114,15 +83,6 @@ view (to snd) ("hello","world") == "world"
   </td>
 </tr>
 <tr>
-  <td colspan=5>
-<pre>
-set _2 "pluto" ("hello","world") == ("hello","pluto")
-set each 0 [1,2] == [0,0]
-</pre>
-  </td>
-</tr>
-
-<tr>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:over"><code>over</code></a> / <a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:-37--126-"><code>%~</code></a></td>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Lens.html#v:-60--37--126-"><code>&lt;%~</code></td>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:-37--61-"><code>%=</code></a></td>
@@ -136,15 +96,6 @@ set each 0 [1,2] == [0,0]
   </td>
 </tr>
 <tr>
-  <td colspan=5>
-<pre>
-over _2 (map toUpper) ("hello","world") == ("hello", "WORLD")
-over each (map toUpper) ["hello","world"] == ("HELLO", "WORLD")
-</pre>
-  </td>
-</tr>
-
-<tr>
   <td>
       <a href="http://ekmett.github.com/lens/Control-Lens-Setter.html#v:setting">
         <code>setting</code></a>
@@ -157,20 +108,10 @@ over each (map toUpper) ["hello","world"] == ("HELLO", "WORLD")
   <td>
   </td>
   <td>
-
   </td>
   <td>Build a setter from a map-like function.
   </td>
 </tr>
-<tr>
-  <td colspan=5>
-<pre>
-  let updateSnd f (x,y) = (x, f y) 
-  set (setting updateSnd) "pluto" ("hello","world") == ("hello","pluto")
-</pre>
-  </td>
-</tr>
-
 <tr>
   <td>
       <code>id</code> / 
@@ -183,20 +124,8 @@ over each (map toUpper) ["hello","world"] == ("HELLO", "WORLD")
         <code>%%=</code></a>   
   </td><td/>
   <td>Update target(s) with an Applicative or auxiliary result.<br/>
-      <code>traverseOf</code> can replace <code>(%%~)</code> but is less general. <code>traverseOf</code> applies to Over type, whereas <code>(%%~)</code> applies to <code>Optical</code> type. <code>Over p</code> is equivalent to <code>Optical p (->)</code>
   </td>
 </tr>
-<tr>
-  <td colspan=5>
-<pre>
-let succIfEven x = if even x then Just . succ $ x else Nothing
-(each %%~ succIfEven) [2,4,6] == Just [3,5,7]
-(_2 %%~ succIfEven) (2,4,6) == Just (2,5,6)
-</pre>
-  </td>
-</tr>
-
-
 <tr/> <!-- to make table coloring match first section -->
 <tr><th colspan=5>
     <a href="http://ekmett.github.com/lens/Control-Lens-Fold.html">Control.Lens.Fold</a>
@@ -215,14 +144,6 @@ let succIfEven x = if even x then Just . succ $ x else Nothing
   </td>
 </tr>
 <tr>
-  <td colspan=5>
-<pre>
-  review _Right 1 == Right 1
-</pre>
-  </td>
-</tr>
-
-<tr>
   <td>
       <a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:preview">
         <code>preview</code></a>  / 
@@ -238,17 +159,6 @@ let succIfEven x = if even x then Just . succ $ x else Nothing
   </td>
 </tr>
 <tr>
-  <td colspan=5>
-<pre>
-preview _Right (Right 1) == Just 1
-preview _Right Nothing   == Nothing
-preview traverse []      == Nothing
-preview traverse [1]     == Just 1 
-</pre>
-  </td>
-</tr>
-
-<tr>
   <td>
       <a href="http://ekmett.github.com/lens/Control-Lens-Prism.html#v:previews">
         <code>previews</code></a> 
@@ -260,29 +170,12 @@ preview traverse [1]     == Just 1
   </td>
 </tr>
 <tr>
-  <td colspan=5>
-<pre>
-previews _Right (+1) (Right 1) == Just 2
-</pre>
-  </td>
-</tr>
-
-<tr>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:toListOf"><code>toListOf</code> / <a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:-94-.."><code>^..</code></a></td>
   <td/><td/><td/>
   <td>
     Return a list of the target(s)
   </td>
 </tr>
-<tr>
-  <td colspan=5>
-<pre>
-toListOf traverse ('a','b')  == "b"
-toListOf each ('a','b')  == "ab"
-</pre>
-  </td>
-</tr>
-
 
 <tr><th colspan=5><a href="http://ekmett.github.com/lens/Control-Lens.html">Control.Lens (Getting Indexed)</a></th></tr>
 
@@ -305,16 +198,6 @@ toListOf each ('a','b')  == "ab"
     </p>
 </td>
 </tr>
-<tr>
-  <td colspan=5>
-<pre>
-let mapHW = Data.Map.fromList [(1,"hello"),(2,"world")]
-mapHW ^@. iat 2 == (2,Just "world")
-</pre>
-  </td>
-</tr>
-
-
 
 <tr>
   <td>
