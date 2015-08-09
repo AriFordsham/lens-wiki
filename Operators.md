@@ -14,7 +14,7 @@ Operators
 <tbody>
 <tr><th colspan=5><a href="http://ekmett.github.com/lens/Control-Lens.html">Control.Lens (Getting)</a></th></tr>
 <tr>
-  <td>
+  <td rowspan=1>
       <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:view">
         <code>view</code></a>
       /
@@ -24,17 +24,24 @@ Operators
   <td/>
   <td><a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:use"><code>use</code></a>
   <td/>
-  <td>View single target, or fold multiple monoidal targets. 
-      <p><code>view _2 ("hello","world") == "world" -- works on anything with two fields </code></p>
-      <p><code>view _2 ("hello","world","yeeha") == "world" -- second field from a triple</code></p>
-      <p><code>("hello","world") ^. _2 == "world" -- roughly equivalent to view </code></p>
-      <p><code>[Sum 3, Sum 4] ^. each == Sum 7 -- if it's a traversal, fold it</code></p>
+  <td>View single target, or fold multiple monoidal targets.
          <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:use"><code>use</code></a> 
-          works just like
+         works just like
          <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:view"><code>view</code></a> 
          except in a MonadState instead of a MonadReader.  
- 
   </td>
+</tr>
+
+<tr>
+<td colspan=5>
+<h6>Examples</h6>
+<pre>
+view _2 ("hello","world")         == "world" -- also works for tuples with size greater than 2
+view _2 ("hello","world","yeeha") == "world" -- second field from a triple
+("hello","world") ^. _2           == "world" -- operator version of view
+[Sum 3, Sum 4] ^. each            == Sum 7   -- mappend is used to merge multiple results of a Traversal
+</pre>
+</td>
 </tr>
 
 <tr>
