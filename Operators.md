@@ -34,12 +34,11 @@ Operators
 
 <tr>
 <td colspan=5>
-<h6>Examples</h6>
 <pre>
-view _2 ("hello","world")         == "world" -- also works for tuples with size greater than 2
-view _2 ("hello","world","yeeha") == "world" -- second field from a triple
-("hello","world") ^. _2           == "world" -- operator version of view
-[Sum 3, Sum 4] ^. each            == Sum 7   -- mappend is used to merge multiple results of a Traversal
+view _2 ("hello","world") == "world" 
+view _2 ("hello","world","yeeha") == "world"
+("hello","world") ^. _2 == "world"
+[Sum 3, Sum 4] ^. each == Sum 7  
 </pre>
 </td>
 </tr>
@@ -52,9 +51,14 @@ view _2 ("hello","world","yeeha") == "world" -- second field from a triple
   <td>
       <a href="http://ekmett.github.com/lens/Control-Lens-Getter.html#v:uses"><code>uses</code></a></td>
   <td/>
-  <td>View/fold after applying a function.
-      <p><code>views _2 (map toUpper) ("hello","world") == "WORLD"</code></p>
+  <td>View/fold after applying a function. </td>
+</tr>
+<tr>
+  <td colspan=5>
+<pre>
+      <views _2 (map toUpper) ("hello","world") == "WORLD"</code></p>
       <p><code>views each (Sum . succ . getSum) [Sum 1, Sum 2] == Sum 5 </p></code>
+</pre>
   </td>
 </tr>
 
