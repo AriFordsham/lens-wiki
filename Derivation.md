@@ -506,7 +506,7 @@ We can go back and define `(^.)` now, and empower it to consume either a `Fold` 
 
 ```haskell
 (^.) :: s -> Getting a s a -> a
-a ^. l = getConst (l Const a)
+s ^. l = getConst (l Const s)
 ```
 
 Remember, we can consume a `Traversal` because every `Traversal` is a valid `Fold`, just like every `Getter` is a valid `Fold`.
