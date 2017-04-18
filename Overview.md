@@ -47,7 +47,7 @@ Notice that `(.)` composes in the opposite order from what you would expect as a
 >>> set (_2._2) "leaders" ("hello",("world","!!!"))
 ("hello",("world","leaders"))
 ```
-_Note: If you have no background in imperative programming and would prefer to see the lens composing in the "expected" order, you can use the `(>>>)` function from `Control.Arrow` and then the ordering is back to normal_
+_Note: If you have no background in imperative programming and would prefer to see the lenses composing in the "expected" order, you can use the `(>>>)` function from `Control.Arrow` and then the ordering is back to normal_
 
 Finally, you can use the ordinary Prelude `id` as the identity lens
 
