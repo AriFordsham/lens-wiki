@@ -5,7 +5,7 @@ From here, we'll assume that you are acquainted with the types for `Functor`, `F
 The power of (.)
 ----------------
 
-There is a common folklore pattern for composing `(.)` in Haskell, to compose with a function that takes more and more arguments.
+There is a common folklore pattern for composing `(.)` in Haskell, to compose with a function that takes more and more arguments (see [this gist](https://gist.github.com/rebcabin/375cc457241ba7d8ee90cb48312b5c9d) if it isn't obvious).
 
 ```haskell
 (.)         :: (a -> b) -> (c -> a)           -> c           -> b
