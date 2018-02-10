@@ -135,10 +135,15 @@ Operators
 <tr>
   <td>
       <a href="http://ekmett.github.com/lens/Control-Lens-Prism.html#v:review">
-        <code>review</code></a> 
+        <code>review</code></a>
+      /
+      <a href="https://hackage.haskell.org/package/lens-4.16/docs/Control-Lens-Operators.html#v:-35-">
+        <code>#</code></a>
   </td>
   <td/>
-  <td/><td/>
+  <td><a href="https://hackage.haskell.org/package/lens-4.16/docs/Control-Lens-Review.html#v:reuse">
+        <code>reuse</code></a></td>
+  <td/>
   <td>
        Choose a branch of a sum type
   </td>
@@ -153,7 +158,10 @@ Operators
         <code>firstOf</code></a>
   </td>
   <td/>
-  <td/><td/>
+  <td>
+      <a href="https://hackage.haskell.org/package/lens-4.16/docs/Control-Lens-Fold.html#v:preuse">
+        <code>preuse</code></a></td>
+  <td/>
   <td>
        Get the first target or Nothing if there are no targets.
   </td>
@@ -164,7 +172,10 @@ Operators
         <code>previews</code></a> 
   </td>
   <td/>
-  <td/><td/>
+  <td>
+      <a href="https://hackage.haskell.org/package/lens-4.16/docs/Control-Lens-Fold.html#v:preuses">
+        <code>preuses</code></a></td>
+  <td/>
   <td>
        preview after applying a function
   </td>
