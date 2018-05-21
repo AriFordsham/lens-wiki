@@ -115,7 +115,7 @@ sets . over = id
 over . sets = id
 ```
 
-but if we want the `Setter` to act like a `Functor`, the argument the user supplies to sets
+but if we want the `Setter` to act like a `Functor`, the argument the user supplies to `sets`
 should satisfy a version of the `Functor` laws. In particular, we'd like:
 
 ```haskell
