@@ -181,10 +181,17 @@ Operators
   </td>
 </tr>
 <tr>
-  <td><a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:toListOf"><code>toListOf</code> / <a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:-94-.."><code>^..</code></a></td>
+  <td><a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:toListOf"><code>toListOf</code></a> / <a href="http://ekmett.github.com/lens/Control-Lens-Fold.html#v:-94-.."><code>^..</code></a></td>
   <td/><td/><td/>
   <td>
     Return a list of the target(s)
+  </td>
+</tr>
+<tr>
+  <td><a href="http://ekmett.github.io/lens/Control-Lens-Fold.html#v:itoListOf"><code>itoListOf</code></a> / <a href="http://ekmett.github.io/lens/Control-Lens-Fold.html#v:-94--64-.."><code>^@..</code></a></td>
+  <td/><td/><td/>
+  <td>
+    Return a list of (index,target) pairs.
   </td>
 </tr>
 
@@ -192,9 +199,8 @@ Operators
 
 <tr>
   <td>
-    <a href="http://ekmett.github.io/lens/Control-Lens-Getter.html#v:iview">
-      <code>iview</code></a> / 
-    <code>^@.</code>
+    <a href="http://ekmett.github.io/lens/Control-Lens-Getter.html#v:iview"><code>iview</code></a> / 
+    <a href="http://ekmett.github.io/lens/Control-Lens-Getter.html#v:-94--64-."><code>^@.</code></a>
   </td>
   <td>
     
