@@ -205,7 +205,7 @@ Operators
   <td>
     
   </td>
-  <td> <code> iuse </code>
+  <td> <a href="http://ekmett.github.io/lens/Control-Lens-Getter.html#v:iuse"><code>iuse</code></a>
   </td>
 
   <td> 
@@ -224,7 +224,7 @@ Operators
   <td>
     
   </td>
-  <td> <code> iuses </code>
+  <td><a href="http://ekmett.github.io/lens/Control-Lens-Getter.html#v:iuses"><code>iuses</code></a>
   </td>
 
   <td> 
@@ -238,15 +238,14 @@ Operators
 
 <tr>
   <td>
-    <a href="http://ekmett.github.io/lens/Control-Lens-Setter.html#v:iset">
-      <code>iset</code></a> / 
-    <code>.@~</code>
+    <a href="http://ekmett.github.io/lens/Control-Lens-Setter.html#v:iset"><code>iset</code></a> / 
+    <a href="http://ekmett.github.io/lens/Control-Lens-Setter.html#v:.-64--126-"><code>.@~</code></a>
   </td>
   <td>
     
   </td>
   <td>
-    <code>.@=</code>
+    <a href="http://ekmett.github.io/lens/Control-Lens-Setter.html#v:.-64--61-"><code>.@=</code></a>
   </td>
   <td>
     
