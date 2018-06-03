@@ -94,8 +94,6 @@ over :: ((a -> Identity b) -> s -> Identity t)
 over l f = runIdentity . l (Identity . f)
 ```
 
-(In the actual implementation we rename `Identity` to `Mutator` to provide nicer error messages)
-
 **Setter Laws**
 
 We can write an inverse of `over` fairly mechanically:
@@ -249,8 +247,6 @@ Writing it out, and making up a type alias:
 ```haskell
 type Getting r s a = (a -> Const r a) -> s -> Const r s
 ```
-
-(Note: In the actual implementation `Const` is renamed to `Accessor` for error reporting reasons)
 
 we can make the slightly nicer looking type
 
