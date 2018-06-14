@@ -68,7 +68,7 @@ thus we can use it repeatedly before reassembling our type.
 ```haskell
 data State = State !Word8 !Word8
 
--- traverseWords :: Traverasl' State Word8
+-- traverseWords :: Traversal' State Word8
 traverseWords :: Applicative f => (Word8 -> f Word8) -> State -> f State
 traverseWords inj (State wa wb) = State <$> inj wa <*> inj wb
 {-# INLINE traverseWords #-}
