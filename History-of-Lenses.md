@@ -6,11 +6,11 @@
 
 **Luke Palmer creates a pattern he calls _Accessors_ to ease stateful programming in Haskell**
 
-(wayback)[Making Haskell nicer for game programming](http://web.archive.org/web/20080515203207/http://luqui.org/blog/archives/2007/07/26/making-haskell-nicer-for-game-programming/)
+[Making Haskell nicer for game programming](https://lukepalmer.wordpress.com/2007/07/26/making-haskell-nicer-for-game-programming/)
 
 **Luke Palmer refines the notion of Accessors into something more like lenses**
 
-(wayback)[Haskell State Accessors (second attempt: Composability)](http://web.archive.org/web/20071023064034/http://luqui.org/blog/archives/2007/08/05/haskell-state-accessors-second-attempt-composability/)
+[Haskell State Accessors (second attempt: Composability)](https://lukepalmer.wordpress.com/2007/08/05/haskell-state-accessors-second-attempt-composability/)
 
 **Twan van Laarhoven comes up with a novel way to express lenses**
 
